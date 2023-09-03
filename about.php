@@ -5,6 +5,8 @@
     
   <title>Airbnb</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.css">
+  <!--Icon-->
+   <link rel="icon" href="Image/airbnb.ico" /> 
   <style>
       .text-blk{
   margin-top:0px;

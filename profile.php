@@ -21,6 +21,10 @@
 	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-5/css/fontawesome-all.min.css">
 	<!-- Main Style Css -->
     <link rel="stylesheet" href="css/style.css"/>
+    
+    <!--Icon-->
+   <link rel="icon" href="Image/airbnb.ico" /> 
+   
     <style>
         .card{
   width: 500px;
@@ -66,7 +70,8 @@
 
 <?php require_once 'header.php'; ?>
 
-
+<br>
+<br>
 
 <body>
 	<div class="container mt-5 d-flex justify-content-center">
@@ -106,6 +111,10 @@
          </div>
     <br>
     <br>
+    <br><!-- comment -->
+    <br><!-- comment -->
+    
+    
     
 
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->

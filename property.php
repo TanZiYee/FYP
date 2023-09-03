@@ -12,6 +12,8 @@
     <!-- Important to make website responsive -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Airbnb Website</title>
+    <!--Icon-->
+   <link rel="icon" href="Image/airbnb.ico" /> 
 
     <!-- Link our CSS file -->
     <link rel="stylesheet" href="css/style.css">
@@ -157,7 +159,7 @@
         overflow-x: hidden;
     }*/
 
-    section{
+/*    section{
         padding:2rem 9%;
     }
 
@@ -252,6 +254,26 @@
         color:#999;
         font-weight: lighter;
         text-decoration: line-through;
+    }*/
+    
+    .custom-bg{
+        background-color: #2ec1ac;
+    }
+    .custom-bg:hover{
+        background-color: #279e8c;
+    }
+    
+    .availability-form{
+        margin-top: -50px;
+        z-index: 2;
+        position: relative;
+    }
+    
+    @media screen and (max-width: 575px) {
+        .availability-form{
+            margin-top: 0px;
+            padding: 0 35px;
+        }
     }
     
     </style>
@@ -302,7 +324,7 @@
         
       
         
-    <section class="categories">
+<!--    <section class="categories">
             <div class="container">
                 <h1 class="text-center">Categories</h1>
 
@@ -332,7 +354,249 @@
 
                 <div class="clearfix"></div>
             </div>
-    </section>
+    </section>-->
+    
+    <div class="container availability-form">
+        <div class="row">
+            <div class="col-lg-12 bg-white shadow p-4 rounded">
+                <h5 class="mb-4">Check Booking Availability</h5>
+                <form>
+                    <div class="row align-items-end">
+                        <div class="col-lg-3 mb-3">
+                            <label class="form-label" style="font-weight: 500;">Check-in</label>
+                            <input type="date" class="form-control shadow-none">
+                        </div>
+                        <div class="col-lg-3 mb-3">
+                            <label class="form-label" style="font-weight: 500;">Check-out</label>
+                            <input type="date" class="form-control shadow-none">
+                        </div>
+                        <div class="col-lg-3 mb-3">
+                            <label class="form-label" style="font-weight: 500;">Adult</label>
+                            <select class="form-select shadow-none">
+                                <option selected>Open this select menu</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-2 mb-3">
+                            <label class="form-label" style="font-weight: 500;">Children</label>
+                            <select class="form-select shadow-none">
+                                <option selected>Open this select menu</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-1 mb-lg-3 mt-2">
+                            <button type="submit" class="btn text-black shadow-none custom-bg">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <h2 class="mt-5 pt-4 mb-4 text-center fw-bold h-font">Our Rooms</h2>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-6 my-3">
+                <div class="card border-0 shadow" style="max-width: 350px; margin: auto;">
+                    <img src="images/1.jpg" class="card-img-top">
+                    <div class="card-body">
+                        <h5>Simple Room Name</h5>
+                        <h6 class="mb-4">RM 200 per night</h6>
+                        <p class="card-text">Some quick example text to build on this card</p>
+                        <div class="features mb-4">
+                            <h6 class="mb-1">Features</h6>
+                            <span class="badge rounded-pill bg-light text-dark text-wrap">
+                                2 Rooms
+                            </span>
+                            <span class="badge rounded-pill bg-light text-dark text-wrap">
+                                2 Bathroom
+                            </span>
+                            <span class="badge rounded-pill bg-light text-dark text-wrap">
+                                1 Balcony
+                            </span>
+                            <span class="badge rounded-pill bg-light text-dark text-wrap">
+                                2 Sofa
+                            </span>
+                        </div>
+                        <div class="facilities mb-4">
+                            <h6 class="mb-1">Facilities</h6>
+                            <span class="badge rounded-pill bg-light text-dark text-wrap">
+                                Wifi
+                            </span>
+                            <span class="badge rounded-pill bg-light text-dark text-wrap">
+                                Television
+                            </span>
+                            <span class="badge rounded-pill bg-light text-dark text-wrap">
+                                AC
+                            </span>
+                            <span class="badge rounded-pill bg-light text-dark text-wrap">
+                                Heater
+                            </span>
+                        </div>
+                        <div class="rating mb-4">
+                            <h6 class="rating mb-4">Rating</h6>
+                            <span class="badge rounded-pill bg-light">
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                            </span>
+                        </div>
+                        <div class="d-flex justify-content-evenly mb-2">
+                        <a href="#" class="btn btn-primary">Book Now</a>
+                        <a href="#" class="btn btn-sm btn-outline-dark">More Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6 my-3">
+                <div class="card border-0 shadow" style="max-width: 350px; margin: auto;">
+                    <img src="images/1.jpg" class="card-img-top">
+                    <div class="card-body">
+                        <h5>Simple Room Name</h5>
+                        <h6 class="mb-4">RM 200 per night</h6>
+                        <p class="card-text">Some quick example text to build on this card</p>
+                        <div class="features mb-4">
+                            <h6 class="mb-1">Features</h6>
+                            <span class="badge rounded-pill bg-light text-dark text-wrap">
+                                2 Rooms
+                            </span>
+                            <span class="badge rounded-pill bg-light text-dark text-wrap">
+                                2 Bathroom
+                            </span>
+                            <span class="badge rounded-pill bg-light text-dark text-wrap">
+                                1 Balcony
+                            </span>
+                            <span class="badge rounded-pill bg-light text-dark text-wrap">
+                                2 Sofa
+                            </span>
+                        </div>
+                        <div class="facilities mb-4">
+                            <h6 class="mb-1">Facilities</h6>
+                            <span class="badge rounded-pill bg-light text-dark text-wrap">
+                                Wifi
+                            </span>
+                            <span class="badge rounded-pill bg-light text-dark text-wrap">
+                                Television
+                            </span>
+                            <span class="badge rounded-pill bg-light text-dark text-wrap">
+                                AC
+                            </span>
+                            <span class="badge rounded-pill bg-light text-dark text-wrap">
+                                Heater
+                            </span>
+                        </div>
+                        <div class="rating mb-4">
+                            <h6 class="rating mb-4">Rating</h6>
+                            <span class="badge rounded-pill bg-light">
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                            </span>
+                        </div>
+                        <div class="d-flex justify-content-evenly mb-2">
+                        <a href="#" class="btn btn-primary">Book Now</a>
+                        <a href="#" class="btn btn-sm btn-outline-dark">More Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6 my-3">
+                <div class="card border-0 shadow" style="max-width: 350px; margin: auto;">
+                    <img src="images/1.jpg" class="card-img-top">
+                    <div class="card-body">
+                        <h5>Simple Room Name</h5>
+                        <h6 class="mb-4">RM 200 per night</h6>
+                        <p class="card-text">Some quick example text to build on this card</p>
+                        <div class="features mb-4">
+                            <h6 class="mb-1">Features</h6>
+                            <span class="badge rounded-pill bg-light text-dark text-wrap">
+                                2 Rooms
+                            </span>
+                            <span class="badge rounded-pill bg-light text-dark text-wrap">
+                                2 Bathroom
+                            </span>
+                            <span class="badge rounded-pill bg-light text-dark text-wrap">
+                                1 Balcony
+                            </span>
+                            <span class="badge rounded-pill bg-light text-dark text-wrap">
+                                2 Sofa
+                            </span>
+                        </div>
+                        <div class="facilities mb-4">
+                            <h6 class="mb-1">Facilities</h6>
+                            <span class="badge rounded-pill bg-light text-dark text-wrap">
+                                Wifi
+                            </span>
+                            <span class="badge rounded-pill bg-light text-dark text-wrap">
+                                Television
+                            </span>
+                            <span class="badge rounded-pill bg-light text-dark text-wrap">
+                                AC
+                            </span>
+                            <span class="badge rounded-pill bg-light text-dark text-wrap">
+                                Heater
+                            </span>
+                        </div>
+                        <div class="rating mb-4">
+                            <h6 class="rating mb-4">Rating</h6>
+                            <span class="badge rounded-pill bg-light">
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                            </span>
+                        </div>
+                        <div class="d-flex justify-content-evenly mb-2">
+                        <a href="#" class="btn btn-primary">Book Now</a>
+                        <a href="#" class="btn btn-sm btn-outline-dark">More Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12 text-center mt-5">
+                <a href="#" class="btn btn-sm btn outline-dark rounded-0 fw-bold shadow-none">More Rooms >>></a>
+            </div>
+        </div>
+    </div>
+    
+    <h2 class="mt-5 pt-4 mb-4 text-center fw-bold h-font">Our Facilities</h2>
+    
+    <div class="container">
+        <div class="row justify-content-evenly px-lg-0 px-md-0 px-5">
+            <div class="col-lg-2 col-md-2 text-center bg-white rounded shadow py-4 my-3">
+                <img src="images/wifi.png" width="80px">
+                <h5 class="mt-3">Wifi</h5>
+            </div>
+            <div class="col-lg-2 col-md-2 text-center bg-white rounded shadow py-4 my-3">
+                <img src="images/wifi.png" width="80px">
+                <h5 class="mt-3">Wifi</h5>
+            </div>
+            <div class="col-lg-2 col-md-2 text-center bg-white rounded shadow py-4 my-3">
+                <img src="images/wifi.png" width="80px">
+                <h5 class="mt-3">Wifi</h5>
+            </div>
+            <div class="col-lg-2 col-md-2 text-center bg-white rounded shadow py-4 my-3">
+                <img src="images/wifi.png" width="80px">
+                <h5 class="mt-3">Wifi</h5>
+            </div>
+            <div class="col-lg-2 col-md-2 text-center bg-white rounded shadow py-4 my-3">
+                <img src="images/wifi.png" width="80px">
+                <h5 class="mt-3">Wifi</h5>
+            </div>
+        </div>
+    </div>
+    
+    <br><br><br>
+    <br><br><br>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>

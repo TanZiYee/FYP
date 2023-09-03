@@ -7,6 +7,9 @@
   <link rel="stylesheet" href="CSS/style.css">
    <link rel="stylesheet" href="CSS/bootstrap.min.css">
    
+   <!--Icon-->
+   <link rel="icon" href="Image/airbnb.ico" /> 
+   
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 

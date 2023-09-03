@@ -48,8 +48,7 @@
             <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
 
               <div class="rounded-circle bg-white shadow-1-strong d-flex align-items-center justify-content-center mb-4 mx-auto" style="width: 150px; height: 150px;">
-                <img src="https://i.pinimg.com/originals/4e/95/ff/4e95ff2406e7914e70cbbba6dd9c51d2.jpg" height="105" alt=""
-                     loading="lazy" />
+                <img src="images/airbnb.png" height="88" alt="" loading="lazy" />
               </div>
 
               <p class="text-center">This project aims to digitally provide ordering and reservation services in the restaurant’s field.</p>

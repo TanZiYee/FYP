@@ -61,6 +61,9 @@ else{
         <link rel="stylesheet" href="css/style.css"/>
         <link rel="stylesheet" href="css/signup.css">
         
+        <!--Icon-->
+        <link rel="icon" href="Image/airbnb.ico" /> 
+        
       
 </head>
 

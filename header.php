@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 
    <!--Icon-->
-   <link rel="icon" href="Image/FOOD.ico" /> 
+   <link rel="icon" href="Image/airbnb.ico" /> 
 
 </head>
 

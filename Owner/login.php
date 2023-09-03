@@ -23,6 +23,8 @@ session_start();
         
         
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <!--Icon-->
+        <link rel="icon" href="Image/airbnb.ico" /> 
     
         
     <style>
