@@ -178,6 +178,8 @@
     <?php require_once ('header.php');?>
     
     <br><br>
+    <br>
+    <br>
     
         <?php echo $alert; ?>
     

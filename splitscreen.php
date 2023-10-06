@@ -465,7 +465,7 @@
                   <div class="image table"></div>
                   <div class="caption">
                         <h1>PROPERTY LISTING</h1>
-                        <a class="button" href="property.php">FIND OUT NOW</a>
+                        <a class="button" href="category.php">FIND OUT NOW</a>
                   </div>
             </div>
           

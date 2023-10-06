@@ -51,7 +51,7 @@
                 <img src="images/airbnb.png" height="88" alt="" loading="lazy" />
               </div>
 
-              <p class="text-center">This project aims to digitally provide ordering and reservation services in the restaurant’s field.</p>
+              <p class="text-center"></p>
 
               <ul class="list-unstyled d-flex flex-row justify-content-center">
                 <li>
