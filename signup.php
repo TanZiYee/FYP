@@ -44,7 +44,7 @@ else{
 <head>
     
 	<meta charset="utf-8">
-	<title>Airbnb</title>
+	<title>Homify</title>
         
         
 	<!-- Mobile Specific Metas -->

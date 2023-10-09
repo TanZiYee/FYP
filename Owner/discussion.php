@@ -57,9 +57,13 @@ if(isset($_POST['add']))
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <link rel="stylesheet" type="text/css" href="css/login.css">
 <!-- FOR MORE PROJECTS visit: codeastro.com -->
+
+<!--Icon-->
+<link rel="icon" href="Image/airbnb.ico" />
+
 <!--	Title
 	=========================================================-->
-<title>Airbnb</title>
+<title>Homify</title>
 </head>
 <body  style = "background: linear-gradient(to right,#71c9ce , #eeeeee);"  >
 
@@ -131,9 +135,9 @@ if(isset($_POST['add']))
                                                     </span>
                                                 </div>
                                             </div>
-                                            <div class="col-md-2 mt-lg-0 mt-md-0 mt-4 text-center">
+<!--                                            <div class="col-md-2 mt-lg-0 mt-md-0 mt-4 text-center">
                                                 <a href="delete_post.php?id=<?php echo $row['id']; ?>" class="btn btn-primary w-100 mb-2">Delete</a>
-                                            </div>
+                                            </div>-->
                                           </div>
                                         </div>
                                     <?php } ?>						

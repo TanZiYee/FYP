@@ -27,7 +27,6 @@ if(isset($_POST['add']))
 	$price=$_POST['price'];
 	$city=$_POST['city'];
         $state=$_POST['state'];
-        $totalfloor=$_POST['totalfl'];
 	$asize=$_POST['asize'];
 	$loc=$_POST['loc'];
 	$feature=$_POST['feature'];
@@ -67,8 +66,8 @@ if(isset($_POST['add']))
         move_uploaded_file($temp_name7,"property/$bill");
         
 	
-	$sql="insert into property (propertyName,content,propertyType,rentingType,bathroom,kitchen,bedroom,balcony,hall,price,city,state,totalfloor,size,location,feature,status,pimage1,pimage2,pimage3,pimage4,pimage5,floorplan,bill)
-	values('$propertyName','$content','$propertyType','$rtype','$bath','$kitc','$bed','$balc','$hall','$price','$city','$state','$totalfloor','$asize','$loc','$feature','$status','$aimage1','$aimage2','$aimage3','$aimage4','$aimage5','$floorplan', '$bill')";
+	$sql="insert into property (propertyName,content,propertyType,rentingType,bathroom,kitchen,bedroom,balcony,hall,price,city,state,size,location,feature,status,pimage1,pimage2,pimage3,pimage4,pimage5,floorplan,bill)
+	values('$propertyName','$content','$propertyType','$rtype','$bath','$kitc','$bed','$balc','$hall','$price','$city','$state','$asize','$loc','$feature','$status','$aimage1','$aimage2','$aimage3','$aimage4','$aimage5','$floorplan', '$bill')";
 	$result=mysqli_query($con,$sql);
 	if($result)
 		{
@@ -112,9 +111,13 @@ if(isset($_POST['add']))
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <link rel="stylesheet" type="text/css" href="css/login.css">
 <!-- FOR MORE PROJECTS visit: codeastro.com -->
+
+<!--Icon-->
+<link rel="icon" href="Image/airbnb.ico" />
+   
 <!--	Title
 	=========================================================-->
-<title>Airbnb</title>
+<title>Homify</title>
 </head>
 <body  style = "background: linear-gradient(to right,#71c9ce , #eeeeee);"  >
 
@@ -192,10 +195,7 @@ if(isset($_POST['add']))
                                                         <div class="col-lg-9">
                                                             <select class="form-control" required name="propertyType">
 								<option value="">Select Type</option>
-								<option value="apartment">Apartment</option>
-                                                                <option value="flat">Flat</option>
-								<option value="building">Terrace</option>
-								<option value="condo">Condominium</option>
+								<option value="Apartment">Serviced Apartment</option>
                                                             </select>
 							</div>
 						</div>
@@ -266,29 +266,6 @@ if(isset($_POST['add']))
 						</div>
                                             </div><!-- FOR MORE PROJECTS visit: codeastro.com -->
                                             <div class="col-xl-6">
-						<div class="form-group row">
-                                                    <label class="col-lg-3 col-form-label">Total Floor</label>
-							<div class="col-lg-9">
-                                                            <select class="form-control" required name="totalfl">
-								<option value="">Select Floor</option>
-								<option value="1 Floor">1 Floor</option>
-								<option value="2 Floor">2 Floor</option>
-								<option value="3 Floor">3 Floor</option>
-								<option value="4 Floor">4 Floor</option>
-								<option value="5 Floor">5 Floor</option>
-								<option value="6 Floor">6 Floor</option>
-								<option value="7 Floor">7 Floor</option>
-								<option value="8 Floor">8 Floor</option>
-								<option value="9 Floor">9 Floor</option>
-								<option value="10 Floor">10 Floor</option>
-								<option value="11 Floor">11 Floor</option>
-								<option value="12 Floor">12 Floor</option>
-								<option value="13 Floor">13 Floor</option>
-								<option value="14 Floor">14 Floor</option>
-								<option value="15 Floor">15 Floor</option>
-                                                            </select>
-							</div>
-						</div>
 						<div class="form-group row">
                                                     <label class="col-lg-3 col-form-label">Area Size</label>
 							<div class="col-lg-9">
@@ -361,7 +338,10 @@ if(isset($_POST['add']))
 								<div class="col-lg-9">
                                                                     <input class="form-control" name="floorplan" type="file" required="">
 								</div>
-                                                                <div class="col-lg-9">
+							</div>
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-3 col-form-label">Electric Bill</label>
+								<div class="col-lg-9">
                                                                     <input class="form-control" name="bill" type="file" required="">
 								</div>
 							</div>
@@ -371,7 +351,7 @@ if(isset($_POST['add']))
                                                                     <select class="form-control"  required name="status">
                                                                         <option value="">Select Status</option>
                                                                         <option value="available">Available</option>
-									<option value="sold out">Rent Out</option>
+									<option value="rent out">Rent Out</option>
                                                                     </select>
 								</div>
 							</div>

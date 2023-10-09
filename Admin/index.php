@@ -13,7 +13,7 @@ include("server.php");
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <title>Dashboard - Airbnb - Admin </title>
+        <title>Dashboard - Homify - Admin </title>
         
         <!-- Bootstrap CSS & Sweet Alert CDN-->
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -41,7 +41,7 @@ include("server.php");
         
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href="index.html">AIRBNB Admin</a>
+            <a class="navbar-brand ps-3" href="index.html">Homify Admin</a>
             
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
@@ -81,32 +81,26 @@ include("server.php");
                             <div class="sb-sidenav-menu-heading">Interface</div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                Stock Control
+                                Property
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="SC_MP.php">Manage Product</a>
-                                    <a class="nav-link" href="SC_AP.php">Add Product</a>
+                                    <a class="nav-link" href="property_MP.php">Manage Product</a>
+                                    <a class="nav-link" href="property_AP.php">Add Product</a>
+                                    <a class="nav-link" href="property_DP.php">Delete Product</a>
                                 </nav>
                             </div>
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
-                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                                Restaurant
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                User
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
-                            <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
-                                        Manage Reservation
-                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                    </a>
-                                    <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
-                                        <nav class="sb-sidenav-menu-nested nav">
-                                            <a class="nav-link" href="#">Booking List</a>                                        
-                                        </nav>
-                                    </div>
-                                  </nav>
+                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="#">Manage User</a>
+                                    <a class="nav-link" href="#">Delete User</a>
+                                </nav>
                             </div>
                             <div class="sb-sidenav-menu-heading">Addons</div>
                             <a class="nav-link" href="charts.php">
@@ -137,7 +131,7 @@ include("server.php");
                             ?>
                             <div class="alert alert-success alert-dismissible fade show" role="alert">
                             <?php echo $_SESSION['username']; ?>
-                            <?php echo ", Welcome To Admin AIRBNB "; ?>    
+                            <?php echo ", Welcome To Admin HOMIFY "; ?>    
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                             </div>
 
@@ -157,30 +151,12 @@ include("server.php");
                         
                         <div class="row">
                             <div class="col-xl-3 col-md-6">
-                                <div class="card bg-primary text-white mb-4">
-                                    <div class="card-body" ><i class="fas fa-concierge-bell"></i> Total Reservation</div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">                                      
-                                        <a>
-                                         <?php
-                                            $query ="SELECT reservationID FROM reservation ORDER BY reservationID";
-                                            $query_run = mysqli_query($con,$query);
-
-                                            $row = mysqli_num_rows($query_run);
-                                            
-                                            echo "<h5>$row</h5>"                                                   
-                                        ?>   
-                                        
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6">
                                 <div class="card bg-warning text-white mb-4">
                                     <div class="card-body"> <i class="fas fa-user-plus"></i> User Registrations</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
                                        <a>
                                          <?php
-                                            $query ="SELECT CustID FROM customer ORDER BY CustID";
+                                            $query ="SELECT userID FROM user ORDER BY userID";
                                             $query_run = mysqli_query($con,$query);
 
                                             $row = mysqli_num_rows($query_run);
@@ -197,7 +173,7 @@ include("server.php");
                                     <div class="card-footer d-flex align-items-center justify-content-between">
                                         <a>
                                          <?php
-                                            $query ="SELECT Total FROM payment";
+                                            $query ="SELECT subtotal FROM booking";
                                             $query_run = mysqli_query($con,$query);
 
                                             $row = mysqli_num_rows($query_run);
@@ -217,7 +193,7 @@ include("server.php");
                                     <div class="card-footer d-flex align-items-center justify-content-between">
                                         <a>
                                          <?php
-                                            $query ="SELECT OrderID FROM orders ORDER BY OrderID";
+                                            $query ="SELECT bookingID FROM booking ORDER BY bookingID";
                                             $query_run = mysqli_query($con,$query);
 
                                             $row = mysqli_num_rows($query_run);
@@ -241,15 +217,6 @@ include("server.php");
                                     <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
                                 </div>
                             </div>
-                            <div class="col-xl-6">
-                                <div class="card mb-4">
-                                    <div class="card-header">
-                                        <i class="fas fa-chart-bar me-1"></i>
-                                         Reservation Bar Chart
-                                    </div>
-                                    <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
-                                </div>
-                            </div>
                         </div>
                         
                         <div class="card mb-4">
@@ -265,7 +232,6 @@ include("server.php");
                                             <th>Customer Name</th>
                                             <th>Email</th>
                                             <th>Phone Number</th>
-                                            <th>Address</th> 
                                         </tr>
                                     </thead>                                   
                                 </table>
@@ -280,7 +246,7 @@ include("server.php");
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">
                         <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; AIRBNB 2022</div>
+                            <div class="text-muted">Copyright &copy; HOMIFY 2022</div>
                             <div>
                                 <a href="#">Privacy Policy</a>
                                 &middot;
@@ -312,11 +278,10 @@ include("server.php");
                     },
                     pageLength: 5,
                     'columns': [
-                        { data: 'CustID' },
-                        { data: 'CustName' },
-                        { data: 'Email' },
-                        { data: 'PhoneNum' },
-                        { data: 'Address' },
+                        { data: 'userID' },
+                        { data: 'username' },
+                        { data: 'email' },
+                        { data: 'phone' }
                     ]
                 });
             });    

@@ -2,7 +2,7 @@
 
 <html>
 <head>
-  <title>Airbnb</title>
+  <title>Homify</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.css">
   <link rel="stylesheet" href="CSS/style.css">
    <link rel="stylesheet" href="CSS/bootstrap.min.css">

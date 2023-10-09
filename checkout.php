@@ -28,8 +28,6 @@ if(isset($_POST['book']))
                           <br>
                           <div class='message-container'>
                           <br>
-                          <br>
-                          <br>
                              <h3>Invoice</h3>
                              <div class='order-detail'>
                                 <span class='total'> Total : RM".$subtotal."/-  </span>
@@ -64,10 +62,13 @@ if(isset($_POST['book']))
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Airbnb Website</title>
+        <title>Homify</title>
+        
+        <!--Icon-->
+       <link rel="icon" href="Image/airbnb.ico" />
         
         <!-- Include Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
         
         <style>
             .card{

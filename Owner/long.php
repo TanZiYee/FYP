@@ -1,5 +1,31 @@
-<?php 
+<?php
 //session_start();
+//include("db.php"); // Include your database connection script
+//
+//if (!isset($_SESSION['ownerID'])) {
+//    // Handle the case when the owner is not logged in
+//    // Redirect or display an error message
+//    header("location: login.php");
+//    exit();
+//}
+//
+//$ownerID = $_SESSION['ownerID'];
+//
+//$stmt = $con->prepare("SELECT * FROM property WHERE ownerID = ?");
+//$stmt->bind_param("i", $ownerID);
+//$stmt->execute();
+//$result = $stmt->get_result();
+//
+////// Display the properties
+////while ($row = $result->fetch_assoc()) {
+////    echo "Property Name: " . $row['propertyName'] . "<br>";
+////    echo "Property Type: " . $row['propertyType'] . "<br>";
+////    // ... other property details
+////}
+//
+//// Close the database connection
+//$stmt->close();
+//$con->close();
 ?>
 
 <!DOCTYPE html>
@@ -9,7 +35,7 @@
     
     <!-- Important to make website responsive -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Airbnb Website</title>
+    <title>Homify</title>
     <!--Icon-->
    <link rel="icon" href="Image/airbnb.ico" /> 
 

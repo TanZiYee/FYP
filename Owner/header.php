@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 
    <!--Icon-->
-   <link rel="icon" href="Image/FOOD.ico" /> 
+   <link rel="icon" href="Image/airbnb.ico" /> 
 
 </head>
 
@@ -19,7 +19,7 @@
 <?php if (isset($_SESSION['Login']) && $_SESSION['Login']==true){?>
     <header>
     <div class="nav-bar">
-      <a href="" class="logo">Airbnb</a>
+      <a href="" class="logo">Homify</a>
       <div class="navigation">
         <div class="nav-items">
           <i class="uil uil-times nav-close-btn"></i>
@@ -44,7 +44,7 @@
 <?php } else {?>
   <header>
     <div class="nav-bar">
-      <a href="" class="logo">Airbnb</a>
+      <a href="" class="logo">Homify</a>
       <div class="navigation">
         <div class="nav-items">
           <i class="uil uil-times nav-close-btn"></i>

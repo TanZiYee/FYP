@@ -4,7 +4,10 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Airbnb Website</title>
+        <title>Homify</title>
+        
+        <!--Icon-->
+        <link rel="icon" href="Image/airbnb.ico" />
 
     <style>
         .card {
@@ -68,7 +71,7 @@
                     
                     <?php 
                         include 'db.php';
-                        $qry = $con->query("SELECT * FROM property WHERE rentingType='short'");
+                        $qry = $con->query("SELECT * FROM property WHERE rentingType='short' && status='available'");
                         while($row=mysqli_fetch_array($qry))
                         {
                     ?>
