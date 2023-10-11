@@ -1,7 +1,13 @@
 <?php
 
-/*session_start();*/
+session_start();
 
+if(isset($_SESSION['ownerID'])){
+  //  $ownerID = $_SESSION['ownerID'];
+  
+    
+}else{
+}
 ?>
 
 <!DOCTYPE html>

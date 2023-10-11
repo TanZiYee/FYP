@@ -29,6 +29,11 @@
 <?php
 session_start();
 
+if(isset($_SESSION['userID'])){
+    $userID = $_SESSION['userID'];
+}else{
+}
+
 $con = mysqli_connect("localhost","root","","airbnb", 3307);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -39,9 +44,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
      // Calculate the total cost
     $totalCost = calculateTotalCost($price, $check_in, $check_out);
+    $_SESSION['totalCost'] = $totalCost;
+    $_SESSION['check_in'] = $check_in;
+    $_SESSION['check_out'] = $check_out;
+    
 
     // Insert booking details into the database
-    $insertResult = insertBooking($check_in, $check_out, $price, $totalCost);
+    $insertResult = insertBooking($check_in, $check_out, $price, $totalCost, $userID);
 
     if ($insertResult === true) {
         echo "Total cost for your stay: RM" . number_format($totalCost, 2);
@@ -65,12 +74,13 @@ function calculateTotalCost($price, $check_in, $check_out) {
     return $totalCost;
 }
 
-function insertBooking($check_in, $check_out, $price, $totalCost) {
+function insertBooking($check_in, $check_out, $price, $totalCost, $userID) {
     // Include your database connection here (e.g., require 'db.php';)
     require 'db.php';
+        $_SESSION['userID'] = $userID;
     
     // Prepare an SQL INSERT statement
-    $sql = "INSERT INTO cart (check_in, check_out, price, totalCost) VALUES (?, ?, ?, ?)";
+    $sql = "INSERT INTO cart (check_in, check_out, price, totalCost, userID) VALUES (?, ?, ?, ?, ?)";
 
     // Assuming you have a database connection named $con
     $stmt = $con->prepare($sql);
@@ -80,7 +90,7 @@ function insertBooking($check_in, $check_out, $price, $totalCost) {
     }
 
     // Bind parameters to the prepared statement
-    $stmt->bind_param("ssdd", $check_in, $check_out, $price, $totalCost);
+    $stmt->bind_param("ssddi", $check_in, $check_out, $price, $totalCost, $userID);
 
     // Execute the query
     $result = $stmt->execute();
@@ -139,6 +149,7 @@ function insertBooking($check_in, $check_out, $price, $totalCost) {
 
             // Define a SQL query to fetch room details based on 'propertyID'
             $sql = "SELECT * FROM property WHERE propertyID = ?";
+            $_SESSION['propertyID'] = $propertyID;
 
             // Assuming you have a database connection named $con
             $stmt = $con->prepare($sql);
@@ -226,7 +237,7 @@ function insertBooking($check_in, $check_out, $price, $totalCost) {
                                 <input type="date" id="check_out" name="check_out" required><br>
 
                                 <label for="price">Price Per Night (RM):</label>
-                                <input type="number" id="price" name="price" min="0" step="0.01" required><br>
+                                <input type="number" id="price" name="price" value= <?php echo $row['price']; ?> required><br>
                                 
 
                                 <button type="submit" class="btn btn-primary w-100 mb-1">Calculate Total Cost</button>

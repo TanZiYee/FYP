@@ -13,7 +13,7 @@ if (isset($_POST['update'])){
     
     
     //Update data from database 
-    $query = "UPDATE `customer` SET username= '$_POST[UpdateUserName]', password = '$_POST[UpdatePass]' WHERE username ='$_POST[UpdateUserName]'";
+    $query = "UPDATE `user` SET username= '$_POST[UpdateUserName]', password = '$_POST[UpdatePass]' WHERE username ='$_POST[UpdateUserName]'";
     $query_run = mysqli_query($con,$query);
     
     
@@ -210,30 +210,43 @@ if (isset($_POST['update'])){
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="property_MP.php">Manage Product</a>
-                                    <a class="nav-link" href="property_AP.php">Add Product</a>
-                                    <a class="nav-link" href="property_DP.php">Delete Product</a>
+                                    <a class="nav-link" href="property_MP.php">Manage Property</a>
+                                    <a class="nav-link" href="property_AP.php">Add Property</a>
+                                    <a class="nav-link" href="booking_list.php">Booking List</a>
                                 </nav>
                             </div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                User
+                                Community Post
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="#">Manage User</a>
-                                    <a class="nav-link" href="#">Delete User</a>
+                                    <a class="nav-link" href="user_CP.php">Manage User Post</a>
+                                    <a class="nav-link" href="owner_CP.php">Manage Owner Post</a>
+                                </nav>
+                            </div>
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                Role
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="user_manage.php">Manage User</a>
+                                    <a class="nav-link" href="owner_manage.php">Manage Owner</a>
+                                    <a class="nav-link" href="admin_manage.php">Manage Admin</a>
+                                    <a class="nav-link" href="add_admin.php">Add Admin</a>
                                 </nav>
                             </div>
                             <div class="sb-sidenav-menu-heading">Addons</div>
-                            <a class="nav-link" href="charts.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                                Charts
-                            </a>
                             <a class="nav-link" href="tables.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                Tables
+                                User Information
+                            </a>
+                            <a class="nav-link" href="owner.php">
+                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                                Owner Information
                             </a>
                         </div>
                     </div>
@@ -281,7 +294,7 @@ if (isset($_POST['update'])){
                                 <span><i class="icon icon-user"></i></span>
                             </div>           
                             <div class="form-group">
-                                <input type="text" class="form-control item" name="UpdateUserName"   required placeholder=<?php echo $_SESSION['username']; ?> >
+                                <input type="text" class="form-control item" name="UpdateUserName"  required placeholder=<?php echo $_SESSION['username']; ?> >
                             </div>
                             <div class="form-group">
                                 <input type="password" class="form-control item" name="UpdatePass"  placeholder="Enter new password" required >

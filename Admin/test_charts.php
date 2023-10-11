@@ -1,5 +1,5 @@
 <?php  
- $connect = mysqli_connect("localhost", "root", "", "foodlane",3307);  
+ $connect = mysqli_connect("localhost", "root", "", "airbnb",3307);  
  $query = "SELECT ItemType, count(*) as number FROM item GROUP BY ItemType";  
  $result = mysqli_query($connect, $query);  
  ?>  
@@ -87,34 +87,35 @@
                                 Dashboard
                             </a>
                             <div class="sb-sidenav-menu-heading">Interface</div>
+                            <a class="nav-link" href="index.php">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Dashboard
+                            </a>
+                            <div class="sb-sidenav-menu-heading">Interface</div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                Stock Control
+                                Property
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="SC_MP.php">Manage Product</a>
-                                    <a class="nav-link" href="SC_AP.php">Add Product</a>
+                                    <a class="nav-link" href="property_MP.php">Manage Property</a>
+                                    <a class="nav-link" href="property_AP.php">Add Property</a>
+                                    <a class="nav-link" href="booking_list.php">Booking List</a>
                                 </nav>
                             </div>
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
-                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                                Restaurant
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                Role
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
-                            <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
-                                        Manage Reservation
-                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                    </a>
-                                    <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
-                                        <nav class="sb-sidenav-menu-nested nav">
-                                            <a class="nav-link" href="#">Booking List</a>                                        
-                                        </nav>
-                                    </div>
-                                  </nav>
+                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="user_manage.php">Manage User</a>
+                                    <a class="nav-link" href="owner_manage.php">Manage Owner</a>
+                                    <a class="nav-link" href="admin_manage.php">Manage Admin</a>
+                                    <a class="nav-link" href="add_admin.php">Add Admin</a>
+                                </nav>
                             </div>
                             <div class="sb-sidenav-menu-heading">Addons</div>
                             <a class="nav-link" href="charts.php">
@@ -123,7 +124,11 @@
                             </a>
                             <a class="nav-link" href="tables.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                Tables
+                                Customer Information
+                            </a>
+                            <a class="nav-link" href="owner.php">
+                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                                Owner Information
                             </a>
                         </div>
                     </div>

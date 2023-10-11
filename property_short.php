@@ -1,3 +1,13 @@
+<?php
+
+session_start();
+
+if(isset($_SESSION['userID'])){
+    $userID = $_SESSION['userID'];
+}else{
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -47,19 +57,7 @@
                                 <h5 class="mb-3" style="font-size: 18px;">ACCOMMODATION TYPE</h5>
                                 <div class="mb-2">
                                     <input type="checkbox" id="f1" class="form-check-input shadow-none me-1">
-                                    <label class="form-check-label" for="f1">Apartment</label>
-                                </div>
-                                <div class="mb-2">
-                                    <input type="checkbox" id="f2" class="form-check-input shadow-none me-1">
-                                    <label class="form-check-label" for="f2">Flat</label>
-                                </div>
-                                <div class="mb-2">
-                                    <input type="checkbox" id="f3" class="form-check-input shadow-none me-1">
-                                    <label class="form-check-label" for="f3">Terrace</label>
-                                </div>
-                                <div class="mb-2">
-                                    <input type="checkbox" id="f4" class="form-check-input shadow-none me-1">
-                                    <label class="form-check-label" for="f4">Condominium</label>
+                                    <label class="form-check-label" for="f1">Serviced Apartment</label>
                                 </div>
                             </div>
                         </div>
@@ -136,6 +134,7 @@
                 
             </div>
         </div>
+        <br>
 
         <?php require './footer.php';?>
         

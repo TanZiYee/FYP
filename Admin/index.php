@@ -1,7 +1,9 @@
 <?php
 session_start();
 include("server.php");
-
+ $connect = mysqli_connect("localhost", "root", "", "airbnb", 3307);  
+ $query = "SELECT rentingType, count(*) as number FROM property GROUP BY rentingType";  
+ $result = mysqli_query($connect, $query);  
 
 ?>
 
@@ -33,6 +35,8 @@ include("server.php");
         
         
         
+        <!--Google Chart CDN-->
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>  
         
     </head>
     
@@ -86,30 +90,43 @@ include("server.php");
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="property_MP.php">Manage Product</a>
-                                    <a class="nav-link" href="property_AP.php">Add Product</a>
-                                    <a class="nav-link" href="property_DP.php">Delete Product</a>
+                                    <a class="nav-link" href="property_MP.php">Manage Property</a>
+                                    <a class="nav-link" href="property_AP.php">Add Property</a>
+                                    <a class="nav-link" href="booking_list.php">Booking List</a>
                                 </nav>
                             </div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                User
+                                Community Post
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="#">Manage User</a>
-                                    <a class="nav-link" href="#">Delete User</a>
+                                    <a class="nav-link" href="user_CP.php">Manage User Post</a>
+                                    <a class="nav-link" href="owner_CP.php">Manage Owner Post</a>
+                                </nav>
+                            </div>
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                Role
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="user_manage.php">Manage User</a>
+                                    <a class="nav-link" href="owner_manage.php">Manage Owner</a>
+                                    <a class="nav-link" href="admin_manage.php">Manage Admin</a>
+                                    <a class="nav-link" href="add_admin.php">Add Admin</a>
                                 </nav>
                             </div>
                             <div class="sb-sidenav-menu-heading">Addons</div>
-                            <a class="nav-link" href="charts.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                                Charts
-                            </a>
                             <a class="nav-link" href="tables.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                Tables
+                                Customer Information
+                            </a>
+                            <a class="nav-link" href="owner.php">
+                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                                Owner Information
                             </a>
                         </div>
                     </div>
@@ -168,21 +185,19 @@ include("server.php");
                                 </div>
                             </div>
                             <div class="col-xl-3 col-md-6">
-                                <div class="card bg-success text-white mb-4">
-                                    <div class="card-body"><i class="far fa-money-bill-alt"></i> Total Sales Amount</div>
+                                <div class="card bg-warning text-white mb-4">
+                                    <div class="card-body"> <i class="fas fa-user-plus"></i> Owner Registrations</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a>
+                                       <a>
                                          <?php
-                                            $query ="SELECT subtotal FROM booking";
+                                            $query ="SELECT ownerID FROM owner ORDER BY ownerID";
                                             $query_run = mysqli_query($con,$query);
 
                                             $row = mysqli_num_rows($query_run);
                                             
                                             echo "<h5>$row</h5>"                                                   
-                                        ?>   
-                                        
+                                        ?>                                          
                                         </a>
-                                       
                                     </div>
                                 </div>
                             </div>
@@ -206,18 +221,52 @@ include("server.php");
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-xl-6">
-                                <div class="card mb-4">
-                                    <div class="card-header">
-                                        <i class="fas fa-chart-area me-1"></i>
-                                        Area Chart Example
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-danger text-white mb-4">
+                                    <div class="card-body"><i class="far fa-credit-card	"></i> 
+                                        Total Number of Property</div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <a>
+                                         <?php
+                                            $query ="SELECT propertyID FROM property ORDER BY propertyID";
+                                            $query_run = mysqli_query($con,$query);
+
+                                            $row = mysqli_num_rows($query_run);
+                                            
+                                            echo "<h5>$row</h5>"                                                   
+                                        ?>   
+                                        
+                                        </a>
+                                        
                                     </div>
-                                    <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
                                 </div>
                             </div>
                         </div>
+                        
+                        
+                        
+                        
+                        
+                        
+                          <!--Pie Chart-->
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="card mb-4">
+                                    <div class="card-header">
+                                        <i class="fas fa-chart-pie me-1"></i>
+                                        Property Renting Type 
+                                    </div>
+                                
+                                <div class="card-body">                              
+                                    <div id="piechart" width="100%" height="50"></div>  
+                                </div>
+                             
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
                         
                         <div class="card mb-4">
                             <div class="card-header">
@@ -233,11 +282,33 @@ include("server.php");
                                             <th>Email</th>
                                             <th>Phone Number</th>
                                         </tr>
-                                    </thead>                                   
+                                    </thead>
+                                    
+                                     <?php
+                                      include'server.php';
+                                      $user_details="SELECT * FROM user WHERE usertype!='admin'";
+                                      $result_user=mysqli_query($con, $user_details);
+                                      while($row_orders=mysqli_fetch_assoc($result_user)){
+                                          $userID=$row_orders['userID'];
+                                          $username=$row_orders['username'];
+                                          $email=$row_orders['email'];
+                                          $phone=$row_orders['phone'];
+                                          $number=1;
+                                          echo "<tr>
+                                        <td>$userID</td>
+                                        <td>$username</td>
+                                        <td>$email</td>
+                                        <td>$phone</td>
+
+                                      </tr>";
+                                      $number++;
+                                      }
+                                      ?>
                                 </table>
                             </div>
                         </div>
                     </div>
+                     
                 </main>
                 
                 
@@ -268,23 +339,51 @@ include("server.php");
         <script src="js/datatables-simple-demo.js"></script>
         
         <script>
-             $(document).ready(function(){
-                var empDataTable = $('#datatablesSimple').DataTable({
-                    'processing': true,
-                    'serverSide': true,
-                    'serverMethod': 'post',
-                    'ajax': {
-                        'url':'ajaxfile.php'
-                    },
-                    pageLength: 5,
-                    'columns': [
-                        { data: 'userID' },
-                        { data: 'username' },
-                        { data: 'email' },
-                        { data: 'phone' }
-                    ]
-                });
-            });    
+            
+//             $(document).ready(function(){
+//                var empDataTable = $('#datatablesSimple').DataTable({
+//                    'processing': true,
+//                    'serverSide': true,
+//                    'serverMethod': 'post',
+//                    'ajax': {
+//                        'url':'ajaxfile.php'
+//                    },
+//                    pageLength: 5,
+//                    'columns': [
+//                        { data: 'userID' },
+//                        { data: 'username' },
+//                        { data: 'email' },
+//                        { data: 'phone' }
+//                    ]
+//                });
+//            });    
+            
+            
+            
+            
+           google.charts.load('current', {'packages':['corechart']});  
+           google.charts.setOnLoadCallback(drawChart);  
+           function drawChart()  
+           {  
+            var data = google.visualization.arrayToDataTable([  
+                      ['rentingType', 'Number'],  
+                      <?php  
+                      while($row = mysqli_fetch_array($result))  
+                      {  
+                           echo "['".$row["rentingType"]."', ".$row["number"]."],";  
+                      }  
+                      ?>  
+                ]);  
+               
+               
+            var options = {  
+                title: '',  
+                //is3D:true,  
+                pieHole: 0.4  
+               };  
+              var chart = new google.visualization.PieChart(document.getElementById('piechart'));  
+              chart.draw(data, options);  
+            }  
             
             
             function sweetalert(){
@@ -303,6 +402,10 @@ include("server.php");
             }
           })       
         }
+        
+        
+        
+        
         </script>
     </body>
 </html>

@@ -1,24 +1,39 @@
 <?php 
 session_start();
+
+if(isset($_SESSION['userID'])){
+    $userID = $_SESSION['userID'];
+}else{
+}
+
 include("db.php");
 
 // code insert
 // add code
 $error="";
 $msg="";
+$subtotal = $_SESSION['totalCost'];
+$check_in = $_SESSION['check_in'];
+$check_out = $_SESSION['check_out'];
+
 if(isset($_POST['book']))
 {
 	
 	$userName = $_POST['userName'];
         $email = $_POST['email'];
         $phoneNum = $_POST['phoneNum'];
-        $subtotal = $_POST['subtotal'];
-        $check_in = $_POST['check_in'];
-        $check_out = $_POST['check_out'];
+        $subtotal = $_SESSION['totalCost'];
+                //$_POST['subtotal'];
+        $check_in = $_SESSION['check_in'];
+        $check_out = $_SESSION['check_out'];
         $paymentMethod = $_POST['paymentMethod'];
+//        $totalCost = $_SESSION['totalCost'];
+        $userID = $_SESSION['userID'];
+        $propertyID = $_SESSION['propertyID'];
+//        $ownerID = $_SESSION['ownerID'];
 	
-	$sql="insert into booking (userName,email,phoneNum,subtotal,check_in, check_out, paymentMethod,  paymentStatus )
-	values('$userName','$email', '$phoneNum', '$subtotal', '$check_in', '$check_out', '$paymentMethod', 'Pending')";
+	$sql="insert into booking (userName,email,phoneNum,subtotal,check_in, check_out, paymentMethod,  paymentStatus, userID, propertyID )
+	values('$userName','$email', '$phoneNum', '$subtotal', '$check_in', '$check_out', '$paymentMethod', 'Pending', '$userID', '$propertyID')";
 	$result=mysqli_query($con,$sql);
 	if($result)
 		{
@@ -27,6 +42,8 @@ if(isset($_POST['book']))
                           <div class='order-message-container'>
                           <br>
                           <div class='message-container'>
+                          <br>
+                          <br>
                           <br>
                              <h3>Invoice</h3>
                              <div class='order-detail'>
@@ -179,7 +196,7 @@ if(isset($_POST['book']))
 
         .order-message-container .message-container{
            width: 50rem;
-           height: 55rem;
+           height: 58rem;
            background-color: white;
            border-radius: .5rem;
            padding:1rem;
@@ -267,16 +284,16 @@ if(isset($_POST['book']))
                                         <input type="phone" class="form-control shadow-none" name="phoneNum" required placeholder="Enter Your Phone">
                                     </div>
                                     <div class="col-md-6 mb-4">
-                                        <label class="form-label"> Total Price: </label>
-                                        <input type="number" class="form-control shadow-none" name="subtotal" required placeholder="Enter Your Total">
+                                        <label class="form-label"> Total Price (RM): </label>
+                                        <input type="number" class="form-control shadow-none" value= '<?php echo $subtotal; ?>' name="subtotal" min="0" step="0.01" required placeholder="Enter Your Total">
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <label class="form-label">Check-in</label>
-                                        <input type="date" class="form-control shadow-none" name="check_in" required>
+                                        <input type="date" class="form-control shadow-none" value='<?php echo $check_in; ?>' name="check_in" required>
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <label class="form-label">Check-out</label>
-                                        <input type="date" class="form-control shadow-none" name="check_out" required>
+                                        <input type="date" class="form-control shadow-none" value='<?php echo $check_out; ?>' name="check_out" required>
                                     </div>
                                     
                                     <div class="inputBox">

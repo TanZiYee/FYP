@@ -3,9 +3,9 @@ ini_set('session.cache_limiter','public');
 session_cache_limiter(false);
 session_start();
 include("db.php");
-if(!isset($_SESSION['Email']))
-{
-	header("location:login.php");
+if(isset($_SESSION['ownerID'])){
+    $ownerID = $_SESSION['ownerID'];
+}else{
 }
 
 //// code insert
@@ -32,6 +32,7 @@ if(isset($_POST['update']))
 	$loc=$_POST['loc'];
 	$feature=$_POST['feature'];
 	$status=$_POST['status'];
+        $ownerID=$_SESSION['ownerID'];
 //        $isFeatured=$_POST['isFeatured'];
 //        $ownerName=$_POST['ownerName'];
 //        $userID=$_POST['userID'];
@@ -67,7 +68,7 @@ if(isset($_POST['update']))
 	bathroom='{$bath}', kitchen='{$kitc}', bedroom='{$bed}', balcony='{$balc}',  hall='{$hall}', 
 	price='{$price}', city='{$city}', state='{$state}', size='{$asize}', location='{$loc}', feature='{$feature}',
 	status='{$status}', pimage1='{$aimage1}', pimage2='{$aimage2}', pimage3='{$aimage3}', pimage4='{$aimage4}', pimage5='{$aimage5}',
-	floorplan='{$floorplan}' WHERE propertyID = {$propertyID}";
+	floorplan='{$floorplan}', ownerID='{$ownerID}' WHERE propertyID = {$propertyID}";
 	 
 	
 	$result=mysqli_query($con,$sql);

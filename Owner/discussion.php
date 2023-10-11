@@ -1,5 +1,9 @@
 <?php 
 session_start();
+if(isset($_SESSION['ownerID'])){
+    $ownerID = $_SESSION['ownerID'];
+}else{
+}
 include("db.php");
 
 // code insert
@@ -11,9 +15,10 @@ if(isset($_POST['add']))
 	
 	$ownername=$_POST['ownername'];
 	$post=$_POST['post'];
+        $ownerID=$_SESSION['ownerID'];
 	
-	$sql="insert into discussion_owner (ownername,post)
-	values('$ownername','$post')";
+	$sql="insert into discussion_owner (ownername,post,ownerID)
+	values('$ownername','$post', '$ownerID')";
 	$result=mysqli_query($con,$sql);
 	if($result)
 		{

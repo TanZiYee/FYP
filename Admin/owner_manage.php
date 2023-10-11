@@ -6,7 +6,7 @@ include("server.php");
 
 if(isset($_GET['delete'])){
    $delete_id = $_GET['delete'];
-   $delete_query = mysqli_query($con, "DELETE FROM `item` WHERE ItemID = $delete_id ") or die('query failed');
+   $delete_query = mysqli_query($con, "DELETE FROM `owner` WHERE ownerID = $delete_id ") or die('query failed');
    if($delete_query){
       $_SESSION['AdminStatus3'] = 'Added Unsuccessfully';          
    }else{
@@ -19,29 +19,21 @@ if(isset($_GET['delete'])){
 if(isset($_POST['update_product'])){
    $update_p_id = $_POST['update_p_id'];
    $update_p_name = $_POST['update_p_name'];
-   $update_p_price = $_POST['update_p_price'];
-   
-   $update_p_desc = $_POST['update_p_desc'];
-   $update_p_type = $_POST['update_p_type'];
-   $update_p_quantity = $_POST['update_p_quantity'];
-   
-   $update_p_image = $_FILES['update_p_image']['name'];
-   $update_p_image_tmp_name = $_FILES['update_p_image']['tmp_name'];
-   $update_p_image_folder = 'images/'.$update_p_image;
+   $update_p_email = $_POST['update_p_email'];
+   $update_p_phone = $_POST['update_p_phone'];
 
-   $update_query = mysqli_query($con, "UPDATE `item` SET ItemName = '$update_p_name', Price = '$update_p_price',  ItemDesc = '$update_p_desc', Quantity = '$update_p_quantity', ItemType = '$update_p_type',image_path = '$update_p_image' WHERE ItemID = '$update_p_id'");
+   $update_query = mysqli_query($con, "UPDATE `user` SET ownerName = '$update_p_name', Email = '$update_p_email', phoneNo = '$update_p_phone' WHERE ownerID = '$update_p_id'");
 
    
    if($update_query){
-      move_uploaded_file($update_p_image_tmp_name, $update_p_image_folder); 
-      header('location:SC_MP.php');
+      header('location:owner_manage.php');
       $_SESSION['AdminStatus4'] = 'Added Unsuccessfully';
 
    }
    
    else{
-      $message[] = 'product could not be updated';
-      header('location:SC_MP.php');
+      $message[] = 'User could not be updated';
+      header('location:owner_manage.php');
    }
 
 }
@@ -56,7 +48,7 @@ if(isset($_POST['update_product'])){
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <title>Dashboard - AIRBNB - Admin </title>
+        <title>Dashboard - HOMIFY - Admin </title>
         
         <!-- Bootstrap CSS & Sweet Alert CDN-->
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -208,7 +200,7 @@ if(isset($_POST['update_product'])){
         
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href="index.html">AIRBNB Admin</a>
+            <a class="navbar-brand ps-3" href="index.html">HOMIFY Admin</a>
             
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
@@ -248,41 +240,48 @@ if(isset($_POST['update_product'])){
                             <div class="sb-sidenav-menu-heading">Interface</div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                Stock Control
+                                Property
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="SC_MP.php">Manage Product</a>
-                                    <a class="nav-link" href="SC_AP.php">Add Product</a>
+                                    <a class="nav-link" href="property_MP.php">Manage Property</a>
+                                    <a class="nav-link" href="property_AP.php">Add Property</a>
+                                    <a class="nav-link" href="booking_list.php">Booking List</a>
                                 </nav>
                             </div>
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
-                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                                Restaurant
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                Community Post
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
-                            <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
-                                        Manage Reservation
-                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                    </a>
-                                    <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
-                                        <nav class="sb-sidenav-menu-nested nav">
-                                            <a class="nav-link" href="#">Booking List</a>                                        
-                                        </nav>
-                                    </div>
-                                  </nav>
+                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="user_CP.php">Manage User Post</a>
+                                    <a class="nav-link" href="owner_CP.php">Manage Owner Post</a>
+                                </nav>
+                            </div>
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                Role
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="user_manage.php">Manage User</a>
+                                    <a class="nav-link" href="owner_manage.php">Manage Owner</a>
+                                    <a class="nav-link" href="admin_manage.php">Manage Admin</a>
+                                    <a class="nav-link" href="add_admin.php">Add Admin</a>
+                                </nav>
                             </div>
                             <div class="sb-sidenav-menu-heading">Addons</div>
-                            <a class="nav-link" href="charts.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                                Charts
-                            </a>
                             <a class="nav-link" href="tables.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                Tables
+                                User Information
+                            </a>
+                            <a class="nav-link" href="owner.php">
+                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                                Owner Information
                             </a>
                         </div>
                     </div>
@@ -301,7 +300,7 @@ if(isset($_POST['update_product'])){
                             Swal.fire({
                             position: 'top-end',
                             icon: 'success',
-                            title: 'Item Update Successfully',
+                            title: 'Owner Update Successfully',
                             showConfirmButton: false,
                             timer: 1500
                             })
@@ -316,7 +315,7 @@ if(isset($_POST['update_product'])){
                             ?>
                             <script>
                             Swal.fire(
-                                'Product Deleted !',
+                                'Owner Deleted !',
                                 '',
                                 'success'
                             )
@@ -330,7 +329,7 @@ if(isset($_POST['update_product'])){
                     
                      
                     <br>
-                    <h3 style="text-align:center">  <i class="fas fa-tasks"></i> Manage Products</h3>
+                    <h3 style="text-align:center">  <i class="fas fa-tasks"></i> Manage Owner</h3>
                     <br>
 
                      <div class="container">
@@ -340,40 +339,36 @@ if(isset($_POST['update_product'])){
                          <table>
 
                             <thead>
-                               <th>Item Image</th>
-                               <th>Item Name</th>
-                               <th>Item Description</th>
-                               <th>Item Type</th>
-                               <th>Item Price</th>
-                               <th>Item Quantity</th>
+                               <th>Owner ID</th>
+                               <th>Owner Name</th>
+                               <th>Email</th>
+                               <th>Phone</th>
                                <th>Action</th>
                             </thead>
 
                             <tbody>
                                <?php
 
-                                  $select_products = mysqli_query($con, "SELECT * FROM `item`");
+                                  $select_products = mysqli_query($con, "SELECT * FROM `owner`");
                                   if(mysqli_num_rows($select_products) > 0){
                                      while($row = mysqli_fetch_assoc($select_products)){
                                ?>
 
                                <tr>
-                                  <td><img src="uploaded_img/<?php echo $row['image_path']; ?>" height="100" alt=""></td>
-                                  <td><?php echo $row['ItemName']; ?></td>
-                                  <td><?php echo $row['ItemDesc']; ?></td>
-                                  <td><?php echo $row['ItemType']; ?></td>
-                                  <td><?php echo $row['Price']; ?></td>
-                                  <td><?php echo $row['Quantity']; ?></td>
+                                  <td><?php echo $row['ownerID']; ?></td>
+                                  <td><?php echo $row['ownerName']; ?></td>
+                                  <td><?php echo $row['Email']; ?></td>
+                                  <td><?php echo $row['phoneNo']; ?></td>
                                   <td>
-                                     <a href="SC_MP.php?delete=<?php echo $row['ItemID']; ?>" class="delete-btn"  onclick="return confirm('are your sure you want to delete this?');"> <i class="fas fa-trash"></i> delete </a>
-                                     <a href="SC_MP.php?edit=<?php echo $row['ItemID']; ?>" class="option-btn"> <i class="fas fa-edit"></i> update </a>
+                                     <a href="owner_manage.php?delete=<?php echo $row['ownerID']; ?>" class="delete-btn"  onclick="return confirm('Are your sure you want to delete this?');"> <i class="fas fa-trash"></i> Delete </a>
+                                     <a href="owner_manage.php?edit=<?php echo $row['ownerID']; ?>" class="option-btn"> <i class="fas fa-edit"></i> Update </a>
                                   </td>
                                </tr>
 
                                <?php
                                   };    
                                   }else{
-                                     echo "<div class='empty'>no product added</div>";
+                                     echo "<div class='empty'>No product added</div>";
                                   };
                                ?>
                             </tbody>
@@ -390,22 +385,46 @@ if(isset($_POST['update_product'])){
 
                              if(isset($_GET['edit'])){
                                 $edit_id = $_GET['edit'];
-                                $edit_query = mysqli_query($con, "SELECT * FROM `item` WHERE ItemID = $edit_id");
+                                $edit_query = mysqli_query($con, "SELECT * FROM `owner` WHERE ownerID = $edit_id");
                                 if(mysqli_num_rows($edit_query) > 0){
                                    while($fetch_edit = mysqli_fetch_assoc($edit_query)){
                              ?>
 
                              <form action="" method="post" enctype="multipart/form-data">
 <!--                                <img src="uploaded_img/<?php echo $fetch_edit['image_path']; ?>" height="200" alt="">-->
-                                <input type="hidden" name="update_p_id" value="<?php echo $fetch_edit['ItemID']; ?>">
-                                <input type="text" class="box" required name="update_p_name" value="<?php echo $fetch_edit['ItemName']; ?>" >
-                                <input type="text" class="box" required name="update_p_desc" value="<?php echo $fetch_edit['ItemDesc']; ?>" >
-                                <input type="text" class="box" required name="update_p_type" value="<?php echo $fetch_edit['ItemType']; ?>" >
-                                <input type="number" min="0" class="box" required name="update_p_price" value="<?php echo $fetch_edit['Price']; ?>">
-                                <input type="number" min="0" class="box" required name="update_p_quantity" value="<?php echo $fetch_edit['Quantity']; ?>">
+<!--                                <input type="hidden" name="update_p_id" value="<?php echo $fetch_edit['propertyID']; ?>">
+                                <input type="text" class="box" required name="update_p_name" value="<?php echo $fetch_edit['propertyName']; ?>" >
+                                <input type="text" class="box" required name="update_p_desc" value="<?php echo $fetch_edit['content']; ?>" >
+                                <input type="text" class="box" required name="update_p_type" value="<?php echo $fetch_edit['rentingType']; ?>" >
+                                <input type="number" min="0" class="box" required name="update_p_price" value="<?php echo $fetch_edit['price']; ?>">
                                 <input type="file" class="box" required name="update_p_image" accept="image/png, image/jpg, image/jpeg">
                                 <input type="submit" value="Update the Item" name="update_product" class="option-btn">
-                                <input type="reset" value="Cancel" id="close-edit" name="close-edit" class="option-btn">
+                                <input type="reset" value="Cancel" id="close-edit" name="close-edit" class="option-btn">-->
+                                
+                                <input type="hidden" name="update_p_id" value="<?php echo $fetch_edit['ownerID']; ?>">
+                                <div class="form-group row">
+                                    <label class="col-lg-2 col-form-label">Owner Name</label>
+					<div class="col-lg-9">
+                                            <input type="text" class="form-control" required name="update_p_name" value="<?php echo $fetch_edit['ownerName']; ?>" >
+					</div>
+				</div>
+                                <br>
+                                <div class="form-group row">
+                                    <label class="col-lg-2 col-form-label">Email</label>
+					<div class="col-lg-9">
+                                            <input type="text" class="form-control" required name="update_p_email" value="<?php echo $fetch_edit['Email']; ?>" >
+					</div>
+				</div>
+                                <br>
+                                <div class="form-group row">
+                                    <label class="col-lg-2 col-form-label">Phone</label>
+					<div class="col-lg-9">
+                                            <input type="phone" class="form-control" required name="update_p_phone" value="<?php echo $fetch_edit['phoneNo']; ?>" >
+					</div>
+				</div>
+                                <input type="submit" value="Update User" name="update_product" class="option-btn">
+                                 <a href="owner_manage.php" class="option-btn"> Cancel </a>
+
                              </form>
 
                              <?php
@@ -430,7 +449,7 @@ if(isset($_POST['update_product'])){
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">
                         <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; AIRBNB 2022</div>
+                            <div class="text-muted">Copyright &copy; HOMIFY 2022</div>
                             <div>
                                 <a href="#">Privacy Policy</a>
                                 &middot;

@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
     $ownerName = $_POST['ownerName'];
     $Email = $_POST['Email'];
     $phoneNo = $_POST['phoneNo'];
-    $password = $_POST['password'];
+    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
  
 
 $s = " select * from owner where ownerName = '$ownerName'";
@@ -67,7 +67,7 @@ else{
       
 </head>
 
-<?php require_once 'header.php'; ?>
+<?php require_once 'login_header.php'; ?>
 
     <?php 
 

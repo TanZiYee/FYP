@@ -16,7 +16,6 @@
 
 
 <body style="background:#808080" >
-<?php if (isset($_SESSION['Login']) && $_SESSION['Login']==true){?>
     <header>
     <div class="nav-bar">
       <a href="" class="logo">Homify</a>
@@ -42,32 +41,8 @@
   </header>
     <br>
   
-<?php } else {?>
-  <header>
-    <div class="nav-bar">
-      <a href="" class="logo">Homify</a>
-      <div class="navigation">
-        <div class="nav-items">
-          <i class="uil uil-times nav-close-btn"></i>
-          <a href="index.php"><i class="uil uil-home"></i> Home</a>
-          <a href="category.php"><i class="uil uil-info-circle"></i> Property Listing</a>
-          <a href="discussion_forum.php"><i class="uil uil-document-layout-left"></i> Communities</a>
-          <a href="about.php"><i class="uil uil-compass"></i> About</a>
-          <a href="ContactUs.php"><i class="uil uil-envelope"></i> Contact Us</a>
-          <a href="profile.php"><i class="bi bi-person-circle"></i>Account </a>
-       </div>
-      </div>
-      <i class="uil uil-apps nav-menu-btn"></i>
-    </div>
-      
-      
-    <div class="scroll-indicator-container">
-      <div class="scroll-indicator-bar"></div>
-    </div>
-      
-  </header>
+
     <br>
-<?php }?>
     
 
     

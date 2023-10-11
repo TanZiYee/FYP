@@ -1,11 +1,9 @@
 <?php 
-ini_set('session.cache_limiter','public');
-session_cache_limiter(false);
 session_start();
 include("db.php");
-if(!isset($_SESSION['Email']))
-{
-	header("location:login.php");
+if(isset($_SESSION['ownerID'])){
+    $ownerID = $_SESSION['ownerID'];
+}else{
 }
 
 // code insert
@@ -31,6 +29,7 @@ if(isset($_POST['add']))
 	$loc=$_POST['loc'];
 	$feature=$_POST['feature'];
 	$status=$_POST['status'];
+        $ownerID=$_SESSION['ownerID'];
 //        $isFeatured=$_POST['isFeatured'];
 //        $ownerID=$_SESSION['ownerID'];
 //        $ownerName=$_POST['ownerName'];
@@ -66,8 +65,8 @@ if(isset($_POST['add']))
         move_uploaded_file($temp_name7,"property/$bill");
         
 	
-	$sql="insert into property (propertyName,content,propertyType,rentingType,bathroom,kitchen,bedroom,balcony,hall,price,city,state,size,location,feature,status,pimage1,pimage2,pimage3,pimage4,pimage5,floorplan,bill)
-	values('$propertyName','$content','$propertyType','$rtype','$bath','$kitc','$bed','$balc','$hall','$price','$city','$state','$asize','$loc','$feature','$status','$aimage1','$aimage2','$aimage3','$aimage4','$aimage5','$floorplan', '$bill')";
+	$sql="insert into property (propertyName,content,propertyType,rentingType,bathroom,kitchen,bedroom,balcony,hall,price,city,state,size,location,feature,status,pimage1,pimage2,pimage3,pimage4,pimage5,floorplan,bill,ownerID)
+	values('$propertyName','$content','$propertyType','$rtype','$bath','$kitc','$bed','$balc','$hall','$price','$city','$state','$asize','$loc','$feature','$status','$aimage1','$aimage2','$aimage3','$aimage4','$aimage5','$floorplan', '$bill', '$ownerID')";
 	$result=mysqli_query($con,$sql);
 	if($result)
 		{

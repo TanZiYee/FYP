@@ -1,3 +1,13 @@
+<?php
+
+session_start();
+
+if(isset($_SESSION['userID'])){
+    $userID = $_SESSION['userID'];
+}else{
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -49,18 +59,6 @@
                                     <input type="checkbox" id="f1" class="form-check-input shadow-none me-1">
                                     <label class="form-check-label" for="f1">Apartment</label>
                                 </div>
-                                <div class="mb-2">
-                                    <input type="checkbox" id="f2" class="form-check-input shadow-none me-1">
-                                    <label class="form-check-label" for="f2">Flat</label>
-                                </div>
-                                <div class="mb-2">
-                                    <input type="checkbox" id="f3" class="form-check-input shadow-none me-1">
-                                    <label class="form-check-label" for="f3">Terrace</label>
-                                </div>
-                                <div class="mb-2">
-                                    <input type="checkbox" id="f4" class="form-check-input shadow-none me-1">
-                                    <label class="form-check-label" for="f4">Condominium</label>
-                                </div>
                             </div>
                         </div>
                       </div>
@@ -71,7 +69,7 @@
                     
                     <?php 
                         include 'db.php';
-                        $qry = $con->query("SELECT * FROM property WHERE rentingType='long'");
+                        $qry = $con->query("SELECT * FROM property WHERE rentingType='long' && status='available'");
                         while($row=mysqli_fetch_array($qry))
                         {
                     ?>
@@ -100,7 +98,7 @@
                             </div>
                         </div>
                         <div class="col-md-2 mt-lg-0 mt-md-0 mt-4 text-center">
-                            <h6 class="mb-4">RM <?php echo $row['price']?> per night</h6>
+                            <h6 class="mb-4">RM <?php echo $row['price']?> per month</h6>
                             <a href="confirm_booking.php?propertyID=<?php echo $row['propertyID']; ?>" class="btn btn-primary w-100 mb-2">Book Now</a>
                             <a href="propertydetails.php?propertyID=<?php echo $row['propertyID']; ?>" class="btn btn-sm w-100 btn-outline-dark">More Details</a>
                         </div>
@@ -112,6 +110,7 @@
                 
             </div>
         </div>
+        <br>
 
         <?php require './footer.php';?>
         

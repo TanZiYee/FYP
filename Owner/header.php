@@ -48,11 +48,11 @@
       <div class="navigation">
         <div class="nav-items">
           <i class="uil uil-times nav-close-btn"></i>
-          <a href="index.php"><i class="uil uil-home"></i> Home</a>
+<!--          <a href="index.php"><i class="uil uil-home"></i> Home</a>
           <a href="property.php"><i class="uil uil-info-circle"></i> Property Listing</a>
           <a href="discussion.php"><i class="uil uil-document-layout-left"></i> Communities</a>
           <a href="dashboard.php"><i class="uil uil-trolley"></i> Dashboard</a>
-          <a href="profile.php"><i class="bi bi-person-circle"></i>Account </a>
+          <a href="profile.php"><i class="bi bi-person-circle"></i>Account </a>-->
        </div>
       </div>
       <i class="uil uil-apps nav-menu-btn"></i>

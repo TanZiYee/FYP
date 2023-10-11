@@ -1,5 +1,36 @@
 <?php 
-session_start();
+//session_start();
+//
+//// Check if the form is submitted
+//if ($_SERVER["REQUEST_METHOD"] == "POST") {
+//    // Perform user authentication (check username and password)
+//    // If authentication is successful, set session variables
+//    
+////    $_SESSION['ownerID'] = $ownerID; // Store the user's ID 
+////    $_SESSION['Email'] = $Email; // Store the username
+////    $_SESSION['password'] = $password;
+//    // Add other relevant data to the session
+//    
+//    $Email = $_POST['Email'];
+//    $password = $_POST['password'];
+//    
+//     // Perform a query to check the credentials
+//    $query = "SELECT ownerID FROM owner WHERE Email = '$Email' AND password = '$password'";
+//    $result = mysqli_query($con, $query);    
+//    
+//    if ($result && mysqli_num_rows($result) == 1) {
+//        // Valid credentials, retrieve ownerID and store it in a session variable
+//        $row = mysqli_fetch_assoc($result);
+//      //  $_SESSION['ownerID'] = $row['ownerID'];
+//        //echo $row;
+//        // Redirect to the owner's dashboard or wherever you want to send them
+//      //  header('Location: index.php');
+//        exit();
+//    } else {
+//        // Invalid credentials, show an error message
+//        $error_message = "Invalid username or password. Please try again.";
+//    }
+//}
 
 ?>
 
@@ -14,8 +45,8 @@ session_start();
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         
 	<!-- Font-->
-	<link rel="stylesheet" type="text/css" href="css/roboto-font.css">
-	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-5/css/fontawesome-all.min.css">
+	<!--<link rel="stylesheet" type="text/css" href="css/roboto-font.css">
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-5/css/fontawesome-all.min.css">-->
         
         
 	<!-- Main Style Css -->
@@ -193,7 +224,7 @@ session_start();
     
 </head>
 
-<?php require_once 'header.php'; ?>
+<?php require_once 'login_header.php'; ?>
 
 <?php require 'db.php' ; ?>
         

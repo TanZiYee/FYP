@@ -1,5 +1,11 @@
 <?php 
 session_start();
+
+if(isset($_SESSION['userID'])){
+    $userID = $_SESSION['userID'];
+}else{
+}
+
 include("db.php");
 
 // code insert
@@ -11,9 +17,10 @@ if(isset($_POST['add']))
 	
 	$username=$_POST['username'];
 	$post=$_POST['post'];
+        $userID=$_SESSION['userID'];
 	
-	$sql="insert into discussion (username,post)
-	values('$username','$post')";
+	$sql="insert into discussion (username,post,userID)
+	values('$username','$post', '$userID')";
 	$result=mysqli_query($con,$sql);
 	if($result)
 		{

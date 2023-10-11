@@ -1,5 +1,38 @@
 <?php 
-//session_start();
+session_start();
+
+// Check if the user is logged in
+if (!isset($_SESSION['ownerID'])) {
+    // User is not logged in, redirect to the login page
+    header("Location: login.php");
+    exit();
+}
+
+// Get the logged-in owner's ID from the session
+$ownerID = $_SESSION['ownerID'];
+
+// Include your database connection code here
+include 'db.php';
+
+// Query to retrieve properties based on the owner's ID
+$query = "SELECT * FROM property WHERE ownerID = '$ownerID'";
+
+// Execute the query and fetch properties
+$result = mysqli_query($con, $query);
+
+// Check if the query was successful
+if (!$result) {
+    die("Query failed: " . mysqli_error($con));
+}
+ 
+// Now, you can loop through the results and process them as needed
+while ($row = mysqli_fetch_assoc($result)) {
+    // Process each property here
+    // You can access the property details using $row['column_name']
+}
+
+// Close the database connection when you're done
+mysqli_close($con);
 ?>
 
 <!DOCTYPE html>
@@ -206,7 +239,7 @@
     <div class="container my-5"> 
         <?php 
             include 'db.php';
-            $qry = $con->query("SELECT * FROM property WHERE rentingType='short'");
+            $qry = $con->query("SELECT * FROM property WHERE rentingType='short' and ownerID ='$ownerID'");
             while($row=mysqli_fetch_array($qry))
             {
         ?>
@@ -218,6 +251,8 @@
                           <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                           <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
                           <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                          <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                          <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
                         </ol>
         
                         <div class="carousel-inner">

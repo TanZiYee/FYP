@@ -2,6 +2,10 @@
 
 session_start();
 
+if(isset($_SESSION['userID'])){
+    $userID = $_SESSION['userID'];
+}else{
+}
 ?>
 
 <!DOCTYPE html>
@@ -91,7 +95,7 @@ session_start();
     </div>
       
     
-     <?php  require_once ('popup.php'); ?>
+     <?php // require_once ('popup.php'); ?>
     
 
     <?php require_once ('splitscreen.php'); ?>

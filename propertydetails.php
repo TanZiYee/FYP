@@ -1,3 +1,13 @@
+<?php
+
+session_start();
+
+if(isset($_SESSION['userID'])){
+    $userID = $_SESSION['userID'];
+}else{
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -8,9 +18,14 @@
         
         <!--Icon-->
         <link rel="icon" href="Image/airbnb.ico" />
-        
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
         <!-- Include Bootstrap CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
         
         <style>
             .card{
@@ -132,66 +147,9 @@
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Next</span>
                         </button>
-                          <?php
-//                            $property_image = "./images/1.jpg";
-//                            $img_q = mysqli_query($con, "SELECT * FROM property
-//                                    WHERE `propertyID`='$row[propertyID]'");
-//                            
-//                            if(mysqli_num_rows($img_q)>0){
-//                                $active_class= 'active';
-//                                
-//                                while($img_res = mysqli_fetch_assoc($img_q))
-//                                {
-//                                  echo"<div class='carousel-item $active_class'> 
-//                                    <img src='$property_image' class='d-block w-100'>
-//                                  </div>
-//                                  ";
-//                                  $active_class='';
-//                                }
-//                            }
-//                            else{
-//                                echo"<div class='carousel-item active'> 
-//                                    <img src='$property_image' class='d-block w-100'>
-//                                </div>";
-//                            }
                           
-                          
-//                            include 'db.php';
-//                            $img = $con->query("SELECT * FROM property WHERE propertyID='$row[propertyID]'");
-//                            while($row=mysqli_fetch_array($img))
-//                            {
-        
-                          ?>
-<!--                        <div class="carousel-item active">
-                          <img src="Owner/property/<?php // echo $row['pimage1'];?>" height="350" class="d-block w-100 rounded">
-                        </div>
-                        <div class="carousel-item">
-                          <img src="Owner/property/<?php // echo $row['pimage2'];?>" height="350" class="d-block w-100 rounded">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="Owner/property/<?php // echo $row['pimage3'];?>" height="350" class="d-block w-100 rounded">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="Owner/property/<?php // echo $row['pimage4'];?>" height="350" class="d-block w-100 rounded">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="Owner/property/<?php // echo $row['pimage5'];?>" height="350" class="d-block w-100 rounded">
-                        </div>-->
-                          
-                          
-                           <?php // } ?>
-                          
-                      <!--</div>-->
                         <br>
                           <br>
-<!--                      <button class="carousel-control-prev" type="button" data-bs-target="#propertyCarousel" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                      </button>
-                      <button class="carousel-control-next" type="button" data-bs-target="#propertyCarousel" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                      </button>-->
                     </div>
                 </div>
                 

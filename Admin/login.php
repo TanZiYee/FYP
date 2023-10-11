@@ -110,7 +110,7 @@ session_start();
                         </div>
                         <div class="links">
                                 <a href="#" style="color: transparent; ">Forgot Password ?</a>
-                                <a href="../index.php">Back To Home</a>
+                                <a href="../login.php">Back To Home</a>
                         </div>
                         <input type="submit" value="Login" class="btn">
                        

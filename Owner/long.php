@@ -1,31 +1,40 @@
 <?php
-//session_start();
-//include("db.php"); // Include your database connection script
-//
-//if (!isset($_SESSION['ownerID'])) {
-//    // Handle the case when the owner is not logged in
-//    // Redirect or display an error message
-//    header("location: login.php");
-//    exit();
-//}
-//
-//$ownerID = $_SESSION['ownerID'];
-//
-//$stmt = $con->prepare("SELECT * FROM property WHERE ownerID = ?");
-//$stmt->bind_param("i", $ownerID);
-//$stmt->execute();
-//$result = $stmt->get_result();
-//
-////// Display the properties
-////while ($row = $result->fetch_assoc()) {
-////    echo "Property Name: " . $row['propertyName'] . "<br>";
-////    echo "Property Type: " . $row['propertyType'] . "<br>";
-////    // ... other property details
-////}
-//
-//// Close the database connection
-//$stmt->close();
-//$con->close();
+        
+session_start();
+
+// Check if the user is logged in
+if (!isset($_SESSION['ownerID'])) {
+    // User is not logged in, redirect to the login page
+    header("Location: login.php");
+    exit();
+}
+
+// Get the logged-in owner's ID from the session
+$ownerID = $_SESSION['ownerID'];
+
+// Include your database connection code here
+include 'db.php';
+
+// Query to retrieve properties based on the owner's ID
+$query = "SELECT * FROM property WHERE ownerID = '$ownerID'";
+
+// Execute the query and fetch properties
+$result = mysqli_query($con, $query);
+
+// Check if the query was successful
+if (!$result) {
+    die("Query failed: " . mysqli_error($con));
+}
+ 
+// Now, you can loop through the results and process them as needed
+while ($row = mysqli_fetch_assoc($result)) {
+    // Process each property here
+    // You can access the property details using $row['column_name']
+}
+
+// Close the database connection when you're done
+mysqli_close($con);
+
 ?>
 
 <!DOCTYPE html>
@@ -232,7 +241,7 @@
     <div class="container my-5"> 
         <?php 
             include 'db.php';
-            $qry = $con->query("SELECT * FROM property WHERE rentingType='long'");
+            $qry = $con->query("SELECT * FROM property WHERE rentingType='long' and ownerID ='$ownerID'");
             while($row=mysqli_fetch_array($qry))
             {
         ?>
@@ -244,6 +253,8 @@
                           <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                           <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
                           <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                          <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                          <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
                         </ol>
         
                         <div class="carousel-inner">
@@ -278,7 +289,7 @@
 <!--                    <img src="../images/1.jpg" class="card-img-top">-->
                     <div class="card-body">
                         <h5><?php echo $row['propertyName']?></h5>
-                        <h6 class="mb-4">RM <?php echo $row['price']?> per night</h6>
+                        <h6 class="mb-4">RM <?php echo $row['price']?> per month</h6>
                         <p class="card-text"><?php echo $row['content']?></p>
                         <div class="features mb-4">
                             <h6 class="mb-1">Features</h6>

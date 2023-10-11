@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <?php session_start();
 
     if($_SERVER['REQUEST_METHOD']=="POST")
@@ -10,6 +9,7 @@
         }
     
 ?>
+
 <html>
 <head>
 	<meta charset="utf-8">
@@ -20,9 +20,10 @@
 	<link rel="stylesheet" type="text/css" href="css/roboto-font.css">
 	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-5/css/fontawesome-all.min.css">
 	<!-- Main Style Css -->
-        <link rel="stylesheet" href="css/style.css"/>
-        <!--Icon-->
-        <link rel="icon" href="Image/airbnb.ico" /> 
+    <link rel="stylesheet" href="css/style.css"/>
+    
+    <!--Icon-->
+   <link rel="icon" href="Image/airbnb.ico" /> 
    
     <style>
         .card{
@@ -88,6 +89,7 @@
                     <h4 class="mb-0 mt-0"><?php echo $_SESSION['ownerName'];?></h4>
                     <span>Email: <?php echo $_SESSION['Email'];?></span><br>
                    <span>Phone Number: <?php echo $_SESSION['phoneNo'];?></span><br>
+                  
 
 
 
@@ -109,8 +111,11 @@
          </div>
     <br>
     <br>
-    <br>
-    <br>
+    <br><!-- comment -->
+    <br><!-- comment -->
+    
+    
+    
 
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 
