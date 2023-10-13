@@ -89,7 +89,7 @@ if(isset($_POST['add']))
                             <h2 class="text-secondary double-down-line text-center">Add Post</h2>
                         </div>
                     </div>
-                    <div class="row p-5 bg-white">
+                    <div class="row p-5" style="background-color: #f0f9fa;">
                         <form method="post" enctype="multipart/form-data">
                             <div class="description">
 				<h5 class="text-secondary">Basic Information</h5><hr>
@@ -117,7 +117,7 @@ if(isset($_POST['add']))
 			</form>
                     </div>
                 
-                    <div class="row p-5 bg-white">
+                    <div class="row p-5" style="background-color: #f0f9fa;">
                         <form method="post" enctype="multipart/form-data">
                             <div class="description">
 				<h5 class="text-secondary">Recent Post</h5><hr>

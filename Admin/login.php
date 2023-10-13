@@ -18,40 +18,28 @@ session_start();
                 $query = "select * from user where username = '$username' limit 1";
                 $result = mysqli_query($con, $query);
 
-                if($result)
-                {
-                    if($result && mysqli_num_rows($result) > 0)
-                    {
-                        $user_data = mysqli_fetch_assoc($result);
+               if ($result && mysqli_num_rows($result) > 0) {
+            $user_data = mysqli_fetch_assoc($result);
 
-                        if($user_data['password'] === $password)
-                        {
-                            
-                            //Validate user type
-                            if ($user_data['usertype']=="admin"){
-                                
-                            $_SESSION['username'] =  $username;
-                            
-                            header("Location: index.php");
-                            
-                            }
-                            
-                            else{
-                                 $_SESSION['StatusInvalid'] = 'Invalid Username OR Password !';
-                            }
-
-          
-                        }
-                    }
-                    
+            if (password_verify($password, $user_data['password'])) {
+                // Password is correct
+                // Validate user type
+                if ($user_data['usertype'] == "admin") {
+                    $_SESSION['username'] = $username;
+                    header("Location: index.php");
+                } else {
+                    $_SESSION['StatusInvalid'] = 'Invalid Username OR Password !';
                 }
-
-                    $_SESSION['StatusInvalid'] = 'Invalid Username OR Password !';
-            }else
-            {
-                    $_SESSION['StatusInvalid'] = 'Invalid Username OR Password !';
+            } else {
+                $_SESSION['StatusInvalid'] = 'Invalid Username OR Password !';
             }
-	}
+        } else {
+            $_SESSION['StatusInvalid'] = 'Invalid Username OR Password !';
+        }
+    } else {
+        $_SESSION['StatusInvalid'] = 'Invalid Username OR Password !';
+    }
+}
 
 ?>
 
@@ -67,6 +55,9 @@ session_start();
 	<title>Admin Login </title>
 	<link rel="stylesheet" href="css/admin_login_style.css">
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        
+        <!--Icon-->
+        <link rel="icon" href="../Image/airbnb.ico" />
     </head>
 
     

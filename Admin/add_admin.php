@@ -7,7 +7,7 @@ if(isset($_POST['add_admin'])){
    $username = $_POST['username'];
    $email = $_POST['email'];
    $phone = $_POST['phone'];
-   $password = $_POST['password'];
+   $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
    $insert_query = mysqli_query($con, "INSERT INTO `user`(`usertype`, `username`, `email` , `phone`, `password`) VALUES ('$usertype','$username','$email','$phone', '$password');") or die('query failed');
 
@@ -39,7 +39,8 @@ if(isset($_POST['add_admin'])){
         <link href="css/styles.css" rel="stylesheet" />            
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
         
-        
+        <!--Icon-->
+        <link rel="icon" href="../Image/airbnb.ico" />
        
         
         

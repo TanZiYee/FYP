@@ -20,7 +20,7 @@ if(isset($_SESSION['ownerID'])){
     <title>Homify</title>
     
     <!--Icon-->
-   <link rel="icon" href="Image/airbnb.ico" />
+   <link rel="icon" href="../Image/airbnb.ico" />
 
     <!-- Link our CSS file -->
     <link rel="stylesheet" href="css/style.css">
@@ -276,7 +276,9 @@ if(isset($_SESSION['ownerID'])){
             <div class="container">
                 <h6 class="text-left">List your property here and start welcoming guests in no time!</h6>
                 <br><br>
-                <h6 class="text-left">To get started, choose the type of property you want to list in here.</h6>
+                <h6 class="text-left">To get started, add your property that you want to list in here.</h6>
+                <a href="add.php" class="option-btn"> <i class="fas fa-add"></i> Add </a>
+                
 
                 <a href="short.php">
                 <div class="box-3 float-container">
@@ -294,11 +296,11 @@ if(isset($_SESSION['ownerID'])){
                 </div>
                 </a>
 
-                <a href="add.php">
+                <a href="rent.php">
                 <div class="box-3 float-container">
-                    <img src="image/add.png" alt="Add" class="img-responsive img-curve" width="10px" height="270px">
+                    <img src="image/rent.jpg" alt="Rent-Out" class="img-responsive img-curve" width="10px" height="270px">
 
-                    <h3 class="float-text text-white"></h3>
+                    <h3 class="float-text text-white">Rent-Out</h3>
                 </div>
                 </a>
 

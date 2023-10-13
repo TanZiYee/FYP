@@ -66,8 +66,8 @@ if(isset($_POST['update_product'])){
         <!-- font awesome cdn link  -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-
-
+        <!--Icon-->
+        <link rel="icon" href="../Image/airbnb.ico" />
 
         
         

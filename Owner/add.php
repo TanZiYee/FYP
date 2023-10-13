@@ -112,7 +112,7 @@ if(isset($_POST['add']))
 <!-- FOR MORE PROJECTS visit: codeastro.com -->
 
 <!--Icon-->
-<link rel="icon" href="Image/airbnb.ico" />
+<link rel="icon" href="../Image/airbnb.ico" />
    
 <!--	Title
 	=========================================================-->

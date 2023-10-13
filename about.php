@@ -126,7 +126,6 @@
     
     <?php require_once ('header.php'); ?>
     
-    <br>
 
     
     <div class="responsive-container-block outer-container" style = "background: linear-gradient(to right,#71c9ce , #cbf1f5);" >

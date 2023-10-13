@@ -55,7 +55,7 @@
         
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <!--Icon-->
-        <link rel="icon" href="Image/airbnb.ico" /> 
+        <link rel="icon" href="../Image/airbnb.ico" /> 
     
         
     <style>
@@ -67,7 +67,7 @@
     .page-content {
             width: 100%;
             margin:  0 auto;
-            background: linear-gradient(to right,#1F6ED4 , #B9EDF8);
+            background: linear-gradient(to right, #2F2F9C,#D6D6F2 );
             display: flex;
             display: -webkit-flex;
             justify-content: center;
@@ -286,7 +286,8 @@
                                 
 				<div class="form-row">
 					<label for="password" class="fas fa-lock"> Password</label>
-					<input type="password" name="password" id="password" class="input-text" placeholder="Your Password" required>					
+					<input type="password" name="password" id="password" class="input-text" placeholder="Your Password" required>
+                                        <p>Forgot Password? <a href="forgot.php">Click Here</a>.</p>
 				</div>
                                 
 				<div class="form-row-last">

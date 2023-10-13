@@ -9,7 +9,7 @@ if(isset($_SESSION['ownerID'])){
 
 include("db.php");
  $connect = mysqli_connect("localhost", "root", "", "airbnb", 3307);  
- $query = "SELECT rentingType, count(*) as number FROM property GROUP BY rentingType";  
+ $query = "SELECT rentingType, count(*) as number FROM property WHERE ownerID='$ownerID' GROUP BY rentingType";  
  $result = mysqli_query($connect, $query);  
 
 ?>
@@ -40,7 +40,8 @@ include("db.php");
         <script src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>  
         
-        
+        <!--Icon-->
+        <link rel="icon" href="../Image/airbnb.ico" />
         
         <!--Google Chart CDN-->
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>  

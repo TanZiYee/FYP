@@ -94,7 +94,9 @@ if(isset($_POST['update']))
 
 <!-- Meta Tags -->
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<link rel="shortcut icon" href="images/favicon.ico">
+
+<!--Icon-->
+<link rel="icon" href="../Image/airbnb.ico" />
 
 <!--	Fonts
 	========================================================-->
@@ -205,7 +207,7 @@ if(isset($_POST['update']))
 												<div class="form-group row">
 													<label class="col-lg-3 col-form-label">Property Type</label>
 													<div class="col-lg-9">
-														<select class="form-control" required name="propertyType">
+														<select class="form-control" required name="propertyType" required value="<?php echo $row['3']; ?>>
 															<option value="">Select Type</option>
 															<option value="Apartment">Serviced Apartment</option>
 														</select>
@@ -305,35 +307,40 @@ if(isset($_POST['update']))
                                                                                         <div class="form-group row">
                                                                                             <label class="col-lg-3 col-form-label">Image 1</label>
                                                                                                 <div class="col-lg-9">
-                                                                                                    <input class="form-control" name="aimage1" type="file" required="">
+                                                                                                    <input class="form-control" name="aimage1" type="file" required value="<?php echo $row['17']; ?>">
+                                                                                                    <br>
                                                                                                     <img src="property/<?php echo $row['17'];?>" alt="pimage1" height="150" width="180">
                                                                                                 </div>
                                                                                         </div>
                                                                                         <div class="form-group row">
                                                                                             <label class="col-lg-3 col-form-label">Image 2</label>
                                                                                                 <div class="col-lg-9">
-                                                                                                    <input class="form-control" name="aimage2" type="file" required="">
+                                                                                                    <input class="form-control" name="aimage2" type="file" required value="<?php echo $row['18']; ?>">
+                                                                                                    <br>
                                                                                                     <img src="property/<?php echo $row['18'];?>" alt="pimage2" height="150" width="180">
                                                                                                 </div>
                                                                                         </div>
                                                                                         <div class="form-group row">
                                                                                             <label class="col-lg-3 col-form-label">Image 3</label>
                                                                                                 <div class="col-lg-9">
-                                                                                                    <input class="form-control" name="aimage3" type="file" required="">
+                                                                                                    <input class="form-control" name="aimage3" type="file" required value="<?php echo $row['19']; ?>">
+                                                                                                    <br>
                                                                                                     <img src="property/<?php echo $row['19'];?>" alt="pimage3" height="150" width="180">
                                                                                                 </div>
                                                                                         </div>
                                                                                         <div class="form-group row">
                                                                                             <label class="col-lg-3 col-form-label">Image 4</label>
                                                                                                 <div class="col-lg-9">
-                                                                                                    <input class="form-control" name="aimage4" type="file" required="">
+                                                                                                    <input class="form-control" name="aimage4" type="file" required value="<?php echo $row['20']; ?>">
+                                                                                                    <br>
                                                                                                     <img src="property/<?php echo $row['20'];?>" alt="pimage4" height="150" width="180">
                                                                                                 </div>
                                                                                         </div>
                                                                                         <div class="form-group row">
                                                                                             <label class="col-lg-3 col-form-label">Image 5</label>
                                                                                                 <div class="col-lg-9">
-                                                                                                    <input class="form-control" name="aimage5" type="file" required="">
+                                                                                                    <input class="form-control" name="aimage5" type="file" required value="<?php echo $row['21']; ?>">
+                                                                                                    <br>
                                                                                                     <img src="property/<?php echo $row['21'];?>" alt="pimage5" height="150" width="180">
                                                                                                 </div>
                                                                                         </div>
@@ -342,14 +349,15 @@ if(isset($_POST['update']))
                                                                                         <div class="form-group row">
                                                                                             <label class="col-lg-3 col-form-label">Floorplan</label>
                                                                                                 <div class="col-lg-9">
-                                                                                                    <input class="form-control" name="floorplan" type="file" required="">
+                                                                                                    <input class="form-control" name="floorplan" type="file" required value="<?php echo $row['22']; ?>">
+                                                                                                    <br>
                                                                                                     <img src="property/<?php echo $row['22'];?>" alt="floorplan" height="150" width="180">
                                                                                                 </div>
                                                                                         </div>
                                                                                         <div class="form-group row">
                                                                                             <label class="col-lg-3 col-form-label">Status</label>
                                                                                                 <div class="col-lg-9">
-                                                                                                    <select class="form-control"  required name="status">
+                                                                                                    <select class="form-control"  required name="status" required value="<?php echo $row['16']; ?>>
                                                                                                         <option value="">Select Status</option>
                                                                                                         <option value="available">Available</option>
                                                                                                         <option value="rent out">Rent Out</option>

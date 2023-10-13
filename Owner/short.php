@@ -44,7 +44,7 @@ mysqli_close($con);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Homify</title>
     <!--Icon-->
-   <link rel="icon" href="Image/airbnb.ico" /> 
+   <link rel="icon" href="../Image/airbnb.ico" /> 
 
     <!-- Link our CSS file -->
     <link rel="stylesheet" href="css/style.css">
@@ -239,7 +239,7 @@ mysqli_close($con);
     <div class="container my-5"> 
         <?php 
             include 'db.php';
-            $qry = $con->query("SELECT * FROM property WHERE rentingType='short' and ownerID ='$ownerID'");
+            $qry = $con->query("SELECT * FROM property WHERE rentingType='short' and status='available' and ownerID ='$ownerID'");
             while($row=mysqli_fetch_array($qry))
             {
         ?>

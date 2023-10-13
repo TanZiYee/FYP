@@ -10,25 +10,20 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 
    <!--Icon-->
-   <link rel="icon" href="Image/airbnb.ico" /> 
+   <link rel="icon" href="../Image/airbnb.ico" /> 
 
 </head>
 
 
-<body style="background: linear-gradient(to right,#1F6ED4 , #B9EDF8);" >
+<body style="background: linear-gradient(to right,#2F2F9C,#D6D6F2);" >
     <header>
     <div class="nav-bar">
       <a href="" class="logo">Homify</a>
       <div class="navigation">
-<!--        <div class="nav-items">
+        <div class="nav-items">
           <i class="uil uil-times nav-close-btn"></i>
-          <a href="index.php"><i class="uil uil-home"></i> Home</a>
-          <a href="category.php"><i class="uil uil-info-circle"></i> Property Listing</a>
-          <a href="discussion_forum.php"><i class="uil uil-document-layout-left"></i> Communities</a>
-          <a href="about.php"><i class="uil uil-compass"></i> About</a>
-          <a href="ContactUs.php"><i class="uil uil-envelope"></i> Contact Us</a>
-          <a href="profile.php"><i class="bi bi-person-circle"></i>Profile </a>
-       </div>-->
+          <a href="../login.php" style= "color: #03254C; text"><i class="uil uil-envelope"></i><b> Back to Rent House! </b></a>
+       </div>
       </div>
       <i class="uil uil-apps nav-menu-btn"></i>
     </div>
@@ -40,30 +35,6 @@
       
   </header>
     <br>
-  
-<!--  <header>
-    <div class="nav-bar">
-      <a href="" class="logo">Homify</a>
-      <div class="navigation">
-        <div class="nav-items">
-          <i class="uil uil-times nav-close-btn"></i>
-          <a href="index.php"><i class="uil uil-home"></i> Home</a>
-          <a href="category.php"><i class="uil uil-info-circle"></i> Property Listing</a>
-          <a href="discussion_forum.php"><i class="uil uil-document-layout-left"></i> Communities</a>
-          <a href="about.php"><i class="uil uil-compass"></i> About</a>
-          <a href="ContactUs.php"><i class="uil uil-envelope"></i> Contact Us</a>
-          <a href="profile.php"><i class="bi bi-person-circle"></i>Account </a>
-       </div>
-      </div>
-      <i class="uil uil-apps nav-menu-btn"></i>
-    </div>
-      
-      
-    <div class="scroll-indicator-container">
-      <div class="scroll-indicator-bar"></div>
-    </div>
-      
-  </header>-->
     <br>
 
     

@@ -57,7 +57,7 @@ if(isset($_SESSION['userID'])){
                                 <h5 class="mb-3" style="font-size: 18px;">ACCOMMODATION TYPE</h5>
                                 <div class="mb-2">
                                     <input type="checkbox" id="f1" class="form-check-input shadow-none me-1">
-                                    <label class="form-check-label" for="f1">Apartment</label>
+                                    <label class="form-check-label" for="f1">Serviced Apartment</label>
                                 </div>
                             </div>
                         </div>
@@ -98,7 +98,7 @@ if(isset($_SESSION['userID'])){
                             </div>
                         </div>
                         <div class="col-md-2 mt-lg-0 mt-md-0 mt-4 text-center">
-                            <h6 class="mb-4">RM <?php echo $row['price']?> per month</h6>
+                            <h6 class="mb-4">RM <?php echo $row['price']?> per night</h6>
                             <a href="confirm_booking.php?propertyID=<?php echo $row['propertyID']; ?>" class="btn btn-primary w-100 mb-2">Book Now</a>
                             <a href="propertydetails.php?propertyID=<?php echo $row['propertyID']; ?>" class="btn btn-sm w-100 btn-outline-dark">More Details</a>
                         </div>

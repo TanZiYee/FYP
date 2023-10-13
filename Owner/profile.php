@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <?php session_start();
 
     if($_SERVER['REQUEST_METHOD']=="POST")
@@ -10,20 +10,23 @@
     
 ?>
 
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
 	<meta charset="utf-8">
 	<title>Homify</title>
 	<!-- Mobile Specific Metas -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        
 	<!-- Font-->
 	<link rel="stylesheet" type="text/css" href="css/roboto-font.css">
 	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-5/css/fontawesome-all.min.css">
+        
 	<!-- Main Style Css -->
-    <link rel="stylesheet" href="css/style.css"/>
+        <link rel="stylesheet" href="css/style.css"/>
     
-    <!--Icon-->
-   <link rel="icon" href="Image/airbnb.ico" /> 
+        <!--Icon-->
+        <link rel="icon" href="../Image/airbnb.ico" /> 
    
     <style>
         .card{
@@ -64,6 +67,7 @@
 .number3{
   font-weight:500;
 }
+
     </style>
     
 </head>
@@ -73,16 +77,18 @@
 <br>
 <br>
 
-<body>
+<body style = "background: linear-gradient(to right,#71c9ce , #eeeeee);">
 	<div class="container mt-5 d-flex justify-content-center">
 
             <div class="card p-3">
 
                 <div class="d-flex align-items-center">
 
-                    <div class="image">
-                <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80" class="rounded" width="155" >
+                <div class="image">
+                    <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80" class="rounded" width="155" >
                 </div>
+                    
+                    <br>
 
                 <div class="ml-3 w-100">
                     
@@ -113,11 +119,14 @@
     <br>
     <br><!-- comment -->
     <br><!-- comment -->
-    
-    
-    
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <?php require_once 'footer.php'; ?>
 
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 
-<?php require_once 'footer.php'; ?>
 </html>

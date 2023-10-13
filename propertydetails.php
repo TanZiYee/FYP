@@ -157,6 +157,54 @@ if(isset($_SESSION['userID'])){
                     <div class="card mb-4 border-0 shadow-sm rounded-3">
                         <div class="card-body">
                             <?php
+                                  include 'db.php';
+
+                                  $query = mysqli_query($con, "SELECT owner.ownerName, owner.Email, owner.phoneNo FROM owner INNER JOIN property ON property.ownerID = owner.ownerID WHERE propertyID='$propertyID'");
+                                  if(mysqli_num_rows($query) > 0){
+                                     while($row = mysqli_fetch_assoc($query)){
+                                 
+                               ?>
+                            <div>
+                                    <h4>Owner Details</h4>
+                                    <br>
+                                    <div class="name mb-4">
+                                        <h6 class="mb-1">Owner Name</h6>
+                                        <p><?php echo $row['ownerName']; ?></p>
+                                    </div>
+                                    <div class="email mb-4">
+                                        <h6 class="mb-1">Owner Email</h6>
+                                        <p><?php echo $row['Email']; ?></p>
+                                    </div>
+                                    <div class="phone mb-4">
+                                        <h6 class="mb-1">Owner Phone</h6>
+                                        <p><?php echo $row['phoneNo']; ?></p>
+                                    </div>
+                                
+                                </div>
+                                  <?php
+                                  };    
+                                  }else{
+                                     echo "<div class='empty'>No Owner Information</div>";
+                                  };
+                                  ?>  
+                        </div>
+                            
+                    </div>
+                </div>
+                
+                
+                <div class="col-lg-3 col-md-12 mb-lg-0 mb-4 ps-4">
+                    
+                </div>
+               
+                
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card mb-4 border-0 shadow-sm rounded-3">
+                        <div class="card-body">
+                            <?php
                             // Define an SQL query to fetch room details
                             $roomSql = "SELECT * FROM property WHERE propertyID = ?";
 
@@ -247,23 +295,9 @@ if(isset($_SESSION['userID'])){
 
                             <!-- Close the room details statement -->
                             <?php $roomStmt->close(); ?>
-                            
-                           
-                            <?php // }?>
                         </div>
-                            
                     </div>
                 </div>
-                
-                
-                <div class="col-lg-3 col-md-12 mb-lg-0 mb-4 ps-4">
-                    
-                </div>
-               
-                    
-                   
-                
-                
             </div>
         </div>
 

@@ -81,13 +81,19 @@
               <h5 class="text-uppercase mb-4">Pages</h5>
               <ul class="list-unstyled">
                 <li class="mb-2">
-                  <a href="#!" class="text-white"><i class="fa-solid fa-circle"></i> Home </a>
+                  <a href="index.php" class="text-white"><i class="fa-solid fa-circle"></i> Home </a>
                 </li>
                 <li class="mb-2">
-                  <a href="#!" class="text-white"><i class="fa-solid fa-circle"></i> About </a>
+                  <a href="category.php" class="text-white"><i class="fa-solid fa-circle"></i> Property Listing </a>
                 </li>
                 <li class="mb-2">
-                  <a href="#!" class="text-white"><i class="fa-solid fa-circle"></i> Contact </a>
+                  <a href="discussion.php" class="text-white"><i class="fa-solid fa-circle"></i> Community </a>
+                </li>
+                <li class="mb-2">
+                  <a href="about.php" class="text-white"><i class="fa-solid fa-circle"></i> About </a>
+                </li>
+                <li class="mb-2">
+                  <a href="ComtactUs.php" class="text-white"><i class="fa-solid fa-circle"></i> Contact </a>
                 </li>
                 
               </ul>
@@ -131,7 +137,7 @@
                   <p><i class="fas fa-phone pe-2"></i>+60 12-472 9301</p>
                 </li>
                 <li>
-                  <p><i class="fas fa-envelope pe-2 mb-0"></i>contact@example.com</p>
+                  <p><i class="fas fa-envelope pe-2 mb-0"></i>p21013168@student.newinti.edu.my</p>
                 </li>
               </ul>
             </div>

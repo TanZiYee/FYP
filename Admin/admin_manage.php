@@ -22,7 +22,7 @@ if(isset($_POST['update_admin'])){
    $update_email = $_POST['update_email'];
    
    $update_phone = $_POST['update_phone'];
-   $update_password = $_POST['update_password'];
+   $update_password = password_hash($_POST['update_password'], PASSWORD_DEFAULT);
    
 
    $update_query = mysqli_query($con, "UPDATE `user` SET username = '$update_name', email = '$update_email',  phone = '$update_phone', password = '$update_password'WHERE userID = '$update_id'");
@@ -69,6 +69,8 @@ if(isset($_POST['update_admin'])){
         <!-- font awesome cdn link  -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
+        <!--Icon-->
+        <link rel="icon" href="../Image/airbnb.ico" />
 
 
 
@@ -417,7 +419,7 @@ if(isset($_POST['update_admin'])){
                                 <div class="form-group row">
                                     <label class="col-lg-2 col-form-label">Email</label>
 					<div class="col-lg-9">
-                                            <input type="text" class="form-control" required name="update_email" value="<?php echo $fetch_edit['email']; ?>" >
+                                            <input type="text" class="form-control" required name="update_email" value="<?php echo $fetch_edit['email']; ?>" required pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}" >
 					</div>
 				</div>
                                 <br>
@@ -431,7 +433,7 @@ if(isset($_POST['update_admin'])){
                                 <div class="form-group row">
                                     <label class="col-lg-2 col-form-label">Password</label>
 					<div class="col-lg-9">
-                                            <input type="password" class="form-control" required name="update_password" value="<?php echo $fetch_edit['password']; ?>">
+                                            <input type="password" class="form-control" required name="update_password" value="<?php echo $fetch_edit['password']; ?>" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters">
 					</div>
 				</div>
                                 <input type="submit" value="Update the Item" name="update_admin" class="option-btn">

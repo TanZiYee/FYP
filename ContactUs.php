@@ -8,7 +8,7 @@
    <link rel="stylesheet" href="CSS/bootstrap.min.css">
    
    <!--Icon-->
-   <link rel="icon" href="Image/airbnb.ico" /> 
+   <link rel="icon" href="Image/airbnb.ico" />
    
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
@@ -178,8 +178,6 @@
     <?php require_once ('header.php');?>
     
     <br><br>
-    <br>
-    <br>
     
         <?php echo $alert; ?>
     
@@ -188,8 +186,8 @@
               <div class="contact-info">
                 <br>
                 <div><i class="fas fa-map-marker-alt"></i>Bayan Lepas, Penang</div>
-                <div><i class="fas fa-envelope"></i>tanziyee28@gmail.com</div>
-                <div><i class="fas fa-phone"></i>+60 12-472 9301</div>
+                <div><i class="fas fa-envelope"></i>p21013168@student.newinti.edu.my</div>
+                <div><i class="fas fa-phone"></i>+6012-472 9301</div>
                 <div><i class="fas fa-clock"></i>Mon - Fri 8:00 AM to 5:00 PM</div>
               </div>
 
@@ -222,5 +220,4 @@
     <?php require_once ('footer.php');?>
 </body>
 </html>
-
 

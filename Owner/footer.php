@@ -38,7 +38,7 @@
   <!-- Remove the container if you want to extend the Footer to full width. -->
     <div class="footer">
 
-      <footer class="bg-primary text-center text-lg-start text-white">
+      <footer class="text-center text-lg-start text-white" style="background-color: #2F2F9C">
           
         <!-- Grid container -->
         <div class="container p-4">
@@ -135,7 +135,7 @@
                   <p><i class="fas fa-phone pe-2"></i>+60 12-472 9301</p>
                 </li>
                 <li>
-                  <p><i class="fas fa-envelope pe-2 mb-0"></i>contact@example.com</p>
+                  <p><i class="fas fa-envelope pe-2 mb-0"></i>p21013168@student.newinti.edu.my</p>
                 </li>
               </ul>
             </div>
@@ -146,9 +146,9 @@
         <!-- Grid container -->
 
         <!-- Copyright -->
-        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.1)">
           © 2020 Copyright:
-          <a class="text-white" href="">Airbnb.com</a>
+          <a class="text-white" href="">Homify.com</a>
         </div>
         
         
