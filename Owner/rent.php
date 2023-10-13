@@ -233,7 +233,7 @@ mysqli_close($con);
 
 <?php require_once 'header.php' ?> 
     
-    <h2 class="mt-5 pt-4 mb-4 text-center fw-bold h-font">Rooms</h2>
+    <h2 class="mt-5 pt-4 mb-4 text-center fw-bold h-font">Rent Out Rooms</h2>
 
     
     <div class="container my-5"> 
@@ -351,5 +351,8 @@ mysqli_close($con);
     
     
 </body>
+<br>
+<br>
+<br>
 <?php require_once 'footer.php' ?>
 </html>

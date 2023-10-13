@@ -353,5 +353,9 @@ mysqli_close($con);
     
     
 </body>
+
+<br>
+<br>
+<br>
 <?php require_once 'footer.php' ?>
 </html>

@@ -41,23 +41,6 @@ if(isset($_SESSION['userID'])){
         <br>
         
         <?php
-//            include 'db.php';
-//            
-//            if(!isset($_GET['propertyID'])){
-//                header("location: propertydetails.php");
-//                exit;
-//            }
-//            
-//            $data = filtration($_GET);
-//            
-//            $qry = select("SELECT * FROM property WHERE `propertyID`=?" ,$data['propertyID']);
-//            
-//            if(mysqli_num_rows($qry)==0){
-//                header("location: propertydetails.php?propertyID=" . $data['propertyID']);
-//                exit;
-//            }
-//            
-//            $row = mysqli_fetch_assoc($qry);
         
             include 'db.php'; // Include your database connection
 
@@ -192,10 +175,7 @@ if(isset($_SESSION['userID'])){
                     </div>
                 </div>
                 
-                
-                <div class="col-lg-3 col-md-12 mb-lg-0 mb-4 ps-4">
-                    
-                </div>
+               
                
                 
             </div>
@@ -287,7 +267,7 @@ if(isset($_SESSION['userID'])){
                                     </div>
                                 
                                     <div class="d-flex justify-content-evenly mb-2">
-                                        <a href="confirm_booking.php?propertyID=<?php echo $row['propertyID']; ?>" class="btn btn-primary">Book Now</a>
+                                        <a href="confirm_booking.php?propertyID=<?php echo $roomDetails['propertyID']; ?>" class="btn btn-primary">Book Now</a>
                                     </div>
                                     <!-- Add more room details as needed -->
                                 </div>

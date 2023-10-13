@@ -149,7 +149,7 @@
                  <br>
                <p class="text-blk name">Tan Zi Yee
                </p>
-               <p class="text-blk position">Development Team
+               <p class="text-blk position">Developer
                </p>
 
              </div>

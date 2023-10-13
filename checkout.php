@@ -299,8 +299,8 @@ if(isset($_POST['book']))
                                     <div class="inputBox">
                                         <span>Payment Method</span>
                                         <select name="paymentMethod">
-                                           <option value="cash" selected>Cash</option>
-                                           <option value="credit cart">Credit Card</option>
+                                           <option value="Cash" selected>Cash</option>
+                                           <option value="credit card">Credit Card</option>
                                            <option value="paypal">PayPal</option>
                                         </select>
                                     </div>

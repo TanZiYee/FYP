@@ -369,8 +369,9 @@ if(isset($_POST['update_booking'])){
 					<div class="col-lg-9">
                                             <select class="form-control" required name="update_status" value="<?php echo $fetch_edit['paymentStatus']; ?>">
                                                 <option value="">Select Status</option>
-                                                <option value="pending">Pending</option>
-                                                <option value="cancelled">Cancelled</option>
+                                                <option value="Pending">Pending</option>
+                                                <option value="Cancelled">Cancelled</option>
+                                                <option value="Paid">Paid</option>
                                             </select>
 					</div>
 				</div>
