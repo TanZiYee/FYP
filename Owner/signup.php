@@ -305,7 +305,7 @@ else{
 				<div class="form-row">                                   
 					<label for="password" class="fas fa-lock" > Password</label>
 					<input type="password" name="password" id="password" class="input-text" placeholder="Your Password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters">
-					
+					<p><small>Terms of Service. <a href="policy.php">Click Here</a>.</small></p>
 				</div>
                                 
                                 

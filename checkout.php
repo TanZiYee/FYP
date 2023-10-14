@@ -267,7 +267,7 @@ if(isset($_POST['book']))
                     <div class="card mb-4 border-0 shadow-sm rounded-3">
                         <div class="card-body">
                             <form method="post" id="booking_form">
-                                <h6 class="mb-3">BOOKING DETAILS</h6>
+                                <h6 class="mb-3">CHECKOUT FORM</h6>
                                 <?php echo $error; ?>
                                     <?php echo $msg; ?>	
                                 <div class="row">

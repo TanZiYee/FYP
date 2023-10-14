@@ -255,7 +255,17 @@ if(isset($_POST['update_product'])){
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="property_MP.php">Manage Property</a>
                                     <a class="nav-link" href="property_AP.php">Add Property</a>
+                                </nav>
+                            </div>
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                Booking
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="booking_list.php">Booking List</a>
+                                    <a class="nav-link" href="manage_booking.php">Manage Booking</a>
                                 </nav>
                             </div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
@@ -369,7 +379,7 @@ if(isset($_POST['update_product'])){
                                   <td><?php echo $row['propertyName']; ?></td>
                                   <td><?php echo $row['content']; ?></td>
                                   <td><?php echo $row['rentingType']; ?></td>
-                                  <td><?php echo $row['price']; ?></td>
+                                  <td>RM <?php echo $row['price']; ?> per night</td>
                                   <td><img src="../Owner/property/<?php echo $row['bill']; ?>" height="100" alt=""></td>
                                   <td>
                                      <a href="property_MP.php?delete=<?php echo $row['propertyID']; ?>" class="delete-btn"  onclick="return confirm('Are your sure you want to delete this?');"> <i class="fas fa-trash"></i> Delete </a>
@@ -431,7 +441,11 @@ if(isset($_POST['update_product'])){
                                 <div class="form-group row">
                                     <label class="col-lg-2 col-form-label">Renting Type</label>
 					<div class="col-lg-9">
-                                            <input type="text" class="form-control" required name="update_p_type" value="<?php echo $fetch_edit['rentingType']; ?>" >
+                                            <select class="form-control" required name="update_p_type" value="<?php echo $fetch_edit['rentingType']; ?>">
+                                                <option value="">Select Renting Type</option>
+                                                <option value="long">Long-Term</option>
+                                                <option value="short">Short-Term</option>
+                                            </select>
 					</div>
 				</div>
                                 <br>

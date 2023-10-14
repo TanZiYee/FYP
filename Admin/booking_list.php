@@ -93,7 +93,17 @@ include("server.php");
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="property_MP.php">Manage Property</a>
                                     <a class="nav-link" href="property_AP.php">Add Property</a>
+                                </nav>
+                            </div>
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                Booking
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="booking_list.php">Booking List</a>
+                                    <a class="nav-link" href="manage_booking.php">Manage Booking</a>
                                 </nav>
                             </div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
@@ -176,8 +186,10 @@ include("server.php");
                               <table id="datatablesSimple">
                                     <thead>
                                         <tr>
-                                           <th>Booking ID</th>
-                                            <th>Username</th>
+                                            <th>Booking ID</th>
+                                            <th>Property Name</th>
+                                            <th>Owner Name</th>
+                                            <th>Customer Name</th>
                                             <th>Email</th>
                                             <th>Phone Number</th>
                                             <th>Subtotal</th>
@@ -190,10 +202,12 @@ include("server.php");
                                     
                                      <?php
                                       include'server.php';
-                                      $booking_details="SELECT * FROM booking";
+                                      $booking_details="SELECT property.propertyName, owner.ownerName, booking.bookingID, booking.userName, booking.email, booking.phoneNum, booking.subtotal, booking.check_in, booking.check_out, booking.paymentMethod, booking.paymentStatus FROM property INNER JOIN owner ON owner.ownerID = property.ownerID INNER JOIN booking ON property.propertyID = booking.propertyID";
                                       $result_booking=mysqli_query($con, $booking_details);
                                       while($row_orders=mysqli_fetch_assoc($result_booking)){
                                           $bookingID=$row_orders['bookingID'];
+                                          $propertyName=$row_orders['propertyName'];
+                                          $ownerName=$row_orders['ownerName'];
                                           $userName=$row_orders['userName'];
                                           $email=$row_orders['email'];
                                           $phoneNum=$row_orders['phoneNum'];
@@ -205,10 +219,12 @@ include("server.php");
                                           $number=1;
                                           echo "<tr>
                                         <td>$bookingID</td>
+                                        <td>$propertyName</td>
+                                        <td>$ownerName</td>
                                         <td>$userName</td>
                                         <td>$email</td>
                                         <td>$phoneNum</td>
-                                        <td>$subtotal</td>
+                                        <td>RM $subtotal</td>
                                         <td>$check_in</td>
                                         <td>$check_out</td>
                                         <td>$paymentMethod</td>

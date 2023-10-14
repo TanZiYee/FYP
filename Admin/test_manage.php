@@ -2,41 +2,25 @@
 session_start();
 include("server.php");
 
+if(isset($_POST['update_booking'])){
+   $update_id = $_POST['update_id'];
+   $update_status = $_POST['update_status'];
 
-
-if(isset($_GET['delete'])){
-   $delete_id = $_GET['delete'];
-   $delete_query = mysqli_query($con, "DELETE FROM `user` WHERE userID = $delete_id ") or die('query failed');
-   if($delete_query){
-      $_SESSION['AdminStatus3'] = 'Added Unsuccessfully';          
-   }else{
-      $_SESSION['AdminStatus3'] = 'Added Unsuccessfully';
-   };
-};
-
-
-
-if(isset($_POST['update_product'])){
-   $update_p_id = $_POST['update_p_id'];
-   $update_p_name = $_POST['update_p_name'];
-   $update_p_email = $_POST['update_p_email'];
-   $update_p_phone = $_POST['update_p_phone'];
-
-   $update_query = mysqli_query($con, "UPDATE `user` SET username = '$update_p_name', email = '$update_p_email', phone = '$update_p_phone' WHERE userID = '$update_p_id'");
+   $update_query = mysqli_query($con, "UPDATE `booking` SET paymentStatus = '$update_status' WHERE bookingID = '$update_id'");
 
    
    if($update_query){
-      header('location:user_manage.php');
-      $_SESSION['AdminStatus4'] = 'Added Unsuccessfully';
+      header('location:manage_booking.php');
+      $_SESSION['AdminStatus4'] = 'Edit Unsuccessfully';
 
    }
    
    else{
-      $message[] = 'User could not be updated';
-      header('location:user_manage.php');
+      $message[] = 'Booking could not be edited';
+      header('location:manage_booking.php');
    }
 
-}
+}						
 
 ?>
 
@@ -68,6 +52,8 @@ if(isset($_POST['update_product'])){
 
         <!--Icon-->
         <link rel="icon" href="../Image/airbnb.ico" />
+
+
 
         
         
@@ -310,7 +296,7 @@ if(isset($_POST['update_product'])){
                             Swal.fire({
                             position: 'top-end',
                             icon: 'success',
-                            title: 'User Update Successfully',
+                            title: 'Booking Update Successfully',
                             showConfirmButton: false,
                             timer: 1500
                             })
@@ -325,7 +311,7 @@ if(isset($_POST['update_product'])){
                             ?>
                             <script>
                             Swal.fire(
-                                'User Deleted !',
+                                'Booking Deleted !',
                                 '',
                                 'success'
                             )
@@ -339,7 +325,7 @@ if(isset($_POST['update_product'])){
                     
                      
                     <br>
-                    <h3 style="text-align:center">  <i class="fas fa-tasks"></i> Manage User</h3>
+                    <h3 style="text-align:center">  <i class="fas fa-tasks"></i> Manage Booking</h3>
                     <br>
 
                      <div class="container">
@@ -349,36 +335,46 @@ if(isset($_POST['update_product'])){
                          <table>
 
                             <thead>
-                               <th>User ID</th>
-                               <th>Username</th>
+                               <th>Booking ID</th>
+                               <th>Property Name</th>
+                               <th>Owner Name</th>
+                               <th>Customer Name</th>
                                <th>Email</th>
-                               <th>Phone</th>
+                               <th>Phone Number</th>
+                               <th>Check-In Date</th>
+                               <th>Check-Out Date</th>
+                               <th>Payment Status</th>
                                <th>Action</th>
                             </thead>
 
                             <tbody>
                                <?php
 
-                                  $select_products = mysqli_query($con, "SELECT * FROM `user` WHERE usertype!='admin'");
+                                  $select_products = mysqli_query($con, "SELECT owner.ownerName, property.propertyName, booking.bookingID, booking.userName, booking.email, booking.phoneNum, booking.check_in, booking.check_out, booking.paymentStatus FROM property INNER JOIN owner ON owner.ownerID = property.ownerID INNER JOIN booking ON property.propertyID = booking.propertyID");
                                   if(mysqli_num_rows($select_products) > 0){
                                      while($row = mysqli_fetch_assoc($select_products)){
                                ?>
 
                                <tr>
-                                  <td><?php echo $row['userID']; ?></td>
-                                  <td><?php echo $row['username']; ?></td>
+                                  <td><?php echo $row['bookingID']; ?></td>
+                                  <td><?php echo $row['propertyName']; ?></td>
+                                  <td><?php echo $row['ownerName']; ?></td>
+                                  <td><?php echo $row['userName']; ?></td>
                                   <td><?php echo $row['email']; ?></td>
-                                  <td><?php echo $row['phone']; ?></td>
+                                  <td><?php echo $row['phoneNum']; ?></td>
+                                  <td><?php echo $row['check_in']; ?></td>
+                                  <td><?php echo $row['check_out']; ?></td>
+                                  <td><?php echo $row['paymentStatus']; ?></td>
                                   <td>
-                                     <a href="user_manage.php?delete=<?php echo $row['userID']; ?>" class="delete-btn"  onclick="return confirm('Are your sure you want to delete this?');"> <i class="fas fa-trash"></i> Delete </a>
-                                     <a href="user_manage.php?edit=<?php echo $row['userID']; ?>" class="option-btn"> <i class="fas fa-edit"></i> Update </a>
+                                     <!--<a href="BL_manage.php?delete=<?php echo $row['bookingID']; ?>" class="delete-btn"  onclick="return confirm('Are your sure you want to cancel this?');"> <i class="fas fa-trash"></i> Cancel </a>-->
+                                     <a href="manage_booking.php?edit=<?php echo $row['bookingID']; ?>" class="option-btn"> <i class="fas fa-edit"></i> Edit </a>
                                   </td>
                                </tr>
 
                                <?php
                                   };    
                                   }else{
-                                     echo "<div class='empty'>No product added</div>";
+                                     echo "<div class='empty'>No Booking Added</div>";
                                   };
                                ?>
                             </tbody>
@@ -395,45 +391,26 @@ if(isset($_POST['update_product'])){
 
                              if(isset($_GET['edit'])){
                                 $edit_id = $_GET['edit'];
-                                $edit_query = mysqli_query($con, "SELECT * FROM `user` WHERE userID = $edit_id");
+                                $edit_query = mysqli_query($con, "SELECT * FROM `booking` WHERE bookingID = $edit_id");
                                 if(mysqli_num_rows($edit_query) > 0){
                                    while($fetch_edit = mysqli_fetch_assoc($edit_query)){
                              ?>
 
                              <form action="" method="post" enctype="multipart/form-data">
-<!--                                <img src="uploaded_img/<?php echo $fetch_edit['image_path']; ?>" height="200" alt="">-->
-<!--                                <input type="hidden" name="update_p_id" value="<?php echo $fetch_edit['propertyID']; ?>">
-                                <input type="text" class="box" required name="update_p_name" value="<?php echo $fetch_edit['propertyName']; ?>" >
-                                <input type="text" class="box" required name="update_p_desc" value="<?php echo $fetch_edit['content']; ?>" >
-                                <input type="text" class="box" required name="update_p_type" value="<?php echo $fetch_edit['rentingType']; ?>" >
-                                <input type="number" min="0" class="box" required name="update_p_price" value="<?php echo $fetch_edit['price']; ?>">
-                                <input type="file" class="box" required name="update_p_image" accept="image/png, image/jpg, image/jpeg">
-                                <input type="submit" value="Update the Item" name="update_product" class="option-btn">
-                                <input type="reset" value="Cancel" id="close-edit" name="close-edit" class="option-btn">-->
-                                
-                                <input type="hidden" name="update_p_id" value="<?php echo $fetch_edit['userID']; ?>">
+                                <input type="hidden" name="update_id" value="<?php echo $fetch_edit['bookingID']; ?>">
                                 <div class="form-group row">
-                                    <label class="col-lg-2 col-form-label">Username</label>
+                                    <label class="col-lg-2 col-form-label">Status</label>
 					<div class="col-lg-9">
-                                            <input type="text" class="form-control" required name="update_p_name" value="<?php echo $fetch_edit['username']; ?>" >
+                                            <select class="form-control" required name="update_status" value="<?php echo $fetch_edit['paymentStatus']; ?>">
+                                                <option value="">Select Status</option>
+                                                <option value="Pending">Pending</option>
+                                                <option value="Cancelled">Cancelled</option>
+                                                <option value="Paid">Paid</option>
+                                            </select>
 					</div>
 				</div>
-                                <br>
-                                <div class="form-group row">
-                                    <label class="col-lg-2 col-form-label">Email</label>
-					<div class="col-lg-9">
-                                            <input type="text" class="form-control" required name="update_p_email" value="<?php echo $fetch_edit['email']; ?>" >
-					</div>
-				</div>
-                                <br>
-                                <div class="form-group row">
-                                    <label class="col-lg-2 col-form-label">Phone</label>
-					<div class="col-lg-9">
-                                            <input type="phone" class="form-control" required name="update_p_phone" value="<?php echo $fetch_edit['phone']; ?>" >
-					</div>
-				</div>
-                                <input type="submit" value="Update User" name="update_product" class="option-btn">
-                                 <a href="user_manage.php" class="option-btn"> Cancel </a>
+                                <input type="submit" value="Update Status" name="update_booking" class="option-btn">
+                                 <a href="BL_manage.php" class="option-btn"> Cancel </a>
 
                              </form>
 
@@ -447,8 +424,6 @@ if(isset($_POST['update_product'])){
                          </section>
 
                      </div>
-                     
-                     
                 </main>
                 
                 <br>

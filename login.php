@@ -256,7 +256,7 @@
 				<div class="form-row">
 					<label for="password" class="fas fa-lock"> Password</label>
 					<input type="password" name="password" id="password" class="input-text" placeholder="Your Password" required>
-                                        <p>Forgot Password? <a href="forgot.php">Click Here</a>.</p>
+                                        <p><small>Forgot Password? <a href="forgot.php">Click Here</a>.</small></p>
 				</div>
                                 
 				<div class="form-row-last">

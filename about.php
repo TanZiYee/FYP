@@ -114,7 +114,8 @@
   .section-head-text{
     text-align:center;
   }
-} 
+}
+
   </style>
   
 </head>
@@ -131,10 +132,8 @@
     <div class="responsive-container-block outer-container" style = "background: linear-gradient(to right,#71c9ce , #cbf1f5);" >
         
         <div class="responsive-container-block inner-container" >
-         <p class="text-blk section-head-text"> Meet Our Team
-         </p>
-         <p class="text-blk section-subhead-text"> The project managed by Waterfall 
-         </p>
+         <p class="text-blk section-head-text"> Meet Our Team</p>
+         <p class="text-blk section-subhead-text"> The project managed by Waterfall</p>
 
          <div class="responsive-container-block">
 
@@ -145,11 +144,8 @@
                    class="team-img" style="border-radius: 50%; width:250px" />
                </div>
                  <br>
-               <p class="text-blk name">Tan Zi Yee
-               </p>
-               <p class="text-blk position">Developer
-               </p>
-
+               <p class="text-blk name">Tan Zi Yee</p>
+               <p class="text-blk position">Developer</p>
              </div>
            </div>
 
