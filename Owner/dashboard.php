@@ -165,6 +165,29 @@ include("db.php");
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-danger text-white mb-4">
+                                    <div class="card-body"><i class="far fa-credit-card	"></i> 
+                                        Total Revenue</div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <a>
+                                         <?php
+                                            //Assuming you have already established a database connection.
+                                            $qry = "SELECT owner.ownerID, SUM(booking.subtotal) AS total_sales FROM owner INNER JOIN property ON owner.ownerID = property.ownerID INNER JOIN booking ON property.propertyID = booking.propertyID WHERE owner.ownerID ='$ownerID'";
+                                            $res = mysqli_query($con, $qry);
+                                            $total = mysqli_fetch_assoc($res);
+
+                                            // Total sales amount
+                                            $totalSales = $total['total_sales'];
+                                            
+                                            echo "<h5>RM $totalSales</h5>"                                                  
+                                        ?>   
+                                        
+                                        </a>
+                                        
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         
                         

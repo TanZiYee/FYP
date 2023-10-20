@@ -296,12 +296,12 @@ if(isset($_POST['book']))
                                         <input type="date" class="form-control shadow-none" value='<?php echo $check_out; ?>' name="check_out" required>
                                     </div>
                                     
-                                    <div class="inputBox">
-                                        <span>Payment Method</span>
-                                        <select name="paymentMethod">
-                                           <option value="Cash" selected>Cash</option>
-                                           <option value="credit card">Credit Card</option>
-                                           <option value="paypal">PayPal</option>
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label">Payment Method</label>
+                                        <select class="form-control" required name="rtype">
+                                            <option value="Cash">Cash</option>
+                                            <option value="credit">Credit or Debit Card</option>
+                                            <option value="paypal">PayPal</option>
                                         </select>
                                     </div>
                                 </div>

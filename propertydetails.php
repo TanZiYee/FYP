@@ -269,6 +269,10 @@ if(isset($_SESSION['userID'])){
                                     <div class="d-flex justify-content-evenly mb-2">
                                         <a href="confirm_booking.php?propertyID=<?php echo $roomDetails['propertyID']; ?>" class="btn btn-primary">Book Now</a>
                                     </div>
+                                    <form method="POST" action="add_to_wishlist.php">
+                                        <input type="hidden" name="propertyID" value="<?php echo $propertyID; ?>">
+                                        <button type="submit" class="btn btn-info" name="add" style="margin-left:550px;">Add to Wishlist</button>
+                                    </form>
                                     <!-- Add more room details as needed -->
                                 </div>
                             <?php endwhile; ?>

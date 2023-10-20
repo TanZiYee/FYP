@@ -361,7 +361,8 @@ if(isset($_POST['add']))
 										
                             </div>
 			</form>
-                    </div>            
+                    </div>
+                <br>
             </div>
         </div>
 	<!--	Submit property   -->

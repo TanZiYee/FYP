@@ -252,6 +252,30 @@ include("server.php");
                                     </div>
                                 </div>
                             </div>
+                            
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-danger text-white mb-4">
+                                    <div class="card-body"><i class="far fa-credit-card	"></i> 
+                                        Total Revenue</div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <a>
+                                         <?php
+                                            //Assuming you have already established a database connection.
+                                            $qry = "SELECT SUM(subtotal) AS total_sales FROM booking";
+                                            $res = mysqli_query($con, $qry);
+                                            $total = mysqli_fetch_assoc($res);
+
+                                            // Total sales amount
+                                            $totalSales = $total['total_sales'];
+                                            
+                                            echo "<h5>RM $totalSales</h5>"                                                  
+                                        ?>   
+                                        
+                                        </a>
+                                        
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         
                         
@@ -275,9 +299,7 @@ include("server.php");
                                 </div>
                             </div>
                         </div>
-                        
-                        
-                        
+                          
                         
                         <div class="card mb-4">
                             <div class="card-header">

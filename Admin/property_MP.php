@@ -97,7 +97,8 @@ if(isset($_POST['update_product'])){
 
 /*    .btn,*/
     .option-btn,
-    .delete-btn{
+    .delete-btn,
+    .contact-btn{
        display: block;
        width: 100%;
        text-align: center;
@@ -112,12 +113,14 @@ if(isset($_POST['update_product'])){
 
     .btn:hover,
     .option-btn:hover,
-    .delete-btn:hover{
+    .delete-btn:hover,
+    .contact-btn:hover{
        background-color: var(--black);
     }
 
     .option-btn i,
-    .delete-btn i{
+    .delete-btn i,
+    .contact-btn i{
        padding-right: .5rem;
     }
 
@@ -128,7 +131,11 @@ if(isset($_POST['update_product'])){
     .delete-btn{
        margin-top: 0;
        background-color: var(--red);
-    }    
+    }
+
+    .contact-btn{
+       background-color: #3CB043;
+    }
 
 
     .display-product-table table{
@@ -358,6 +365,8 @@ if(isset($_POST['update_product'])){
 
                             <thead>
                                <th>Property Image</th>
+                               <th>Owner Name</th>
+                               <th>Owner Email</th>
                                <th>Property Name</th>
                                <th>Property Description</th>
                                <th>Renting Type</th>
@@ -369,13 +378,15 @@ if(isset($_POST['update_product'])){
                             <tbody>
                                <?php
 
-                                  $select_products = mysqli_query($con, "SELECT * FROM `property`");
+                                  $select_products = mysqli_query($con, "SELECT property.propertyID, property.pimage1, property.propertyName, property.content, property.rentingType, property.price, property.bill, owner.ownerName, owner.Email FROM property INNER JOIN owner ON property.ownerID = owner.ownerID");
                                   if(mysqli_num_rows($select_products) > 0){
                                      while($row = mysqli_fetch_assoc($select_products)){
                                ?>
 
                                <tr>
                                   <td><img src="../Owner/property/<?php echo $row['pimage1']; ?>" height="100" alt=""></td>
+                                  <td><?php echo $row['ownerName']; ?></td>
+                                  <td><?php echo $row['Email']; ?></td>
                                   <td><?php echo $row['propertyName']; ?></td>
                                   <td><?php echo $row['content']; ?></td>
                                   <td><?php echo $row['rentingType']; ?></td>
@@ -384,13 +395,14 @@ if(isset($_POST['update_product'])){
                                   <td>
                                      <a href="property_MP.php?delete=<?php echo $row['propertyID']; ?>" class="delete-btn"  onclick="return confirm('Are your sure you want to delete this?');"> <i class="fas fa-trash"></i> Delete </a>
                                      <a href="property_MP.php?edit=<?php echo $row['propertyID']; ?>" class="option-btn"> <i class="fas fa-edit"></i> Update </a>
+                                     <a href="contact.php" class="contact-btn"> <i class="fas fa-contact"></i> Contact Owner </a>
                                   </td>
                                </tr>
 
                                <?php
                                   };    
                                   }else{
-                                     echo "<div class='empty'>No product added</div>";
+                                     echo "<div class='empty'>No property added</div>";
                                   };
                                ?>
                             </tbody>

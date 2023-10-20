@@ -218,15 +218,7 @@ if(isset($_SESSION['userID'])){
                     <h3 class="float-text text-white">Short-Term</h3>
                 </div>
                 </a>
-
-<!--                <a href="long.php">
-                <div class="box-3 float-container">
-                    <img src="Owner/image/long.jpg" alt="Long-Term" class="img-responsive img-curve">
-
-                    <h3 class="float-text text-white">Long-Term</h3>
-                </div>
-                </a>-->
-
+                
                 <a href="property_long.php">
                 <div class="box-3 float-container">
                     <img src="Owner/image/long.jpg" alt="Long-Term" class="img-responsive img-curve">
@@ -234,6 +226,16 @@ if(isset($_SESSION['userID'])){
                     <h3 class="float-text text-white">Long-Term</h3>
                 </div>
                 </a>
+
+                <a href="wishlist.php">
+                <div class="box-3 float-container">
+                    <img src="images/wishlist.jpg" alt="Wishlist" class="img-responsive img-curve">
+
+                    <h3 class="float-text text-white">Your Wishlist</h3>
+                </div>
+                </a>
+
+                
 
                 <div class="clearfix"></div>
             </div>

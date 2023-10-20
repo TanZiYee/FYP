@@ -90,7 +90,8 @@ if(isset($_POST['update_product'])){
 
 /*    .btn,*/
     .option-btn,
-    .delete-btn{
+    .delete-btn,
+    .contact-btn{
        display: block;
        width: 100%;
        text-align: center;
@@ -105,12 +106,14 @@ if(isset($_POST['update_product'])){
 
     .btn:hover,
     .option-btn:hover,
-    .delete-btn:hover{
+    .delete-btn:hover,
+    .contact-btn:hover{
        background-color: var(--black);
     }
 
     .option-btn i,
-    .delete-btn i{
+    .delete-btn i,
+    .contact-btn i{
        padding-right: .5rem;
     }
 
@@ -121,7 +124,11 @@ if(isset($_POST['update_product'])){
     .delete-btn{
        margin-top: 0;
        background-color: var(--red);
-    }    
+    }
+
+    .contact-btn{
+       background-color: #3CB043;
+    }
 
 
     .display-product-table table{
@@ -373,6 +380,7 @@ if(isset($_POST['update_product'])){
                                   <td>
                                      <a href="owner_manage.php?delete=<?php echo $row['ownerID']; ?>" class="delete-btn"  onclick="return confirm('Are your sure you want to delete this?');"> <i class="fas fa-trash"></i> Delete </a>
                                      <a href="owner_manage.php?edit=<?php echo $row['ownerID']; ?>" class="option-btn"> <i class="fas fa-edit"></i> Update </a>
+                                     <a href="contactOwner.php" class="contact-btn"> <i class="fas fa-contact"></i> Contact Owner </a>
                                   </td>
                                </tr>
 

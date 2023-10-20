@@ -238,7 +238,8 @@ if(isset($_POST['add_admin'])){
 										
                             </div>
 			</form>
-                    </div>            
+                    </div>
+                      <br>
             </div>
         </div>
                      

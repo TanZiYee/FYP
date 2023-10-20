@@ -6,6 +6,18 @@ if(isset($_SESSION['userID'])){
     $userID = $_SESSION['userID'];
 }else{
 }
+
+include "db.php";
+
+if(isset($_GET['delete'])){
+   $delete_id = $_GET['delete'];
+   $delete_query = mysqli_query($con, "DELETE FROM wishlist WHERE wishlistID = $delete_id ") or die('query failed');
+   if($delete_query){
+      $_SESSION['AdminStatus3'] = 'Deleted Successfully';          
+   } else {
+      $_SESSION['AdminStatus3'] = 'Deletion Failed';
+   }
+}
 ?>
 
 <!DOCTYPE html>
@@ -24,13 +36,49 @@ if(isset($_SESSION['userID'])){
             width: 1000px;
             height: 300px;
         }
+        .delete-btn{
+            margin-top: 0;
+            background-color: var(--red);
+         } 
     </style>
     </head>
     <body  style = "background: linear-gradient(to right,#71c9ce , #eeeeee);"  >
         <?php require './header.php'; ?>
         
+        <?php 
+                        if(isset($_SESSION['AdminStatus4'])){
+                            ?>
+                            <script>
+                            Swal.fire({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: 'Admin Update Successfully',
+                            showConfirmButton: false,
+                            timer: 1500
+                            })
+                            </script>
+                    <?php
+                         unset($_SESSION['AdminStatus4']);  
+                        }
+                    ?>
+                     
+                    <?php 
+                        if(isset($_SESSION['AdminStatus3'])){
+                            ?>
+                            <script>
+                            Swal.fire(
+                                'Admin Deleted !',
+                                '',
+                                'success'
+                            )
+                            </script>
+                       <?php
+                            unset($_SESSION['AdminStatus3']);  
+                        }
+                    ?>
+        
         <div class="my-5 px-4">
-            <h2 class="fw-bold h-font text-center">OUR ROOMS</h2>
+            <h2 class="fw-bold h-font text-center">YOUR WISHLIST</h2>
             <div class="h-line bg-dark">
             </div>
         </div>
@@ -69,7 +117,7 @@ if(isset($_SESSION['userID'])){
                     
                     <?php 
                         include 'db.php';
-                        $qry = $con->query("SELECT * FROM property WHERE rentingType='short' && status='available'");
+                        $qry = $con->query("SELECT property.propertyID, property.pimage1, property.propertyName, property.bedroom, property.bathroom, property.balcony, property.hall, property.price, wishlist.wishlistID FROM property INNER JOIN wishlist ON property.propertyID = wishlist.propertyID WHERE userID = '$userID'");
                         while($row=mysqli_fetch_array($qry))
                         {
                     ?>
@@ -101,6 +149,8 @@ if(isset($_SESSION['userID'])){
                             <h6 class="mb-4">RM <?php echo $row['price']?> per night</h6>
                             <a href="confirm_booking.php?propertyID=<?php echo $row['propertyID']; ?>" class="btn btn-primary w-100 mb-2">Book Now</a>
                             <a href="propertydetails.php?propertyID=<?php echo $row['propertyID']; ?>" class="btn btn-sm w-100 btn-outline-dark">More Details</a>
+                            <hr>
+                            <a href="wishlist.php?delete=<?php echo $row['wishlistID']; ?>" class="delete-btn" onclick="return confirm('Are you sure you want to delete this?');">Delete</a>
                         </div>
                       </div>
                     </div>

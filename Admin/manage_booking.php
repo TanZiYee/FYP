@@ -338,7 +338,7 @@ if(isset($_POST['update_booking'])){
                                <th>Booking ID</th>
                                <th>Property Name</th>
                                <th>Owner Name</th>
-                               <th>Email</th>
+                               <th>User Email</th>
                                <th>Phone Number</th>
                                <th>Check-In Date</th>
                                <th>Check-Out Date</th>

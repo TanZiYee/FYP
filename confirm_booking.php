@@ -141,7 +141,7 @@ function insertBooking($check_in, $check_out, $price, $totalCost, $userID) {
 
             // Check if propertyID is provided in the URL
             if (!isset($_GET['propertyID'])) {
-                header("Location: property.php"); // Redirect to a different page if propertyID is missing
+                header("Location: category.php"); // Redirect to a different page if propertyID is missing
                 exit;
             }
 

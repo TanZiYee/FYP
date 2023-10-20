@@ -1,6 +1,6 @@
 <?php  
  $connect = mysqli_connect("localhost", "root", "", "airbnb",3307);  
- $query = "SELECT ItemType, count(*) as number FROM item GROUP BY ItemType";  
+ $query = "SELECT rentingType, count(*) as number FROM item GROUP BY ItemType";  
  $result = mysqli_query($connect, $query);  
  ?>  
 
