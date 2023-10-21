@@ -208,7 +208,7 @@ if (isset($_POST['pwdrst'])) {
         if ($res > 0) {
             $message = '<div>
              <p><b>Hello!</b></p>
-             <p>You are receiving this email because we noticed that this account have done some illegal stuff. Hence, this account will be deleted soon (Within 3 days).</p>
+             <p>You are receiving this email because your booking is cancelled.</p>
              <br>
              <p>If you any have queries, feel free to contact us.</p>
             </div>';
@@ -227,7 +227,7 @@ if (isset($_POST['pwdrst'])) {
             $mail->Password = "Zy_252811002050810"; // Replace with your email password
             $mail->FromName = "Homify";
             $mail->AddAddress($email);
-            $mail->Subject = "Noticed! Your Account will be Deleted.";
+            $mail->Subject = "Noticed! Your Booking is Cancelled.";
             $mail->isHTML(true);
             $mail->Body = $message;
 

@@ -75,7 +75,8 @@ if(isset($_POST['update_booking'])){
 
 /*    .btn,*/
     .option-btn,
-    .delete-btn{
+    .delete-btn,
+    .contact-btn{
        display: block;
        width: 100%;
        text-align: center;
@@ -90,12 +91,14 @@ if(isset($_POST['update_booking'])){
 
     .btn:hover,
     .option-btn:hover,
-    .delete-btn:hover{
+    .delete-btn:hover,
+    .contact-btn:hover{
        background-color: var(--black);
     }
 
     .option-btn i,
-    .delete-btn i{
+    .delete-btn i,
+    .contact-btn i{
        padding-right: .5rem;
     }
 
@@ -106,7 +109,11 @@ if(isset($_POST['update_booking'])){
     .delete-btn{
        margin-top: 0;
        background-color: var(--red);
-    }    
+    }
+
+    .contact-btn{
+       background-color: #3CB043;
+    }
 
 
     .display-product-table table{
@@ -366,6 +373,7 @@ if(isset($_POST['update_booking'])){
                                   <td>
                                      <!--<a href="BL_manage.php?delete=<?php echo $row['bookingID']; ?>" class="delete-btn"  onclick="return confirm('Are your sure you want to cancel this?');"> <i class="fas fa-trash"></i> Cancel </a>-->
                                      <a href="manage_booking.php?edit=<?php echo $row['bookingID']; ?>" class="option-btn"> <i class="fas fa-edit"></i> Edit </a>
+                                     <a href="contactUserBooking.php" class="contact-btn"> <i class="fas fa-contact"></i> Contact User </a>
                                   </td>
                                </tr>
 

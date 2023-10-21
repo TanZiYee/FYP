@@ -97,11 +97,12 @@
                    <span>Phone Number: <?php echo $_SESSION['phoneNo'];?></span><br>
                   
 
-
+                   <hr>
 
                    <div class="button mt-2 d-flex flex-row align-items-center">
                        <form method="post" action="">
                            <input type="submit" class="btn btn-sm btn-outline-primary w-100" name="logout" value="Logout"/>
+                           <p><small>Terms of Service. <a href="policy.php">Click Here</a>.</small></p>
                         </form>
                        
                    </div>

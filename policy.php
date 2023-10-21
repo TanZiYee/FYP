@@ -239,7 +239,7 @@
             </div>
             <h4>I Agree to the <span>Terms of Service</span> and I read the Privacy Notice.</h4>
             <div class="buttons">
-                <button class="btn red-btn"><a href="signup.php">Noted!</a></button>              
+                <button class="btn red-btn"><a href="profile.php">Noted!</a></button>              
             </div>
         </div>
     </body>
