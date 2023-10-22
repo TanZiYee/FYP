@@ -349,7 +349,7 @@ if(isset($_POST['update_booking'])){
                                <th>Phone Number</th>
                                <th>Check-In Date</th>
                                <th>Check-Out Date</th>
-                               <th>Payment Status</th>
+                               <th>Booking Status</th>
                                <th>Action</th>
                             </thead>
 

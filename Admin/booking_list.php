@@ -196,7 +196,7 @@ include("server.php");
                                             <th>Check-In Date</th>
                                             <th>Check-Out Date</th>
                                             <th>Payment Method</th>
-                                            <th>Payment Status</th>
+                                            <th>Booking Status</th>
                                         </tr>
                                     </thead>
                                     

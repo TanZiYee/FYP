@@ -80,7 +80,7 @@ include("db.php");
                                             <th>Check-Out Date</th>
                                             <th>Subtotal</th>
                                             <th>Payment Method</th>
-                                            <th>Payment Status</th>
+                                            <th>Booking Status</th>
                                         </tr>
                                     </thead>
                                     

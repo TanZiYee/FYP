@@ -96,7 +96,8 @@ if(isset($_POST['update_booking'])){
 
 /*    .btn,*/
     .option-btn,
-    .delete-btn{
+    .delete-btn,
+    .contact-btn{
        display: block;
        width: 100%;
        text-align: center;
@@ -111,12 +112,14 @@ if(isset($_POST['update_booking'])){
 
     .btn:hover,
     .option-btn:hover,
-    .delete-btn:hover{
+    .delete-btn:hover,
+    .contact-btn:hover{
        background-color: var(--black);
     }
 
     .option-btn i,
-    .delete-btn i{
+    .delete-btn i,
+    .contact-btn i{
        padding-right: .5rem;
     }
 
@@ -129,6 +132,9 @@ if(isset($_POST['update_booking'])){
        background-color: var(--red);
     }    
 
+    .contact-btn{
+       background-color: #3CB043;
+    }
 
     .display-product-table table{
        width: 100%;
@@ -234,7 +240,7 @@ if(isset($_POST['update_booking'])){
                             <div class="sb-sidenav-menu-heading">Interface</div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                Property
+                                Booking
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
@@ -310,7 +316,7 @@ if(isset($_POST['update_booking'])){
                                <th>Phone Number</th>
                                <th>Check-In Date</th>
                                <th>Check-Out Date</th>
-                               <th>Payment Status</th>
+                               <th>Booking Status</th>
                                <th>Action</th>
                             </thead>
 
@@ -334,6 +340,8 @@ if(isset($_POST['update_booking'])){
                                   <td>
                                      <!--<a href="BL_manage.php?delete=<?php echo $row['bookingID']; ?>" class="delete-btn"  onclick="return confirm('Are your sure you want to cancel this?');"> <i class="fas fa-trash"></i> Cancel </a>-->
                                      <a href="BL_manage.php?edit=<?php echo $row['bookingID']; ?>" class="option-btn"> <i class="fas fa-edit"></i> Edit </a>
+                                     <a href="contactUserBooking.php" class="contact-btn"> <i class="fas fa-contact"></i> Contact User </a>
+
                                   </td>
                                </tr>
 
