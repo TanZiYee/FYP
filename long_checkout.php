@@ -27,13 +27,14 @@ if(isset($_POST['book']))
         $check_in = $_SESSION['check_in'];
         $check_out = $_SESSION['check_out'];
         $paymentMethod = $_POST['paymentMethod'];
+        $month = $_POST['month'];
 //        $totalCost = $_SESSION['totalCost'];
         $userID = $_SESSION['userID'];
         $propertyID = $_SESSION['propertyID'];
 //        $ownerID = $_SESSION['ownerID'];
 	
-	$sql="insert into booking (userName,email,phoneNum,subtotal,check_in, check_out, paymentMethod,  paymentStatus, userID, propertyID )
-	values('$userName','$email', '$phoneNum', '$subtotal', '$check_in', '$check_out', '$paymentMethod', 'Pending', '$userID', '$propertyID')";
+	$sql="insert into booking (userName,email,phoneNum,subtotal,check_in, check_out, paymentMethod,  paymentStatus, month, userID, propertyID )
+	values('$userName','$email', '$phoneNum', '$subtotal', '$check_in', '$check_out', '$paymentMethod', 'Pending', '$month','$userID', '$propertyID')";
 	$result=mysqli_query($con,$sql);
 	if($result)
 		{
@@ -42,6 +43,11 @@ if(isset($_POST['book']))
                           <div class='order-message-container'>
                           <br>
                           <div class='message-container'>
+                          <br>
+                          <br>
+                          <br>
+                          <br>
+                          <br>
                           <br>
                           <br>
                           <br>
@@ -55,7 +61,8 @@ if(isset($_POST['book']))
                                 <p> Your Number : <span>".$phoneNum."</span> </p>
                                 <p> Your Check-In Date : <span>".$check_in."</span> </p>
                                 <p> Your Check-Out Date : <span>".$check_out."</span> </p>
-                                <p> Your Payment Method : <span>".$paymentMethod."</span> </p>
+                                <p> Your Payment Method : <span> ".$paymentMethod."</span> </p>
+                                <p> Number of Month : <span>".$month." months</span> </p>
                                 <p>(*Pay when meets the owner*)</p>
                              </div>
                                 <a href='index.php' class='btn btn-info'>Continue Renting!</a>
@@ -196,7 +203,7 @@ if(isset($_POST['book']))
 
         .order-message-container .message-container{
            width: 50rem;
-           height: 58rem;
+           height: 70rem;
            background-color: white;
            border-radius: .5rem;
            padding:1rem;
@@ -303,6 +310,10 @@ if(isset($_POST['book']))
                                             <option value="credit">Credit or Debit Card</option>
                                             <option value="paypal">PayPal</option>
                                         </select>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label">Total Month Booking (in MONTH)</label>
+                                        <input type="number" class="form-control shadow-none" name="month" required placeholder="Enter Number of Month">
                                     </div>
                                 </div>
                                 <br>

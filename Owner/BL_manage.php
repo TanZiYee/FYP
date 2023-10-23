@@ -96,7 +96,7 @@ if(isset($_POST['update_booking'])){
 
 /*    .btn,*/
     .option-btn,
-    .delete-btn,
+    .remind-btn,
     .contact-btn{
        display: block;
        width: 100%;
@@ -112,13 +112,13 @@ if(isset($_POST['update_booking'])){
 
     .btn:hover,
     .option-btn:hover,
-    .delete-btn:hover,
+    .remind-btn:hover,
     .contact-btn:hover{
        background-color: var(--black);
     }
 
     .option-btn i,
-    .delete-btn i,
+    .remind-btn i,
     .contact-btn i{
        padding-right: .5rem;
     }
@@ -127,7 +127,7 @@ if(isset($_POST['update_booking'])){
        background-color: var(--orange);
     }
 
-    .delete-btn{
+    .remind-btn{
        margin-top: 0;
        background-color: var(--red);
     }    
@@ -311,6 +311,7 @@ if(isset($_POST['update_booking'])){
                             <thead>
                                <th>Booking ID</th>
                                <th>Property Name</th>
+                               <th>Renting Type</th>
                                <th>Customer Name</th>
                                <th>Email</th>
                                <th>Phone Number</th>
@@ -323,7 +324,7 @@ if(isset($_POST['update_booking'])){
                             <tbody>
                                <?php
 
-                                  $select_products = mysqli_query($con, "SELECT property.propertyName, booking.bookingID, booking.userName, booking.email, booking.phoneNum, booking.check_in, booking.check_out, booking.paymentStatus FROM property INNER JOIN booking ON property.propertyID = booking.propertyID WHERE ownerID='$ownerID'");
+                                  $select_products = mysqli_query($con, "SELECT property.propertyName, property.rentingType, booking.bookingID, booking.userName, booking.email, booking.phoneNum, booking.check_in, booking.check_out, booking.paymentStatus FROM property INNER JOIN booking ON property.propertyID = booking.propertyID WHERE ownerID='$ownerID'");
                                   if(mysqli_num_rows($select_products) > 0){
                                      while($row = mysqli_fetch_assoc($select_products)){
                                ?>
@@ -331,6 +332,7 @@ if(isset($_POST['update_booking'])){
                                <tr>
                                   <td><?php echo $row['bookingID']; ?></td>
                                   <td><?php echo $row['propertyName']; ?></td>
+                                  <td><?php echo $row['rentingType']; ?></td>
                                   <td><?php echo $row['userName']; ?></td>
                                   <td><?php echo $row['email']; ?></td>
                                   <td><?php echo $row['phoneNum']; ?></td>
@@ -339,8 +341,10 @@ if(isset($_POST['update_booking'])){
                                   <td><?php echo $row['paymentStatus']; ?></td>
                                   <td>
                                      <!--<a href="BL_manage.php?delete=<?php echo $row['bookingID']; ?>" class="delete-btn"  onclick="return confirm('Are your sure you want to cancel this?');"> <i class="fas fa-trash"></i> Cancel </a>-->
+                                     <a href="reminder.php" class="remind-btn"> <i class="fas fa-contact"></i> Remind User </a>
                                      <a href="BL_manage.php?edit=<?php echo $row['bookingID']; ?>" class="option-btn"> <i class="fas fa-edit"></i> Edit </a>
                                      <a href="contactUserBooking.php" class="contact-btn"> <i class="fas fa-contact"></i> Contact User </a>
+                                     
 
                                   </td>
                                </tr>
