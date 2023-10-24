@@ -23,20 +23,18 @@ if(isset($_POST['book']))
         $email = $_POST['email'];
         $phoneNum = $_POST['phoneNum'];
         $subtotal = $_SESSION['totalCost'];
-                //$_POST['subtotal'];
         $check_in = $_SESSION['check_in'];
         $check_out = $_SESSION['check_out'];
         $paymentMethod = $_POST['paymentMethod'];
-//        $totalCost = $_SESSION['totalCost'];
         $userID = $_SESSION['userID'];
         $propertyID = $_SESSION['propertyID'];
-//        $ownerID = $_SESSION['ownerID'];
 	
 	$sql="insert into booking (userName,email,phoneNum,subtotal,check_in, check_out, paymentMethod,  paymentStatus, userID, propertyID )
 	values('$userName','$email', '$phoneNum', '$subtotal', '$check_in', '$check_out', '$paymentMethod', 'Pending', '$userID', '$propertyID')";
 	$result=mysqli_query($con,$sql);
 	if($result)
 		{
+                        // Invoice
 			$msg="<p class='alert alert-success'>Booking Successfully</p>";
                         echo "
                           <div class='order-message-container'>

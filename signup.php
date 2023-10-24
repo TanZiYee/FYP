@@ -117,7 +117,7 @@ else{
                             
 				<h2>Sign Up</h2> 
                                 
-                                
+                                <!-- is a pattern that matches against a string of any length, as long as the string contains only lowercase letters ( a-z ), uppercase letters ( A-Z ), or numerals ( 0-9 )-->
 				<div class="form-row" >  
                                     <label for="full-name" class="fas fa-user">Username</label>          
 					<input type="text" name="username" id="username" class="input-text" placeholder="Your Name" required pattern="[A-Za-z0-9]+">                                       

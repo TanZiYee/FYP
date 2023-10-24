@@ -2,6 +2,7 @@
 
 session_start();
 
+//Retrieve user session
 if(isset($_SESSION['userID'])){
     $userID = $_SESSION['userID'];
 }else{

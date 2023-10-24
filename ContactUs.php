@@ -23,13 +23,7 @@
     body{ 
       min-height: 100vh;
       background: linear-gradient(to right, #b92b27, #1565c0);
-/*     background-size: cover;
-      display: flex;
-      justify-content: center;
-      align-items: center;*/
     }
-
-
 
     .contact-section{
       width: 100%;

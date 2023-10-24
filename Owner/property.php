@@ -3,9 +3,7 @@
 session_start();
 
 if(isset($_SESSION['ownerID'])){
-  //  $ownerID = $_SESSION['ownerID'];
-  
-    
+  $ownerID = $_SESSION['ownerID'];
 }else{
 }
 ?>

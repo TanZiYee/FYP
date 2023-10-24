@@ -12,22 +12,7 @@ if(isset($_GET['delete'])){
    }else{
       $_SESSION['AdminStatus3'] = 'Added Unsuccessfully';
    };
-};
-
-
-
-//$sql="insert into user (usertype,username,email,phone)
-//	values('admin','$username','$email','$phone')";
-//$result=mysqli_query($con,$sql);
-//if($result)
-//{
-//        $msg="<p class='alert alert-success'>Admin Inserted Successfully</p>";
-//
-//}
-//else
-//{
-//        $error="<p class='alert alert-warning'>Admin Not Inserted</p>";
-//}						
+};					
 
 ?>
 
@@ -377,69 +362,8 @@ if(isset($_GET['delete'])){
 
                          </section>
 
-
-
-
-<!--                         <section class="edit-form-container">
-
-                             <?php
-
-                             if(isset($_GET['edit'])){
-                                $edit_id = $_GET['edit'];
-                                $edit_query = mysqli_query($con, "SELECT * FROM `user` WHERE userID = $edit_id");
-                                if(mysqli_num_rows($edit_query) > 0){
-                                   while($fetch_edit = mysqli_fetch_assoc($edit_query)){
-                             ?>
-
-                             <form action="" method="post" enctype="multipart/form-data">
-                                <img src="uploaded_img/<?php echo $fetch_edit['image_path']; ?>" height="200" alt="">
-                                <input type="hidden" name="update_p_id" value="<?php echo $fetch_edit['propertyID']; ?>">
-                                <input type="text" class="box" required name="update_p_name" value="<?php echo $fetch_edit['propertyName']; ?>" >
-                                <input type="text" class="box" required name="update_p_desc" value="<?php echo $fetch_edit['content']; ?>" >
-                                <input type="text" class="box" required name="update_p_type" value="<?php echo $fetch_edit['rentingType']; ?>" >
-                                <input type="number" min="0" class="box" required name="update_p_price" value="<?php echo $fetch_edit['price']; ?>">
-                                <input type="file" class="box" required name="update_p_image" accept="image/png, image/jpg, image/jpeg">
-                                <input type="submit" value="Update the Item" name="update_product" class="option-btn">
-                                <input type="reset" value="Cancel" id="close-edit" name="close-edit" class="option-btn">
-                                
-                                <input type="hidden" name="update_p_id" value="<?php echo $fetch_edit['userID']; ?>">
-                                <div class="form-group row">
-                                    <label class="col-lg-2 col-form-label">Username</label>
-					<div class="col-lg-9">
-                                            <input type="text" class="form-control" required name="update_p_name" value="<?php echo $fetch_edit['username']; ?>" >
-					</div>
-				</div>
-                                <br>
-                                <div class="form-group row">
-                                    <label class="col-lg-2 col-form-label">Email</label>
-					<div class="col-lg-9">
-                                            <input type="text" class="form-control" required name="update_p_email" value="<?php echo $fetch_edit['email']; ?>" >
-					</div>
-				</div>
-                                <br>
-                                <div class="form-group row">
-                                    <label class="col-lg-2 col-form-label">Phone</label>
-					<div class="col-lg-9">
-                                            <input type="phone" class="form-control" required name="update_p_phone" value="<?php echo $fetch_edit['phone']; ?>" >
-					</div>
-				</div>
-                                <input type="submit" value="Update User" name="update_product" class="option-btn">
-                                <input type="reset" value="Cancel" id="close-edit" name="close-edit" class="option-btn">
-
-                             </form>
-
-                             <?php
-                                      };
-                                   };
-                                   echo "<script>document.querySelector('.edit-form-container').style.display = 'flex';</script>";
-                                };
-                             ?>
-
-                         </section>-->
-
                      </div>
-                     
-                     
+                    
                 </main>
                 
                 <br>

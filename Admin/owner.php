@@ -249,27 +249,6 @@ include("server.php");
         
         <script>
             
-//             $(document).ready(function(){
-//                var empDataTable = $('#datatablesSimple').DataTable({
-//                    'processing': true,
-//                    'serverSide': true,
-//                    'serverMethod': 'post',
-//                    'ajax': {
-//                        'url':'ajaxfile.php'
-//                    },
-//                    pageLength: 5,
-//                    'columns': [
-//                        { data: 'userID' },
-//                        { data: 'username' },
-//                        { data: 'email' },
-//                        { data: 'phone' }
-//                    ]
-//                });
-//            });    
-            
-            
-            
-            
            google.charts.load('current', {'packages':['corechart']});  
            google.charts.setOnLoadCallback(drawChart);  
            function drawChart()  

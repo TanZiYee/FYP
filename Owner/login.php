@@ -1,36 +1,4 @@
 <?php 
-//session_start();
-//
-//// Check if the form is submitted
-//if ($_SERVER["REQUEST_METHOD"] == "POST") {
-//    // Perform user authentication (check username and password)
-//    // If authentication is successful, set session variables
-//    
-////    $_SESSION['ownerID'] = $ownerID; // Store the user's ID 
-////    $_SESSION['Email'] = $Email; // Store the username
-////    $_SESSION['password'] = $password;
-//    // Add other relevant data to the session
-//    
-//    $Email = $_POST['Email'];
-//    $password = $_POST['password'];
-//    
-//     // Perform a query to check the credentials
-//    $query = "SELECT ownerID FROM owner WHERE Email = '$Email' AND password = '$password'";
-//    $result = mysqli_query($con, $query);    
-//    
-//    if ($result && mysqli_num_rows($result) == 1) {
-//        // Valid credentials, retrieve ownerID and store it in a session variable
-//        $row = mysqli_fetch_assoc($result);
-//      //  $_SESSION['ownerID'] = $row['ownerID'];
-//        //echo $row;
-//        // Redirect to the owner's dashboard or wherever you want to send them
-//      //  header('Location: index.php');
-//        exit();
-//    } else {
-//        // Invalid credentials, show an error message
-//        $error_message = "Invalid username or password. Please try again.";
-//    }
-//}
 
 ?>
 

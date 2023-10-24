@@ -1,30 +1,3 @@
-<?php
-//session_start();
-//
-//$con = mysqli_connect("localhost","root","","airbnb", 3307);
-//
-//
-//if ($_SERVER['REQUEST_METHOD'] == "POST"){
-//    
-//    $userName = $_POST['userName'];
-//    $phoneNum = $_POST['phoneNum'];
-//    $check_in = $_POST['check_in'];
-//    $check_out = $_POST['check_out'];
-//    $days_no = $_POST['days_no'];
-// 
-//
-//$s = " select * from booking where userName = '$userName'";
-//
-//$result = mysqli_query($con, $s);
-//
-//$num = mysqli_num_rows($result);
-//
-//$sql="insert into booking (userName, phoneNum, check-in, check-out, days_no)
-//	values('$userName', '$phoneNum', '$check_in', '$check_out', '$days_no')";
-//	$result=mysqli_query($con,$sql);
-//
-//}
-?>
 
 <?php
 session_start();
@@ -252,39 +225,6 @@ function insertBooking($check_in, $check_out, $price, $totalCost, $userID) {
                                 </div>
                                 <div id="paypal-payment-button"></div>
                             </form>
-                            
-<!--                            <form action="#" id="booking_form">
-                                <h6 class="mb-3">BOOKING DETAILS</h6>
-                                <div class="row">
-                                    <div class="col-md-6 mb-3">
-                                        <label class="form-label">Name</label>
-                                        <input type="text" class="form-control shadow-none" name="userName" required placeholder="Enter Your Name">
-                                    </div>
-                                    <div class="col-md-6 mb-3">
-                                        <label class="form-label">Phone Number</label>
-                                        <input type="number" class="form-control shadow-none" name="phoneNum" required placeholder="Enter Your Phone">
-                                    </div>
-                                    <div class="col-md-6 mb-3">
-                                        <label class="form-label">Check-in</label>
-                                        <input type="date" class="form-control shadow-none" name="check_in" required>
-                                    </div>
-                                    <div class="col-md-6 mb-3">
-                                        <label class="form-label">Check-out</label>
-                                        <input type="date" class="form-control shadow-none" name="check_out" required>
-                                    </div>
-                                    <div class="col-md-6 mb-4">
-                                        <label class="form-label" name="price_per_night">Price: </label>
-                                        RM <?php // echo $row['price']; ?> per night
-                                    </div>
-                                    <button type="submit">Calculate Total Cost</button>
-                                    <div class="col-12 mb-3">
-                                        <h6 class="mb-3 text-danger">Provide check-in, check-out date & days!</h6>
-                                        <button name="pay_now" class="btn btn-primary w-100 mb-1">Pay Now</button>
-                                        <a href="checkout.php" class="btn btn-primary w-100 mb-1">Pay Now</a>
-                                    </div>
-                                    <div id="paypal-payment-button"></div>
-                                </div>
-                            </form>-->
                         </div>    
                     </div>
                         <?php } ?>

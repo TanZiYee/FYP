@@ -64,18 +64,6 @@ include("db.php");
                 </div>
             </form>
             
-            <!-- Navbar-->
-<!--            <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="setting.php">Settings</a></li>
-                       
-                        <li><hr class="dropdown-divider" /></li>
-                        <li><a class="dropdown-item" onclick="sweetalert()" >Logout</a></li>
-                    </ul>
-                </li>
-            </ul>-->
         </nav>
         
         <div id="layoutSidenav">
@@ -302,29 +290,8 @@ include("db.php");
         <script src="assets/demo/chart-bar-demo.js"></script>
         <script src="js/datatables-simple-demo.js"></script>
         
-        <script>
-            
-//             $(document).ready(function(){
-//                var empDataTable = $('#datatablesSimple').DataTable({
-//                    'processing': true,
-//                    'serverSide': true,
-//                    'serverMethod': 'post',
-//                    'ajax': {
-//                        'url':'ajaxfile.php'
-//                    },
-//                    pageLength: 5,
-//                    'columns': [
-//                        { data: 'userID' },
-//                        { data: 'username' },
-//                        { data: 'email' },
-//                        { data: 'phone' }
-//                    ]
-//                });
-//            });    
-            
-            
-            
-            
+        <script>      
+             
            google.charts.load('current', {'packages':['corechart']});  
            google.charts.setOnLoadCallback(drawChart);  
            function drawChart()  

@@ -93,87 +93,9 @@ if(isset($_SESSION['userID'])){
         </a>
         
     </div>
-      
-    
-     <?php // require_once ('popup.php'); ?>
     
 
     <?php require_once ('splitscreen.php'); ?>
-    
-       
-   
-    
-    
-    
-<!--  Start What-Customer-Say Section
-  <div class="what-say" >
-    <center>
-    <h2>Customer <b>Review</b></h2>
-    <hr width="15%" color="red"  size="5px" />
-    </center>
-    
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <div id="testimonial-slider" class="owl-carousel">
-              
-            <div class="testimonial">
-              <div class="testimonial-content">
-                <div class="testimonial-icon">
-                  <i class="fa fa-quote-left"></i>
-                </div>
-                <p class="description">
-                  Taste Good !
-                </p>
-              </div>
-              <h3 class="title">ZC</h3>
-            </div>
-
-            <div class="testimonial">
-              <div class="testimonial-content">
-                <div class="testimonial-icon">
-                  <i class="fa fa-quote-left"></i>
-                </div>
-                <p class="description">
-                  Look Good, Feel Great !
-                </p>
-              </div>
-              <h3 class="title">David</h3>
-            </div>
-
-            <div class="testimonial">
-              <div class="testimonial-content">
-                <div class="testimonial-icon">
-                  <i class="fa fa-quote-left"></i>
-                </div>
-                <p class="description">
-                  I love Pasta Cabonara
-                </p>
-              </div>
-              <h3 class="title">Zee Yee</h3>
-            </div>
-
-            <div class="testimonial">
-              <div class="testimonial-content">
-                <div class="testimonial-icon">
-                  <i class="fa fa-quote-left"></i>
-                </div>
-                <p class="description">
-                 Nice restaurant, i will come again !
-                </p>
-              </div>
-              <h3 class="title">Peter</h3>
-            </div>
-              
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  End What-Customer-Say Section-->
-
-  
-  
   
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>

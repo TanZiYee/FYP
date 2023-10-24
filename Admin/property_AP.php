@@ -26,12 +26,6 @@ if(isset($_POST['add']))
 	$loc=$_POST['loc'];
 	$feature=$_POST['feature'];
 	$status=$_POST['status'];
-//        $isFeatured=$_POST['isFeatured'];
-//        $ownerID=$_SESSION['ownerID'];
-//        $ownerName=$_POST['ownerName'];
-//        $userID=$_POST['userID'];
-//        $availability=$_POST['availability'];
-//        $dateTime=$_POST['dateTime'];
 	
 	$aimage1=$_FILES['aimage1']['name'];
 	$aimage2=$_FILES['aimage2']['name'];

@@ -275,21 +275,6 @@
                                 <?php echo $row['hall']?> Hall
                             </span>
                         </div>
-<!--                        <div class="facilities mb-4">
-                            <h6 class="mb-1">Facilities</h6>
-                            <span class="badge rounded-pill bg-light text-dark text-wrap">
-                                Wifi
-                            </span>
-                            <span class="badge rounded-pill bg-light text-dark text-wrap">
-                                Television
-                            </span>
-                            <span class="badge rounded-pill bg-light text-dark text-wrap">
-                                AC
-                            </span>
-                            <span class="badge rounded-pill bg-light text-dark text-wrap">
-                                Heater
-                            </span>
-                        </div>-->
                         <div class="rating mb-4">
                             <h6 class="rating mb-4">Rating</h6>
                             <span class="badge rounded-pill bg-light">

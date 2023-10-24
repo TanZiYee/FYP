@@ -141,9 +141,9 @@ if(isset($_POST['add']))
                                                     </span>
                                                 </div>
                                             </div>
-<!--                                            <div class="col-md-2 mt-lg-0 mt-md-0 mt-4 text-center">
+                                            <div class="col-md-2 mt-lg-0 mt-md-0 mt-4 text-center">
                                                 <a href="delete_post.php?id=<?php echo $row['id']; ?>" class="btn btn-primary w-100 mb-2">Delete</a>
-                                            </div>-->
+                                            </div>
                                           </div>
                                         </div>
                                     <?php } ?>						

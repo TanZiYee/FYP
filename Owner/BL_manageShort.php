@@ -1,19 +1,33 @@
 <?php
 session_start();
-include("server.php");
+
+if(isset($_SESSION['ownerID'])){
+    $ownerID = $_SESSION['ownerID'];
+}else{
+}
 
 
+include("db.php");
 
-if(isset($_GET['delete'])){
-   $delete_id = $_GET['delete'];
-   $delete_query = mysqli_query($con, "DELETE FROM `discussion` WHERE id = $delete_id ") or die('query failed');
-   if($delete_query){
-      $_SESSION['AdminStatus3'] = 'Added Unsuccessfully';          
-   }else{
-      $_SESSION['AdminStatus3'] = 'Added Unsuccessfully';
-   };
-};						
+if(isset($_POST['update_booking'])){
+   $update_id = $_POST['update_id'];
+   $update_status = $_POST['update_status'];
 
+   $update_query = mysqli_query($con, "UPDATE `booking` SET paymentStatus = '$update_status' WHERE bookingID = '$update_id'");
+
+   
+   if($update_query){
+      header('location:BL_manage.php');
+      $_SESSION['AdminStatus4'] = 'Edit Unsuccessfully';
+
+   }
+   
+   else{
+      $message[] = 'Booking could not be edited';
+      header('location:BL_manage.php');
+   }
+
+}
 ?>
 
 <!DOCTYPE html>
@@ -24,7 +38,7 @@ if(isset($_GET['delete'])){
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <title>Dashboard - HOMIFY - Admin </title>
+        <title>Dashboard - HOMIFY - Owner </title>
         
         <!-- Bootstrap CSS & Sweet Alert CDN-->
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -41,9 +55,11 @@ if(isset($_GET['delete'])){
         
         <!-- font awesome cdn link  -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
+        
         <!--Icon-->
         <link rel="icon" href="../Image/airbnb.ico" />
+
+
 
 
         
@@ -66,7 +82,8 @@ if(isset($_GET['delete'])){
 
 /*    .btn,*/
     .option-btn,
-    .delete-btn{
+    .remind-btn,
+    .contact-btn{
        display: block;
        width: 100%;
        text-align: center;
@@ -81,12 +98,14 @@ if(isset($_GET['delete'])){
 
     .btn:hover,
     .option-btn:hover,
-    .delete-btn:hover{
+    .remind-btn:hover,
+    .contact-btn:hover{
        background-color: var(--black);
     }
 
     .option-btn i,
-    .delete-btn i{
+    .remind-btn i,
+    .contact-btn i{
        padding-right: .5rem;
     }
 
@@ -94,11 +113,14 @@ if(isset($_GET['delete'])){
        background-color: var(--orange);
     }
 
-    .delete-btn{
+    .remind-btn{
        margin-top: 0;
        background-color: var(--red);
     }    
 
+    .contact-btn{
+       background-color: #3CB043;
+    }
 
     .display-product-table table{
        width: 100%;
@@ -177,7 +199,7 @@ if(isset($_GET['delete'])){
         
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href="index.html">HOMIFY Admin</a>
+            <a class="navbar-brand ps-3" href="index.html">HOMIFY Owner</a>
             
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
@@ -188,19 +210,6 @@ if(isset($_GET['delete'])){
                     
                 </div>
             </form>
-            
-            <!-- Navbar-->
-            <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="setting.php">Settings</a></li>
-                       
-                        <li><hr class="dropdown-divider" /></li>
-                        <li><a class="dropdown-item" onclick="sweetalert()" >Logout</a></li>
-                    </ul>
-                </li>
-            </ul>
         </nav>
         
         <div id="layoutSidenav">
@@ -210,65 +219,26 @@ if(isset($_GET['delete'])){
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading">Core</div>
-                            <a class="nav-link" href="index.php">
+                            <a class="nav-link" href="dashboard.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Dashboard
                             </a>
                             <div class="sb-sidenav-menu-heading">Interface</div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                Property
+                                Booking List
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="property_MP.php">Manage Property</a>
-                                    <a class="nav-link" href="property_AP.php">Add Property</a>
+                                    <a class="nav-link" href="BL_manage.php">Long-Term Property</a>
+                                    <a class="nav-link" href="BL_manageShort.php">Short-Term Property</a>
                                 </nav>
                             </div>
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                Booking
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="booking_list.php">Booking List</a>
-                                    <a class="nav-link" href="manage_booking.php">Manage Booking</a>
-                                </nav>
-                            </div>
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                Community Post
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="user_CP.php">Manage User Post</a>
-                                    <a class="nav-link" href="owner_CP.php">Manage Owner Post</a>
-                                </nav>
-                            </div>
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                Role
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="user_manage.php">Manage User</a>
-                                    <a class="nav-link" href="owner_manage.php">Manage Owner</a>
-                                    <a class="nav-link" href="admin_manage.php">Manage Admin</a>
-                                    <a class="nav-link" href="add_admin.php">Add Admin</a>
-                                </nav>
-                            </div>
-                            <div class="sb-sidenav-menu-heading">Addons</div>
-                            <a class="nav-link" href="tables.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                User Information
-                            </a>
-                            <a class="nav-link" href="owner.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                Owner Information
+                            <div class="sb-sidenav-menu-heading">Home</div>
+                            <a class="nav-link" href="index.php">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Back to Home
                             </a>
                         </div>
                     </div>
@@ -287,7 +257,7 @@ if(isset($_GET['delete'])){
                             Swal.fire({
                             position: 'top-end',
                             icon: 'success',
-                            title: 'Community Update Successfully',
+                            title: 'Booking Update Successfully',
                             showConfirmButton: false,
                             timer: 1500
                             })
@@ -302,7 +272,7 @@ if(isset($_GET['delete'])){
                             ?>
                             <script>
                             Swal.fire(
-                                'Post Deleted !',
+                                'Booking Cancelled !',
                                 '',
                                 'success'
                             )
@@ -316,7 +286,7 @@ if(isset($_GET['delete'])){
                     
                      
                     <br>
-                    <h3 style="text-align:center">  <i class="fas fa-tasks"></i> Manage User Community Post</h3>
+                    <h3 style="text-align:center">  <i class="fas fa-tasks"></i> Manage Booking</h3>
                     <br>
 
                      <div class="container">
@@ -326,35 +296,48 @@ if(isset($_GET['delete'])){
                          <table>
 
                             <thead>
-                               <th>Post ID</th>
-                               <th>Username</th>
-                               <th>Post</th>
-                               <th>Date Added</th>
+                               <th>Booking ID</th>
+                               <th>Property Name</th>
+                               <th>Customer Name</th>
+                               <th>Email</th>
+                               <th>Phone Number</th>
+                               <th>Check-In Date</th>
+                               <th>Check-Out Date</th>
+                               <th>Booking Status</th>
                                <th>Action</th>
                             </thead>
 
                             <tbody>
                                <?php
 
-                                  $select_products = mysqli_query($con, "SELECT * FROM `discussion`");
+                                  $select_products = mysqli_query($con, "SELECT property.propertyName, booking.bookingID, booking.userName, booking.email, booking.phoneNum, booking.check_in, booking.check_out, booking.paymentStatus FROM property INNER JOIN booking ON property.propertyID = booking.propertyID WHERE ownerID='$ownerID' && property.rentingType='short'");
                                   if(mysqli_num_rows($select_products) > 0){
                                      while($row = mysqli_fetch_assoc($select_products)){
                                ?>
 
                                <tr>
-                                  <td><?php echo $row['id']; ?></td>
-                                  <td><?php echo $row['username']; ?></td>
-                                  <td><?php echo $row['post']; ?></td>
-                                  <td><?php echo $row['date']; ?></td>
+                                  <td><?php echo $row['bookingID']; ?></td>
+                                  <td><?php echo $row['propertyName']; ?></td>
+                                  <td><?php echo $row['userName']; ?></td>
+                                  <td><?php echo $row['email']; ?></td>
+                                  <td><?php echo $row['phoneNum']; ?></td>
+                                  <td><?php echo $row['check_in']; ?></td>
+                                  <td><?php echo $row['check_out']; ?></td>
+                                  <td><?php echo $row['paymentStatus']; ?></td>
                                   <td>
-                                     <a href="user_CP.php?delete=<?php echo $row['id']; ?>" class="delete-btn"  onclick="return confirm('Are your sure you want to delete this?');"> <i class="fas fa-trash"></i> Delete </a>
+                                     <!--<a href="BL_manage.php?delete=<?php echo $row['bookingID']; ?>" class="delete-btn"  onclick="return confirm('Are your sure you want to cancel this?');"> <i class="fas fa-trash"></i> Cancel </a>-->
+                                     <a href="reminder.php" class="remind-btn"> <i class="fas fa-info"></i> Remind User </a>
+                                     <a href="BL_manage.php?edit=<?php echo $row['bookingID']; ?>" class="option-btn"> <i class="fas fa-edit"></i> Edit </a>
+                                     <a href="contactUserBooking.php" class="contact-btn"> <i class="fas fa-envelope"></i> Contact User </a>
+                                     
+
                                   </td>
                                </tr>
 
                                <?php
                                   };    
                                   }else{
-                                     echo "<div class='empty'>No product added</div>";
+                                     echo "<div class='empty'>No Booking Added</div>";
                                   };
                                ?>
                             </tbody>
@@ -362,8 +345,50 @@ if(isset($_GET['delete'])){
 
                          </section>
 
+
+
+
+                         <section class="edit-form-container">
+
+                             <?php
+
+                             if(isset($_GET['edit'])){
+                                $edit_id = $_GET['edit'];
+                                $edit_query = mysqli_query($con, "SELECT * FROM `booking` WHERE bookingID = $edit_id");
+                                if(mysqli_num_rows($edit_query) > 0){
+                                   while($fetch_edit = mysqli_fetch_assoc($edit_query)){
+                             ?>
+
+                             <form action="" method="post" enctype="multipart/form-data">
+                                <input type="hidden" name="update_id" value="<?php echo $fetch_edit['bookingID']; ?>">
+                                <div class="form-group row">
+                                    <label class="col-lg-2 col-form-label">Status</label>
+					<div class="col-lg-9">
+                                            <select class="form-control" required name="update_status" value="<?php echo $fetch_edit['paymentStatus']; ?>">
+                                                <option value="">Select Status</option>
+                                                <option value="Pending">Pending</option>
+                                                <option value="Cancelled">Cancelled</option>
+                                                <option value="Paid">Paid</option>
+                                            </select>
+					</div>
+				</div>
+                                <input type="submit" value="Update Status" name="update_booking" class="option-btn">
+                                 <a href="BL_manage.php" class="option-btn"> Cancel </a>
+
+                             </form>
+
+                             <?php
+                                      };
+                                   };
+                                   echo "<script>document.querySelector('.edit-form-container').style.display = 'flex';</script>";
+                                };
+                             ?>
+
+                         </section>
+
                      </div>
-                    
+                     
+                     
                 </main>
                 
                 <br>

@@ -408,15 +408,6 @@ if(isset($_POST['update_admin'])){
                              ?>
 
                              <form action="" method="post" enctype="multipart/form-data">
-<!--                                <img src="uploaded_img/<?php echo $fetch_edit['image_path']; ?>" height="200" alt="">-->
-<!--                                <input type="hidden" name="update_p_id" value="<?php echo $fetch_edit['propertyID']; ?>">
-                                <input type="text" class="box" required name="update_p_name" value="<?php echo $fetch_edit['propertyName']; ?>" >
-                                <input type="text" class="box" required name="update_p_desc" value="<?php echo $fetch_edit['content']; ?>" >
-                                <input type="text" class="box" required name="update_p_type" value="<?php echo $fetch_edit['rentingType']; ?>" >
-                                <input type="number" min="0" class="box" required name="update_p_price" value="<?php echo $fetch_edit['price']; ?>">
-                                <input type="file" class="box" required name="update_p_image" accept="image/png, image/jpg, image/jpeg">
-                                <input type="submit" value="Update the Item" name="update_product" class="option-btn">
-                                <input type="reset" value="Cancel" id="close-edit" name="close-edit" class="option-btn">-->
                                 
                                 <input type="hidden" name="update_id" value="<?php echo $fetch_edit['userID']; ?>">
                                 <div class="form-group row">

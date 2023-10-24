@@ -78,7 +78,7 @@ if(isset($_GET['delete'])){
                     ?>
         
         <div class="my-5 px-4">
-            <h2 class="fw-bold h-font text-center">ALL WISHLIST</h2>
+            <h2 class="fw-bold h-font text-center">LONG-TERM WISHLIST</h2>
             <div class="h-line bg-dark">
             </div>
         </div>
@@ -122,7 +122,7 @@ if(isset($_GET['delete'])){
                     
                     <?php 
                         include 'db.php';
-                        $qry = $con->query("SELECT property.propertyID, property.pimage1, property.propertyName, property.bedroom, property.bathroom, property.balcony, property.hall, property.price, wishlist.wishlistID FROM property INNER JOIN wishlist ON property.propertyID = wishlist.propertyID WHERE userID = '$userID'");
+                        $qry = $con->query("SELECT property.propertyID, property.pimage1, property.propertyName, property.bedroom, property.bathroom, property.balcony, property.hall, property.price, wishlist.wishlistID FROM property INNER JOIN wishlist ON property.propertyID = wishlist.propertyID WHERE userID = '$userID' && property.rentingType='long'");
                         while($row=mysqli_fetch_array($qry))
                         {
                     ?>
@@ -151,9 +151,9 @@ if(isset($_GET['delete'])){
                             </div>
                         </div>
                         <div class="col-md-2 mt-lg-0 mt-md-0 mt-4 text-center">
-                            <h6 class="mb-4">RM <?php echo $row['price']?> </h6>
-                            <a href="confirm_booking.php?propertyID=<?php echo $row['propertyID']; ?>" class="btn btn-primary w-100 mb-2">Book Now</a>
-                            <a href="propertydetails.php?propertyID=<?php echo $row['propertyID']; ?>" class="btn btn-sm w-100 btn-outline-dark">More Details</a>
+                            <h6 class="mb-4">RM <?php echo $row['price']?> per month</h6>
+                            <a href="long_confirm_booking.php?propertyID=<?php echo $row['propertyID']; ?>" class="btn btn-primary w-100 mb-2">Book Now</a>
+                            <a href="long_propertydetails.php?propertyID=<?php echo $row['propertyID']; ?>" class="btn btn-sm w-100 btn-outline-dark">More Details</a>
                             <hr>
                             <a href="wishlist.php?delete=<?php echo $row['wishlistID']; ?>" class="delete-btn" onclick="return confirm('Are you sure you want to delete this?');">Delete</a>
                         </div>

@@ -9,20 +9,6 @@ if(isset($_SESSION['ownerID'])){
 
 include("db.php");
 
-
-
-//if(isset($_GET['delete'])){
-//   $delete_id = $_GET['delete'];
-//   $delete_query = mysqli_query($con, "DELETE FROM `booking` WHERE bookingID = $delete_id ") or die('query failed');
-//   if($delete_query){
-//      $_SESSION['AdminStatus3'] = 'Added Unsuccessfully';          
-//   }else{
-//      $_SESSION['AdminStatus3'] = 'Added Unsuccessfully';
-//   };
-//};
-
-
-
 if(isset($_POST['update_booking'])){
    $update_id = $_POST['update_id'];
    $update_status = $_POST['update_status'];
@@ -240,12 +226,13 @@ if(isset($_POST['update_booking'])){
                             <div class="sb-sidenav-menu-heading">Interface</div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                Booking
+                                Booking List
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="BL_manage.php">Booking List</a>
+                                    <a class="nav-link" href="BL_manage.php">Long-Term Property</a>
+                                    <a class="nav-link" href="BL_manageShort.php">Short-Term Property</a>
                                 </nav>
                             </div>
                             <div class="sb-sidenav-menu-heading">Home</div>
@@ -311,12 +298,12 @@ if(isset($_POST['update_booking'])){
                             <thead>
                                <th>Booking ID</th>
                                <th>Property Name</th>
-                               <th>Renting Type</th>
                                <th>Customer Name</th>
                                <th>Email</th>
                                <th>Phone Number</th>
                                <th>Check-In Date</th>
                                <th>Check-Out Date</th>
+                               <th>Month</th>
                                <th>Booking Status</th>
                                <th>Action</th>
                             </thead>
@@ -324,7 +311,7 @@ if(isset($_POST['update_booking'])){
                             <tbody>
                                <?php
 
-                                  $select_products = mysqli_query($con, "SELECT property.propertyName, property.rentingType, booking.bookingID, booking.userName, booking.email, booking.phoneNum, booking.check_in, booking.check_out, booking.paymentStatus FROM property INNER JOIN booking ON property.propertyID = booking.propertyID WHERE ownerID='$ownerID'");
+                                  $select_products = mysqli_query($con, "SELECT property.propertyName, booking.bookingID, booking.userName, booking.email, booking.phoneNum, booking.check_in, booking.check_out, booking.month, booking.paymentStatus FROM property INNER JOIN booking ON property.propertyID = booking.propertyID WHERE ownerID='$ownerID' && property.rentingType='long'");
                                   if(mysqli_num_rows($select_products) > 0){
                                      while($row = mysqli_fetch_assoc($select_products)){
                                ?>
@@ -332,18 +319,18 @@ if(isset($_POST['update_booking'])){
                                <tr>
                                   <td><?php echo $row['bookingID']; ?></td>
                                   <td><?php echo $row['propertyName']; ?></td>
-                                  <td><?php echo $row['rentingType']; ?></td>
                                   <td><?php echo $row['userName']; ?></td>
                                   <td><?php echo $row['email']; ?></td>
                                   <td><?php echo $row['phoneNum']; ?></td>
                                   <td><?php echo $row['check_in']; ?></td>
                                   <td><?php echo $row['check_out']; ?></td>
+                                  <td><?php echo $row['month']; ?> months</td>
                                   <td><?php echo $row['paymentStatus']; ?></td>
                                   <td>
                                      <!--<a href="BL_manage.php?delete=<?php echo $row['bookingID']; ?>" class="delete-btn"  onclick="return confirm('Are your sure you want to cancel this?');"> <i class="fas fa-trash"></i> Cancel </a>-->
                                      <a href="reminder.php" class="remind-btn"> <i class="fas fa-contact"></i> Remind User </a>
                                      <a href="BL_manage.php?edit=<?php echo $row['bookingID']; ?>" class="option-btn"> <i class="fas fa-edit"></i> Edit </a>
-                                     <a href="contactUserBooking.php" class="contact-btn"> <i class="fas fa-contact"></i> Contact User </a>
+                                     <a href="contactUserBooking.php" class="contact-btn"> <i class="fas fa-envelope"></i> Contact User </a>
                                      
 
                                   </td>

@@ -380,7 +380,7 @@ if(isset($_POST['update_product'])){
                                   <td>
                                      <a href="owner_manage.php?delete=<?php echo $row['ownerID']; ?>" class="delete-btn"  onclick="return confirm('Are your sure you want to delete this?');"> <i class="fas fa-trash"></i> Delete </a>
                                      <a href="owner_manage.php?edit=<?php echo $row['ownerID']; ?>" class="option-btn"> <i class="fas fa-edit"></i> Update </a>
-                                     <a href="contactOwner.php" class="contact-btn"> <i class="fas fa-contact"></i> Contact Owner </a>
+                                     <a href="contactOwner.php" class="contact-btn"> <i class="fas fa-envelope"></i> Contact Owner </a>
                                   </td>
                                </tr>
 
@@ -410,15 +410,6 @@ if(isset($_POST['update_product'])){
                              ?>
 
                              <form action="" method="post" enctype="multipart/form-data">
-<!--                                <img src="uploaded_img/<?php echo $fetch_edit['image_path']; ?>" height="200" alt="">-->
-<!--                                <input type="hidden" name="update_p_id" value="<?php echo $fetch_edit['propertyID']; ?>">
-                                <input type="text" class="box" required name="update_p_name" value="<?php echo $fetch_edit['propertyName']; ?>" >
-                                <input type="text" class="box" required name="update_p_desc" value="<?php echo $fetch_edit['content']; ?>" >
-                                <input type="text" class="box" required name="update_p_type" value="<?php echo $fetch_edit['rentingType']; ?>" >
-                                <input type="number" min="0" class="box" required name="update_p_price" value="<?php echo $fetch_edit['price']; ?>">
-                                <input type="file" class="box" required name="update_p_image" accept="image/png, image/jpg, image/jpeg">
-                                <input type="submit" value="Update the Item" name="update_product" class="option-btn">
-                                <input type="reset" value="Cancel" id="close-edit" name="close-edit" class="option-btn">-->
                                 
                                 <input type="hidden" name="update_p_id" value="<?php echo $fetch_edit['ownerID']; ?>">
                                 <div class="form-group row">

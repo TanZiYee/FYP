@@ -104,7 +104,7 @@ if(isset($_POST['add']))
 							</div>
 						</div><!-- FOR MORE PROJECTS visit: codeastro.com -->
 						<div class="form-group row">
-                                                    <label class="col-lg-2 col-form-label">Write your question: </label>
+                                                    <label class="col-lg-2 col-form-label">Write your post: </label>
 							<div class="col-lg-9">
                                                             <textarea class="tinymce form-control" name="post" rows="10" cols="30"></textarea>
 							</div>
@@ -126,7 +126,7 @@ if(isset($_POST['add']))
                                     $qry = $con->query("SELECT * FROM discussion");
                                     while($row=mysqli_fetch_array($qry))
                                     {
-                                  ?>
+                                    ?>
 					<div class="card mb-4 border-0 shadow">
                                           <div class="row g-0 p-3 align-items-center">
                                             <div class="col-md-5 mb-lg-0 mb-md-0 mb-3">
@@ -140,9 +140,10 @@ if(isset($_POST['add']))
                                                     </span>
                                                 </div>
                                             </div>
-<!--                                            <div class="col-md-2 mt-lg-0 mt-md-0 mt-4 text-center">
+                                              
+                                            <div class="col-md-2 mt-lg-0 mt-md-0 mt-4 text-center">
                                                 <a href="delete.php?id=<?php echo $row['id']; ?>" class="btn btn-primary w-100 mb-2">Delete</a>
-                                            </div>-->
+                                            </div>
                                           </div>
                                         </div>
                                     <?php } ?>						

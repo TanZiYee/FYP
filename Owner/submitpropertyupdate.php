@@ -33,12 +33,7 @@ if(isset($_POST['update']))
 	$feature=$_POST['feature'];
 	$status=$_POST['status'];
         $ownerID=$_SESSION['ownerID'];
-//        $isFeatured=$_POST['isFeatured'];
-//        $ownerName=$_POST['ownerName'];
-//        $userID=$_POST['userID'];
-//        $availability=$_POST['availability'];
-//        $dateTime=$_POST['dateTime'];
-	
+        
 	$aimage1=$_FILES['aimage1']['name'];
 	$aimage2=$_FILES['aimage2']['name'];
 	$aimage3=$_FILES['aimage3']['name'];
@@ -125,16 +120,6 @@ if(isset($_POST['update']))
 </head>
 <body>
 
-<!--	Page Loader
-=============================================================
-<div class="page-loader position-fixed z-index-9999 w-100 bg-white vh-100">
-	<div class="d-flex justify-content-center y-middle position-relative">
-	  <div class="spinner-border" role="status">
-		<span class="sr-only">Loading...</span>
-	  </div>
-	</div>
-</div>
---> 
 
 
 <div id="page-wrapper">
@@ -143,28 +128,8 @@ if(isset($_POST['update']))
 		<?php include("header.php");?>
         <!--	Header end  -->
         
-        <!--	Banner   --->
-        <!-- <div class="banner-full-row page-banner" style="background-image:url('images/breadcromb.jpg');">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6">
-                        <h2 class="page-name float-left text-white text-uppercase mt-1 mb-0"><b>Update Property</b></h2>
-                    </div>
-                    <div class="col-md-6">
-                        <nav aria-label="breadcrumb" class="float-left float-md-right">
-                            <ol class="breadcrumb bg-transparent m-0 p-0">
-                                <li class="breadcrumb-item text-white"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">Update Property</li>
-                            </ol>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-         <!--	Banner   --->
-		 
-		 
-		<!--	Submit property   -->
+	 
+	<!--	Submit property   -->
         <div class="full-row">
             <div class="container">
                     <div class="row">

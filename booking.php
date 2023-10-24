@@ -52,7 +52,7 @@ include("db.php");
             
             <div id="layoutSidenav_content">
                 
-                
+                <!--Display booking list-->
                  <main>
                     
                      
@@ -83,6 +83,9 @@ include("db.php");
                                             <th>Booking Status</th>
                                         </tr>
                                     </thead>
+                                    
+                                    <!--Retrieve from database-->
+                                    <!--Inner join to get data from different table-->
                                     
                                      <?php
                                       include'db.php';
