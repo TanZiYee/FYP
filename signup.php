@@ -117,12 +117,22 @@ else{
                             
 				<h2>Sign Up</h2> 
                                 
-                                <!-- is a pattern that matches against a string of any length, as long as the string contains only lowercase letters ( a-z ), uppercase letters ( A-Z ), or numerals ( 0-9 )-->
-				<div class="form-row" >  
+<!--				^: Asserts the start of the string.
+                                [A-Za-z]: Matches any alphabet character (both uppercase and lowercase) as the first character.
+                                [A-Za-z0-9]*: Matches zero or more occurrences of alphabet characters or digits.
+                                [A-Za-z0-9]$: Matches an alphabet character or digit followed by the end of the string.
+                                $: Asserts the end of the string.-->
+                                
+                                <div class="form-row" >  
                                     <label for="full-name" class="fas fa-user">Username</label>          
-					<input type="text" name="username" id="username" class="input-text" placeholder="Your Name" required pattern="[A-Za-z0-9]+">                                       
+					<input type="text" name="username" id="username" class="input-text" placeholder="Your Name" required pattern="^[A-Za-z][A-Za-z0-9]*[A-Za-z0-9]$" title="The username must start with an alphabet character (A-Z or a-z), followed by any combination of alphabet characters, numbers, and underscores, and it cannot end with an underscore.">                                       
 				</div>
                                 
+<!--                        [^@]+: Matches one or more characters that are not '@'. This represents the part before the '@' in an email address.
+                            @: Matches the '@' symbol literally.
+                            [^@]+: Matches one or more characters that are not '@'. This represents the part after the '@' but before the dot in the domain.
+                            \.: Matches the dot '.' literally.
+                            [a-zA-Z]{2,6}: Matches 2 to 6 alphabetic characters. This represents the top-level domain (TLD) such as .com, .org, .net, etc.-->
                                 
 				<div class="form-row">
 					<label for="your-email" class="fas fa-envelope" > Email</label>
@@ -138,6 +148,10 @@ else{
 				</div>
                                 <br>
                                 
+                                <!--(?=.*\d): At least one digit is required.
+                                (?=.*[a-z]): At least one lowercase letter is required.
+                                (?=.*[A-Z]): At least one uppercase letter is required.
+                                .{8,}: The password must be at least 8 characters in length.-->
                                 
 				<div class="form-row">                                   
 					<label for="password" class="fas fa-lock" > Password</label>

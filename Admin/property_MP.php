@@ -28,7 +28,7 @@ if(isset($_POST['update_product'])){
    $update_p_image_tmp_name = $_FILES['update_p_image']['tmp_name'];
    $update_p_image_folder = 'images/'.$update_p_image;
 
-   $update_query = mysqli_query($con, "UPDATE `property` SET propertyName = '$update_p_name', price = '$update_p_price',  content = '$update_p_desc', rentingType = '$update_p_type',pimage1 = '$update_p_image' WHERE propertyID = '$update_p_id'");
+   $update_query = mysqli_query($con, "UPDATE `property` SET propertyName = '$update_p_name', price = '$update_p_price',  status = '$update_p_desc', rentingType = '$update_p_type',pimage1 = '$update_p_image' WHERE propertyID = '$update_p_id'");
 
    
    if($update_query){
@@ -368,9 +368,9 @@ if(isset($_POST['update_product'])){
                                <th>Owner Name</th>
                                <th>Owner Email</th>
                                <th>Property Name</th>
-                               <th>Property Description</th>
                                <th>Renting Type</th>
                                <th>Price</th>
+                               <th>Status</th>
                                <th>Bill</th>
                                <th>Action</th>
                             </thead>
@@ -378,7 +378,7 @@ if(isset($_POST['update_product'])){
                             <tbody>
                                <?php
 
-                                  $select_products = mysqli_query($con, "SELECT property.propertyID, property.pimage1, property.propertyName, property.content, property.rentingType, property.price, property.bill, owner.ownerName, owner.Email FROM property INNER JOIN owner ON property.ownerID = owner.ownerID");
+                                  $select_products = mysqli_query($con, "SELECT property.propertyID, property.pimage1, property.propertyName, property.content, property.rentingType, property.price, property.bill, owner.ownerName, owner.Email, property.status FROM property INNER JOIN owner ON property.ownerID = owner.ownerID");
                                   if(mysqli_num_rows($select_products) > 0){
                                      while($row = mysqli_fetch_assoc($select_products)){
                                ?>
@@ -388,9 +388,9 @@ if(isset($_POST['update_product'])){
                                   <td><?php echo $row['ownerName']; ?></td>
                                   <td><?php echo $row['Email']; ?></td>
                                   <td><?php echo $row['propertyName']; ?></td>
-                                  <td><?php echo $row['content']; ?></td>
                                   <td><?php echo $row['rentingType']; ?></td>
                                   <td>RM <?php echo $row['price']; ?> per night</td>
+                                  <td><?php echo $row['status']; ?></td>
                                   <td><img src="../Owner/property/<?php echo $row['bill']; ?>" height="100" alt=""></td>
                                   <td>
                                      <a href="property_MP.php?delete=<?php echo $row['propertyID']; ?>" class="delete-btn"  onclick="return confirm('Are your sure you want to delete this?');"> <i class="fas fa-trash"></i> Delete </a>
@@ -433,13 +433,7 @@ if(isset($_POST['update_product'])){
                                             <input type="text" class="form-control" required name="update_p_name" value="<?php echo $fetch_edit['propertyName']; ?>" >
 					</div>
 				</div>
-                                <br>
-                                <div class="form-group row">
-                                    <label class="col-lg-2 col-form-label">Content</label>
-					<div class="col-lg-9">
-                                            <input type="text" class="form-control" required name="update_p_desc" value="<?php echo $fetch_edit['content']; ?>" >
-					</div>
-				</div>
+                                
                                 <br>
                                 <div class="form-group row">
                                     <label class="col-lg-2 col-form-label">Renting Type</label>
@@ -458,6 +452,17 @@ if(isset($_POST['update_product'])){
                                             <input type="number" min="0" class="form-control" required name="update_p_price" value="<?php echo $fetch_edit['price']; ?>">
 					</div>
 				</div>
+                                <br>
+                                <div class="form-group row">
+                                    <label class="col-lg-2 col-form-label">Status</label>
+					<div class="col-lg-9">
+                                            <select class="form-control" required name="update_p_desc" value="<?php echo $fetch_edit['status']; ?>">
+                                                <option value="">Select Status</option>
+                                                <option value="available">Available</option>
+                                                <option value="rent out">Rent Out</option>
+                                            </select>
+					</div>
+				</div>                               
                                 <br>
                                 <div class="form-group row">
                                     <label class="col-lg-2 col-form-label">Image</label>

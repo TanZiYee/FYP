@@ -207,7 +207,7 @@ if(isset($_POST['add_admin'])){
 						<div class="form-group row">
                                                     <label class="col-lg-2 col-form-label">Admin Name</label>
 							<div class="col-lg-9">
-                                                            <input type="text" class="form-control" name="username" required placeholder="Enter Name">
+                                                            <input type="text" class="form-control" name="username" required placeholder="Enter Name" required pattern="^[A-Za-z][A-Za-z0-9]*[A-Za-z0-9]$" title="The username must start with an alphabet character (A-Z or a-z), followed by any combination of alphabet characters, numbers, and underscores, and it cannot end with an underscore.">
 							</div>
 						</div><!-- FOR MORE PROJECTS visit: codeastro.com -->
                                                 <br>
