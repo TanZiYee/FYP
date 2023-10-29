@@ -38,7 +38,7 @@
   <!-- Remove the container if you want to extend the Footer to full width. -->
     <div class="footer">
 
-      <footer class="bg-primary text-center text-lg-start text-white">
+      <footer class="text-center text-lg-start text-white" style="background-color: #2F2F9C">
           
         <!-- Grid container -->
         <div class="container p-4">
@@ -48,11 +48,11 @@
             <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
 
               <div class="rounded-circle bg-white shadow-1-strong d-flex align-items-center justify-content-center mb-4 mx-auto" style="width: 150px; height: 150px;">
-                <img src="https://i.pinimg.com/originals/4e/95/ff/4e95ff2406e7914e70cbbba6dd9c51d2.jpg" height="105" alt=""
+                <img src="../Image/airbnb.ico" height="105" alt=""
                      loading="lazy" />
               </div>
 
-              <p class="text-center">This project aims to digitally provide ordering and reservation services in the restaurant’s field.</p>
+              <p class="text-center"></p>
 
               <ul class="list-unstyled d-flex flex-row justify-content-center">
                 <li>
@@ -105,10 +105,10 @@
 
               <ul class="list-unstyled">
                 <li class="mb-2">
-                  <a href="Admin/login.php" class="text-white"><i class="fa-solid fa-circle"  ></i> Admin</a>
+                  <a href="../Admin/login.php" class="text-white"><i class="fa-solid fa-circle"  ></i> Admin</a>
                 </li>
                 <li class="mb-2">
-                  <a href="login.php" class="text-white"><i class="fa-solid fa-circle"></i> User </a>
+                  <a href="../login.php" class="text-white"><i class="fa-solid fa-circle"></i> User </a>
                 </li>
                 <li class="mb-2">
                   <a href="#!" class="text-white"><i class="fa-solid fa-circle" style="color: transparent; "></i> </a>
@@ -135,7 +135,7 @@
                   <p><i class="fas fa-phone pe-2"></i>+60 12-472 9301</p>
                 </li>
                 <li>
-                  <p><i class="fas fa-envelope pe-2 mb-0"></i>contact@example.com</p>
+                  <p><i class="fas fa-envelope pe-2 mb-0"></i>p21013168@student.newinti.edu.my</p>
                 </li>
               </ul>
             </div>
@@ -146,9 +146,9 @@
         <!-- Grid container -->
 
         <!-- Copyright -->
-        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.1)">
           © 2020 Copyright:
-          <a class="text-white" href="">Airbnb.com</a>
+          <a class="text-white" href="">Homify.com</a>
         </div>
         
         

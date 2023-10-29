@@ -2,10 +2,13 @@
 
 <html>
 <head>
-  <title>Airbnb</title>
+  <title>Homify</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.css">
   <link rel="stylesheet" href="CSS/style.css">
    <link rel="stylesheet" href="CSS/bootstrap.min.css">
+   
+   <!--Icon-->
+   <link rel="icon" href="Image/airbnb.ico" />
    
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
@@ -20,13 +23,7 @@
     body{ 
       min-height: 100vh;
       background: linear-gradient(to right, #b92b27, #1565c0);
-/*     background-size: cover;
-      display: flex;
-      justify-content: center;
-      align-items: center;*/
     }
-
-
 
     .contact-section{
       width: 100%;
@@ -183,8 +180,8 @@
               <div class="contact-info">
                 <br>
                 <div><i class="fas fa-map-marker-alt"></i>Bayan Lepas, Penang</div>
-                <div><i class="fas fa-envelope"></i>tanziyee28@gmail.com</div>
-                <div><i class="fas fa-phone"></i>+60 12-472 9301</div>
+                <div><i class="fas fa-envelope"></i>p21013168@student.newinti.edu.my</div>
+                <div><i class="fas fa-phone"></i>+6012-472 9301</div>
                 <div><i class="fas fa-clock"></i>Mon - Fri 8:00 AM to 5:00 PM</div>
               </div>
 
@@ -217,5 +214,4 @@
     <?php require_once ('footer.php');?>
 </body>
 </html>
-
 

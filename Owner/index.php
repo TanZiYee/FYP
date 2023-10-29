@@ -2,6 +2,10 @@
 
 session_start();
 
+if(isset($_SESSION['ownerID'])){
+    $ownerID = $_SESSION['ownerID'];
+}else{
+}
 ?>
 
 <!DOCTYPE html>
@@ -10,12 +14,13 @@ session_start();
     
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Airbnb</title>
+    <title>Homify</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.css">
     <link rel="stylesheet" href="CSS/testimonial.css">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    
+    <!--Icon-->
+   <link rel="icon" href="../Image/airbnb.ico" /> 
     
 
   <style>
@@ -89,84 +94,10 @@ session_start();
     </div>
       
     
-     <?php  require_once ('popup.php'); ?>
-    
 
     <?php require_once ('splitscreen.php'); ?>
     
-       
-   
-    
-    
-    
-<!--  Start What-Customer-Say Section
-  <div class="what-say" >
-    <center>
-    <h2>Customer <b>Review</b></h2>
-    <hr width="15%" color="red"  size="5px" />
-    </center>
-    
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <div id="testimonial-slider" class="owl-carousel">
-              
-            <div class="testimonial">
-              <div class="testimonial-content">
-                <div class="testimonial-icon">
-                  <i class="fa fa-quote-left"></i>
-                </div>
-                <p class="description">
-                  Taste Good !
-                </p>
-              </div>
-              <h3 class="title">ZC</h3>
-            </div>
-
-            <div class="testimonial">
-              <div class="testimonial-content">
-                <div class="testimonial-icon">
-                  <i class="fa fa-quote-left"></i>
-                </div>
-                <p class="description">
-                  Look Good, Feel Great !
-                </p>
-              </div>
-              <h3 class="title">David</h3>
-            </div>
-
-            <div class="testimonial">
-              <div class="testimonial-content">
-                <div class="testimonial-icon">
-                  <i class="fa fa-quote-left"></i>
-                </div>
-                <p class="description">
-                  I love Pasta Cabonara
-                </p>
-              </div>
-              <h3 class="title">Zee Yee</h3>
-            </div>
-
-            <div class="testimonial">
-              <div class="testimonial-content">
-                <div class="testimonial-icon">
-                  <i class="fa fa-quote-left"></i>
-                </div>
-                <p class="description">
-                 Nice restaurant, i will come again !
-                </p>
-              </div>
-              <h3 class="title">Peter</h3>
-            </div>
-              
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  End What-Customer-Say Section-->
-
-  
+      
   
   
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

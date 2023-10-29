@@ -1,5 +1,4 @@
 <?php 
-session_start();
 
 ?>
 
@@ -8,14 +7,14 @@ session_start();
 <head>
 	
     <meta charset="utf-8">
-	<title>Airbnb</title>
+	<title>Homify</title>
         
 	<!-- Mobile Specific Metas -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         
 	<!-- Font-->
-	<link rel="stylesheet" type="text/css" href="css/roboto-font.css">
-	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-5/css/fontawesome-all.min.css">
+	<!--<link rel="stylesheet" type="text/css" href="css/roboto-font.css">
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-5/css/fontawesome-all.min.css">-->
         
         
 	<!-- Main Style Css -->
@@ -23,6 +22,8 @@ session_start();
         
         
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <!--Icon-->
+        <link rel="icon" href="../Image/airbnb.ico" /> 
     
         
     <style>
@@ -34,7 +35,7 @@ session_start();
     .page-content {
             width: 100%;
             margin:  0 auto;
-            background: linear-gradient(to right,#1F6ED4 , #B9EDF8);
+            background: linear-gradient(to right, #2F2F9C,#D6D6F2 );
             display: flex;
             display: -webkit-flex;
             justify-content: center;
@@ -191,7 +192,7 @@ session_start();
     
 </head>
 
-<?php require_once 'header.php'; ?>
+<?php require_once 'login_header.php'; ?>
 
 <?php require 'db.php' ; ?>
         
@@ -253,7 +254,8 @@ session_start();
                                 
 				<div class="form-row">
 					<label for="password" class="fas fa-lock"> Password</label>
-					<input type="password" name="password" id="password" class="input-text" placeholder="Your Password" required>					
+					<input type="password" name="password" id="password" class="input-text" placeholder="Your Password" required>
+                                        <p><small>Forgot Password? <a href="forgot.php">Click Here</a>.</small></p>
 				</div>
                                 
 				<div class="form-row-last">

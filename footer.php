@@ -48,11 +48,10 @@
             <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
 
               <div class="rounded-circle bg-white shadow-1-strong d-flex align-items-center justify-content-center mb-4 mx-auto" style="width: 150px; height: 150px;">
-                <img src="https://i.pinimg.com/originals/4e/95/ff/4e95ff2406e7914e70cbbba6dd9c51d2.jpg" height="105" alt=""
-                     loading="lazy" />
+                <img src="images/airbnb.png" height="88" alt="" loading="lazy" />
               </div>
 
-              <p class="text-center">This project aims to digitally provide ordering and reservation services in the restaurant’s field.</p>
+              <p class="text-center"></p>
 
               <ul class="list-unstyled d-flex flex-row justify-content-center">
                 <li>
@@ -82,13 +81,19 @@
               <h5 class="text-uppercase mb-4">Pages</h5>
               <ul class="list-unstyled">
                 <li class="mb-2">
-                  <a href="#!" class="text-white"><i class="fa-solid fa-circle"></i> Home </a>
+                  <a href="index.php" class="text-white"><i class="fa-solid fa-circle"></i> Home </a>
                 </li>
                 <li class="mb-2">
-                  <a href="#!" class="text-white"><i class="fa-solid fa-circle"></i> About </a>
+                  <a href="category.php" class="text-white"><i class="fa-solid fa-circle"></i> Property Listing </a>
                 </li>
                 <li class="mb-2">
-                  <a href="#!" class="text-white"><i class="fa-solid fa-circle"></i> Contact </a>
+                  <a href="discussion.php" class="text-white"><i class="fa-solid fa-circle"></i> Community </a>
+                </li>
+                <li class="mb-2">
+                  <a href="about.php" class="text-white"><i class="fa-solid fa-circle"></i> About </a>
+                </li>
+                <li class="mb-2">
+                  <a href="ComtactUs.php" class="text-white"><i class="fa-solid fa-circle"></i> Contact </a>
                 </li>
                 
               </ul>
@@ -132,7 +137,7 @@
                   <p><i class="fas fa-phone pe-2"></i>+60 12-472 9301</p>
                 </li>
                 <li>
-                  <p><i class="fas fa-envelope pe-2 mb-0"></i>contact@example.com</p>
+                  <p><i class="fas fa-envelope pe-2 mb-0"></i>p21013168@student.newinti.edu.my</p>
                 </li>
               </ul>
             </div>
@@ -145,7 +150,7 @@
         <!-- Copyright -->
         <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
           © 2020 Copyright:
-          <a class="text-white" href="">Airbnb.com</a>
+          <a class="text-white" href="">Homify.com</a>
         </div>
         
         

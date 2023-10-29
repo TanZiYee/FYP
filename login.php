@@ -1,5 +1,5 @@
 <?php 
-session_start();
+//session_start();
 
 ?>
 
@@ -8,7 +8,7 @@ session_start();
 <head>
 	
     <meta charset="utf-8">
-	<title>Airbnb</title>
+	<title>Homify</title>
         
 	<!-- Mobile Specific Metas -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -23,6 +23,9 @@ session_start();
         
         
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        
+        <!--Icon-->
+        <link rel="icon" href="Image/airbnb.ico" /> 
     
         
     <style>
@@ -191,7 +194,7 @@ session_start();
     
 </head>
 
-<?php require_once 'header.php'; ?>
+<?php require_once 'login_header.php'; ?>
 
 <?php require 'db.php' ; ?>
         
@@ -252,7 +255,8 @@ session_start();
                                 
 				<div class="form-row">
 					<label for="password" class="fas fa-lock"> Password</label>
-					<input type="password" name="password" id="password" class="input-text" placeholder="Your Password" required>					
+					<input type="password" name="password" id="password" class="input-text" placeholder="Your Password" required>
+                                        <p><small>Forgot Password? <a href="forgot.php">Click Here</a>.</small></p>
 				</div>
                                 
 				<div class="form-row-last">
@@ -264,8 +268,7 @@ session_start();
                     
 		</div>
 	</div>
-    
-    
+ 
 </body>
 
 

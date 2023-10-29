@@ -382,11 +382,11 @@
 
 
     .table {
-          background: url('https://cdn1.npcdn.net/image/20200718_534cba.jpg?md5id=93dbe3b58a1bafbb7d581d8244dcaef2&new_width=1000&new_height=1000&sub=1&size=max&w=1637199371');
+          background: url('https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHByb3BlcnR5fGVufDB8fDB8fHww');
     }
 
     .food {
-          background: url('https://i.pinimg.com/736x/b6/df/cb/b6dfcbffca345227a74f0777bf94d7fa.jpg');
+          background: url('https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGJvb2tpbmd8ZW58MHx8MHx8fDA%3D');
     }
 
     
@@ -465,17 +465,17 @@
                   <div class="image table"></div>
                   <div class="caption">
                         <h1>PROPERTY LISTING</h1>
-                        <a class="button" href="property.php">FIND OUT NOW</a>
+                        <a class="button" href="category.php">FIND OUT NOW</a>
                   </div>
             </div>
           
-<!--            <div class="side right">
+            <div class="side right">
                   <div class="image food"></div>
                   <div class="caption">
-                        <h1>FOOD & DRINKS & MERCHANDISE</h1>
-                        <a class="button" href="shop.php">OUR MENU</a>
+                        <h1>BOOKING LIST</h1>
+                        <a class="button" href="booking.php">CHECK BOOKING NOW</a>
                   </div>
-            </div>-->
+            </div>
       </div>         
 </body>
 </html>

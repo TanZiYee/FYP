@@ -10,7 +10,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
     $username = $_POST['username'];
     $email = $_POST['email'];
     $phone = $_POST['phone'];
-    $password = $_POST['password'];
+    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+    
  
 
 $s = " select * from user where username = '$username'";
@@ -44,7 +45,7 @@ else{
 <head>
     
 	<meta charset="utf-8">
-	<title>Airbnb</title>
+	<title>Homify</title>
         
         
 	<!-- Mobile Specific Metas -->
@@ -62,10 +63,12 @@ else{
         <link rel="stylesheet" href="css/style.css"/>
         <link rel="stylesheet" href="css/signup.css">
         
+        <!--Icon-->
+        <link rel="icon" href="Image/airbnb.ico" /> 
       
 </head>
 
-<?php require_once 'header.php'; ?>
+<?php require_once 'login_header.php'; ?>
 
     <?php 
 
@@ -114,12 +117,22 @@ else{
                             
 				<h2>Sign Up</h2> 
                                 
+<!--				^: Asserts the start of the string.
+                                [A-Za-z]: Matches any alphabet character (both uppercase and lowercase) as the first character.
+                                [A-Za-z0-9]*: Matches zero or more occurrences of alphabet characters or digits.
+                                [A-Za-z0-9]$: Matches an alphabet character or digit followed by the end of the string.
+                                $: Asserts the end of the string.-->
                                 
-				<div class="form-row" >  
+                                <div class="form-row" >  
                                     <label for="full-name" class="fas fa-user">Username</label>          
-					<input type="text" name="username" id="username" class="input-text" placeholder="Your Name" required pattern="[A-Za-z0-9]+">                                       
+					<input type="text" name="username" id="username" class="input-text" placeholder="Your Name" required pattern="^[A-Za-z][A-Za-z0-9]*[A-Za-z0-9]$" title="The username must start with an alphabet character (A-Z or a-z), followed by any combination of alphabet characters, numbers, and underscores, and it cannot end with an underscore.">                                       
 				</div>
                                 
+<!--                        [^@]+: Matches one or more characters that are not '@'. This represents the part before the '@' in an email address.
+                            @: Matches the '@' symbol literally.
+                            [^@]+: Matches one or more characters that are not '@'. This represents the part after the '@' but before the dot in the domain.
+                            \.: Matches the dot '.' literally.
+                            [a-zA-Z]{2,6}: Matches 2 to 6 alphabetic characters. This represents the top-level domain (TLD) such as .com, .org, .net, etc.-->
                                 
 				<div class="form-row">
 					<label for="your-email" class="fas fa-envelope" > Email</label>
@@ -135,11 +148,14 @@ else{
 				</div>
                                 <br>
                                 
+                                <!--(?=.*\d): At least one digit is required.
+                                (?=.*[a-z]): At least one lowercase letter is required.
+                                (?=.*[A-Z]): At least one uppercase letter is required.
+                                .{8,}: The password must be at least 8 characters in length.-->
                                 
 				<div class="form-row">                                   
 					<label for="password" class="fas fa-lock" > Password</label>
 					<input type="password" name="password" id="password" class="input-text" placeholder="Your Password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters">
-					
 				</div>
                                 
                                 

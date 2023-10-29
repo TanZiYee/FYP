@@ -13,7 +13,7 @@ if (isset($_POST['update'])){
     
     
     //Update data from database 
-    $query = "UPDATE `customer` SET username= '$_POST[UpdateUserName]', password = '$_POST[UpdatePass]' WHERE username ='$_POST[UpdateUserName]'";
+    $query = "UPDATE `user` SET username= '$_POST[UpdateUserName]', password = '$_POST[UpdatePass]' WHERE username ='$_POST[UpdateUserName]'";
     $query_run = mysqli_query($con,$query);
     
     
@@ -37,7 +37,7 @@ if (isset($_POST['update'])){
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <title>Dashboard - Airbnb - Admin </title>
+        <title>Dashboard - Homify - Admin </title>
         
         <!-- Bootstrap CSS & Sweet Alert CDN-->
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -50,7 +50,10 @@ if (isset($_POST['update'])){
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <script src="js/scripts.js"></script>
-            <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css" rel="stylesheet">
+        
+        <!--Icon-->
+        <link rel="icon" href="../Image/airbnb.ico" />
 
    <style>
 
@@ -165,7 +168,7 @@ if (isset($_POST['update'])){
         
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href="index.html">AIRBNB Admin</a>
+            <a class="navbar-brand ps-3" href="index.html">HOMIFY Admin</a>
             
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
@@ -205,41 +208,58 @@ if (isset($_POST['update'])){
                             <div class="sb-sidenav-menu-heading">Interface</div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                Stock Control
+                                Property
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="SC_MP.php">Manage Product</a>
-                                    <a class="nav-link" href="SC_AP.php">Add Product</a>
+                                    <a class="nav-link" href="property_MP.php">Manage Property</a>
+                                    <a class="nav-link" href="property_AP.php">Add Property</a>
                                 </nav>
                             </div>
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
-                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                                Restaurant
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                Booking
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
-                            <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
-                                        Manage Reservation
-                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                    </a>
-                                    <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
-                                        <nav class="sb-sidenav-menu-nested nav">
-                                            <a class="nav-link" href="#">Booking List</a>                                        
-                                        </nav>
-                                    </div>
-                                  </nav>
+                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="booking_list.php">Booking List</a>
+                                    <a class="nav-link" href="manage_booking.php">Manage Booking</a>
+                                </nav>
+                            </div>
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                Community Post
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="user_CP.php">Manage User Post</a>
+                                    <a class="nav-link" href="owner_CP.php">Manage Owner Post</a>
+                                </nav>
+                            </div>
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                Role
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="user_manage.php">Manage User</a>
+                                    <a class="nav-link" href="owner_manage.php">Manage Owner</a>
+                                    <a class="nav-link" href="admin_manage.php">Manage Admin</a>
+                                    <a class="nav-link" href="add_admin.php">Add Admin</a>
+                                </nav>
                             </div>
                             <div class="sb-sidenav-menu-heading">Addons</div>
-                            <a class="nav-link" href="charts.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                                Charts
-                            </a>
                             <a class="nav-link" href="tables.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                Tables
+                                User Information
+                            </a>
+                            <a class="nav-link" href="owner.php">
+                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                                Owner Information
                             </a>
                         </div>
                     </div>
@@ -287,7 +307,7 @@ if (isset($_POST['update'])){
                                 <span><i class="icon icon-user"></i></span>
                             </div>           
                             <div class="form-group">
-                                <input type="text" class="form-control item" name="UpdateUserName"   required placeholder=<?php echo $_SESSION['username']; ?> >
+                                <input type="text" class="form-control item" name="UpdateUserName"  required placeholder=<?php echo $_SESSION['username']; ?> >
                             </div>
                             <div class="form-group">
                                 <input type="password" class="form-control item" name="UpdatePass"  placeholder="Enter new password" required >
@@ -313,7 +333,7 @@ if (isset($_POST['update'])){
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">
                         <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; AIRBNB 2022</div>
+                            <div class="text-muted">Copyright &copy; HOMIFY 2022</div>
                             <div>
                                 <a href="#">Privacy Policy</a>
                                 &middot;
