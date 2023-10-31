@@ -237,7 +237,7 @@ if (isset($_POST['pwdrst'])) {
                 $msg = "Email could not be sent. Please try again later.";
             }
         } else {
-            $msg = "We can't find a owner with that email address.";
+            $msg = "We can't find a user with that email address.";
         }
     }
 }
@@ -262,7 +262,7 @@ if (isset($_POST['pwdrst'])) {
 				<div class="form-row-last">
 					<input type="submit" id="login" name="pwdrst" class="btn btn-success" value="Send Email">
 				</div>
-                                <p><a href="user_manage.php" class="btn btn-success">Back To Home</a></p>
+                                <p><a href="manage_booking.php" class="btn btn-success">Back To Home</a></p>
                                 <p class="error"><?php if(!empty($msg)){ echo $msg; } ?></p>
 			</form>
                     

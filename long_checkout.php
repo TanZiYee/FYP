@@ -282,7 +282,7 @@ if(isset($_POST['book']))
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <label class="form-label">Email</label>
-                                        <input type="text" class="form-control shadow-none" name="email" required placeholder="Enter Your Email">
+                                        <input type="text" class="form-control shadow-none" name="email" required placeholder="Enter Your Email" required pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}">
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <label class="form-label">Phone Number</label>

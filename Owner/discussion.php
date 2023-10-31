@@ -107,7 +107,7 @@ if(isset($_POST['add']))
 						<div class="form-group row">
                                                     <label class="col-lg-2 col-form-label">Write your question: </label>
 							<div class="col-lg-9">
-                                                            <textarea class="tinymce form-control" name="post" rows="10" cols="30"></textarea>
+                                                            <textarea class="tinymce form-control" name="post" rows="10" cols="30" required></textarea>
 							</div>
 						</div>						
                                             </div>

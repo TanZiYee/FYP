@@ -470,7 +470,7 @@ if(isset($_POST['update_product'])){
                                             <input type="file" class="form-control" required name="update_p_image" accept="image/png, image/jpg, image/jpeg">
 					</div>
 				</div>
-                                <input type="submit" value="Update the Item" name="update_product" class="option-btn">
+                                <input type="submit" value="Update the Property" name="update_product" class="option-btn">
                                  <a href="property_MP.php" class="option-btn"> Cancel </a>
 
                              </form>

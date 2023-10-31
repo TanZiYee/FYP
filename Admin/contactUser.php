@@ -237,7 +237,7 @@ if (isset($_POST['pwdrst'])) {
                 $msg = "Email could not be sent. Please try again later.";
             }
         } else {
-            $msg = "We can't find a owner with that email address.";
+            $msg = "We can't find a user with that email address.";
         }
     }
 }

@@ -138,7 +138,7 @@ if(isset($_POST['add_admin'])){
                             <div class="sb-sidenav-menu-heading">Addons</div>
                             <a class="nav-link" href="tables.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                User Information
+                                Customer Information
                             </a>
                             <a class="nav-link" href="owner.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>

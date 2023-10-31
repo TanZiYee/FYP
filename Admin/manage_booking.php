@@ -372,7 +372,7 @@ if(isset($_POST['update_booking'])){
                                   <td><?php echo $row['paymentStatus']; ?></td>
                                   <td>
                                      <!--<a href="BL_manage.php?delete=<?php echo $row['bookingID']; ?>" class="delete-btn"  onclick="return confirm('Are your sure you want to cancel this?');"> <i class="fas fa-trash"></i> Cancel </a>-->
-                                     <a href="manage_booking.php?edit=<?php echo $row['bookingID']; ?>" class="option-btn"> <i class="fas fa-edit"></i> Edit </a>
+                                     <a href="manage_booking.php?edit=<?php echo $row['bookingID']; ?>" class="option-btn"> <i class="fas fa-edit"></i> Update </a>
                                      <a href="contactUserBooking.php" class="contact-btn"> <i class="fas fa-envelope"></i> Contact User </a>
                                   </td>
                                </tr>

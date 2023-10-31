@@ -118,7 +118,7 @@ if(isset($_POST['update']))
 	=========================================================-->
 <title>Homify</title>
 </head>
-<body>
+<body  style = "background: linear-gradient(to right,#71c9ce , #eeeeee);"  >
 
 
 

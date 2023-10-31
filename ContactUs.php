@@ -193,7 +193,7 @@
                 <h2>Contact Us</h2>
                 <form class="contact" action="" method="post">
                   <input type="text" name="name" class="text-box" placeholder="Your Name" required>
-                  <input type="email" name="email" class="text-box" placeholder="Your Email" required>
+                  <input type="email" name="email" class="text-box" placeholder="Your Email" required pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}">
                   <textarea rows="4" cols="50" placeholder="Your Feedback" name="message" required></textarea>
                   <input type="submit" name="submit" class="send-btn" value="Send">
                 </form>
