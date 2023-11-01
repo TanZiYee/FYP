@@ -7,13 +7,13 @@ if (isset($_POST['update'])){
     
     //$id = $_POST['id'];
     $username = $_POST['UpdateUserName'];
-    $password = $_POST['UpdatePass'];
+    $password = password_hash($_POST['UpdatePass'], PASSWORD_DEFAULT);
    
     
     
     
     //Update data from database 
-    $query = "UPDATE `user` SET username= '$_POST[UpdateUserName]', password = '$_POST[UpdatePass]' WHERE username ='$_POST[UpdateUserName]'";
+    $query = "UPDATE `user` SET username= '$_POST[UpdateUserName]', password = '$password' WHERE username ='$_POST[UpdateUserName]'";
     $query_run = mysqli_query($con,$query);
     
     
