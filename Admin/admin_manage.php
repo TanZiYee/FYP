@@ -437,7 +437,7 @@ if(isset($_POST['update_admin'])){
                                             <input type="password" class="form-control" required name="update_password" value="<?php echo $fetch_edit['password']; ?>" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters">
 					</div>
 				</div>
-                                <input type="submit" value="Update the Item" name="update_admin" class="option-btn">
+                                <input type="submit" value="Update Admin" name="update_admin" class="option-btn">
                                 <a href="admin_manage.php" class="option-btn"> Cancel </a>
 
                              </form>

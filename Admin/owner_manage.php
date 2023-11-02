@@ -432,7 +432,7 @@ if(isset($_POST['update_product'])){
                                             <input type="phone" class="form-control" required name="update_p_phone" value="<?php echo $fetch_edit['phoneNo']; ?>" >
 					</div>
 				</div>
-                                <input type="submit" value="Update User" name="update_product" class="option-btn">
+                                <input type="submit" value="Update Owner" name="update_product" class="option-btn">
                                  <a href="owner_manage.php" class="option-btn"> Cancel </a>
 
                              </form>

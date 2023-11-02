@@ -213,7 +213,7 @@ function insertBooking($check_in, $check_out, $price, $totalCost, $userID) {
                                 <label for="check_out_date">Check-out Date:</label>
                                 <input type="date" id="check_out" name="check_out" required><br>
 
-                                <label for="price">Price Per Night (RM):</label>
+                                <label for="price">Price Per Month (RM):</label>
                                 <input type="number" id="price" name="price" value= <?php echo $row['price']; ?> required><br>
                                 
 
