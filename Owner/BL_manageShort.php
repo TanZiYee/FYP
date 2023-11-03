@@ -17,7 +17,7 @@ if(isset($_POST['update_booking'])){
 
    
    if($update_query){
-      header('location:BL_manage.php');
+      header('location:BL_manageShort.php');
       $_SESSION['AdminStatus4'] = 'Edit Unsuccessfully';
 
    }
@@ -325,7 +325,7 @@ if(isset($_POST['update_booking'])){
                                   <td><?php echo $row['check_out']; ?></td>
                                   <td><?php echo $row['paymentStatus']; ?></td>
                                   <td>
-                                     <a href="BL_manage.php?edit=<?php echo $row['bookingID']; ?>" class="option-btn"> <i class="fas fa-edit"></i> Edit </a>
+                                     <a href="BL_manageShort.php?edit=<?php echo $row['bookingID']; ?>" class="option-btn"> <i class="fas fa-edit"></i> Edit </a>
                                      <a href="contactUserBooking.php" class="contact-btn"> <i class="fas fa-envelope"></i> Contact User </a>
                                      
 
@@ -371,7 +371,7 @@ if(isset($_POST['update_booking'])){
 					</div>
 				</div>
                                 <input type="submit" value="Update Status" name="update_booking" class="option-btn">
-                                 <a href="BL_manage.php" class="option-btn"> Cancel </a>
+                                 <a href="BL_manageShort.php" class="option-btn"> Cancel </a>
 
                              </form>
 

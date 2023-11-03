@@ -310,7 +310,7 @@ if (isset($_POST['update'])){
                                 <input type="text" class="form-control item" name="UpdateUserName"  required placeholder=<?php echo $_SESSION['username']; ?> >
                             </div>
                             <div class="form-group">
-                                <input type="password" class="form-control item" name="UpdatePass"  placeholder="Enter new password" required >
+                                <input type="password" class="form-control item" name="UpdatePass"  placeholder="Enter new password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" >
                             </div>
 
                             <div class="form-group">
