@@ -317,7 +317,7 @@ mysqli_close($con);
                         </div>
                         <div class="d-flex justify-content-evenly mb-2">
                         <a class="btn btn-info" href="submitpropertyupdate.php?id=<?php echo $row['0'];?>">Update</a>
-                        <a class="btn btn-info" href="submitpropertydelete.php?id=<?php echo $row['0'];?>">Delete</a>
+                        <a class="btn btn-info" href="submitpropertydelete.php?id=<?php echo $row['0'];?>" onclick="return confirm('Are your sure you want to delete this?');">Delete</a>
                         </div>
                     </div>
             

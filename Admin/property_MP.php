@@ -388,7 +388,7 @@ if(isset($_POST['update_product'])){
                                   <td><?php echo $row['Email']; ?></td>
                                   <td><?php echo $row['propertyName']; ?></td>
                                   <td><?php echo $row['rentingType']; ?></td>
-                                  <td>RM <?php echo $row['price']; ?> per night</td>
+                                  <td>RM <?php echo $row['price']; ?></td>
                                   <td><?php echo $row['status']; ?></td>
                                   <td><img src="../Owner/property/<?php echo $row['bill']; ?>" height="100" alt=""></td>
                                   <td>
