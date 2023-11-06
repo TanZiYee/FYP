@@ -1,0 +1,447 @@
+-- phpMyAdmin SQL Dump
+-- version 5.1.3
+-- https://www.phpmyadmin.net/
+--
+-- Host: localhost:3307:3307
+-- Generation Time: Nov 06, 2023 at 06:18 AM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 8.1.4
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+--
+-- Database: `airbnb`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `booking`
+--
+
+CREATE TABLE `booking` (
+  `bookingID` int(11) NOT NULL,
+  `userName` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `phoneNum` text NOT NULL,
+  `subtotal` decimal(10,2) NOT NULL,
+  `check_in` date NOT NULL,
+  `check_out` date NOT NULL,
+  `paymentMethod` varchar(20) NOT NULL,
+  `paymentStatus` varchar(25) NOT NULL,
+  `month` int(11) NOT NULL,
+  `userID` int(11) DEFAULT NULL,
+  `propertyID` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `booking`
+--
+
+INSERT INTO `booking` (`bookingID`, `userName`, `email`, `phoneNum`, `subtotal`, `check_in`, `check_out`, `paymentMethod`, `paymentStatus`, `month`, `userID`, `propertyID`) VALUES
+(1, 'Saturdayss', 'saturdayss28@gmail.com', '0124729301', '700.00', '2023-10-11', '2023-10-13', 'Cash', 'Paid', 0, 22, 2),
+(3, 'XinYee', 'xinyee98@gmail.com', '0124712356', '700.00', '2023-10-13', '2023-10-15', 'Cash', 'Pending', 0, 22, 13),
+(4, 'loh imm imm', 'immimm.loh@gmail.com', '0164179889', '700.00', '2023-10-17', '2023-10-19', 'Cash', 'Pending', 0, 30, 13),
+(8, 'Rachel', 'xinyee98@gmail.com', '0124712356', '350.00', '2023-10-24', '2023-11-24', 'Cash', 'Pending', 12, 22, 7),
+(15, 'Rachel', 'xinyee98@gmail.com', '0124712356', '150.00', '2023-10-31', '2023-11-01', 'Cash', 'Pending', 0, 22, 12),
+(16, 'XinYee', 'xinyee98@gmail.com', '0124712356', '700.00', '2023-11-01', '2023-11-03', 'Cash', 'Pending', 0, 22, 13),
+(17, 'XinYee', 'xinyee98@gmail.com', '0124712356', '350.00', '2023-09-01', '2023-10-01', 'Cash', 'Paid', 12, 22, 2),
+(18, 'Saturdayss', 'tanziyee252811@gmail.com', '0124729301', '900.00', '2023-10-17', '2023-10-19', 'Cash', 'Paid', 0, 14, 1),
+(19, 'Cktan', 'tanziyee252811@gmail.com', '0124729301', '350.00', '2023-11-01', '2023-12-01', 'Cash', 'Pending', 24, 22, 2),
+(20, 'Kyomi', 'kyomi@gmail.com', '0124712356', '900.00', '2023-11-01', '2023-11-03', 'Cash', 'Pending', 0, 34, 1),
+(23, 'Saturdayss', 'xinyee98@gmail.com', '0124712356', '900.00', '2023-11-04', '2023-11-06', 'Cash', 'Pending', 0, 22, 1),
+(24, 'Rachel', 'saturdayss28@gmail.com', '0124712356', '450.00', '2023-11-04', '2023-12-04', 'credit', 'Pending', 24, 22, 15),
+(25, 'Rachel', 'saturdayss28@gmail.com', '0124729301', '900.00', '2023-11-07', '2023-11-09', 'Cash', 'Pending', 0, 22, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cart`
+--
+
+CREATE TABLE `cart` (
+  `cartID` int(11) NOT NULL,
+  `check_in` date NOT NULL,
+  `check_out` date NOT NULL,
+  `price` decimal(10,2) NOT NULL,
+  `totalCost` decimal(10,2) NOT NULL,
+  `userID` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`cartID`, `check_in`, `check_out`, `price`, `totalCost`, `userID`) VALUES
+(7, '2023-10-08', '2023-10-16', '200.00', '1600.00', 21),
+(30, '2023-10-11', '2023-10-13', '500.00', '1000.00', 22),
+(31, '2023-10-11', '2023-10-13', '350.00', '700.00', 22),
+(32, '2023-10-21', '2023-10-23', '500.00', '1000.00', 23),
+(33, '2023-10-12', '2023-10-13', '350.00', '350.00', 22),
+(34, '2023-10-13', '2023-10-15', '350.00', '700.00', 22),
+(35, '2023-10-15', '2023-10-16', '500.00', '500.00', 22),
+(36, '2023-11-03', '2023-10-06', '350.00', '9800.00', 30),
+(37, '2023-10-17', '2023-10-19', '350.00', '700.00', 30),
+(38, '2023-10-15', '2023-10-16', '500.00', '500.00', 22),
+(39, '2023-10-17', '2023-10-19', '500.00', '1000.00', 22),
+(40, '2023-10-16', '2023-10-18', '500.00', '1000.00', 22),
+(41, '2023-10-19', '2023-10-21', '500.00', '1000.00', 22),
+(42, '2023-10-20', '2023-10-21', '350.00', '350.00', 23),
+(44, '2023-10-23', '2023-12-23', '350.00', '700.00', 22),
+(45, '2023-10-23', '2023-11-23', '350.00', '350.00', 22),
+(48, '2023-10-23', '2023-10-25', '350.00', '0.00', 22),
+(49, '2023-10-29', '2023-11-29', '350.00', '350.00', 22),
+(50, '2023-10-31', '2023-11-01', '150.00', '150.00', 22),
+(51, '2023-10-31', '2023-11-30', '350.00', '0.00', 22),
+(52, '2023-10-30', '2023-11-30', '350.00', '350.00', 22),
+(53, '2023-10-31', '2023-11-01', '350.00', '0.00', 22),
+(55, '2023-10-24', '2023-10-31', '350.00', '0.00', 22),
+(56, '2023-10-24', '2023-10-31', '350.00', '0.00', 22),
+(57, '2023-10-24', '2023-10-31', '350.00', '0.00', 22),
+(58, '2023-10-24', '2023-10-31', '350.00', '0.00', 22),
+(59, '2023-11-01', '2023-11-03', '350.00', '700.00', 22),
+(60, '2023-08-01', '2023-10-01', '350.00', '700.00', 22),
+(61, '2023-09-01', '2023-10-01', '350.00', '350.00', 22),
+(62, '2023-11-01', '2023-12-01', '350.00', '350.00', 22),
+(63, '2023-10-17', '2023-10-19', '450.00', '900.00', 14),
+(64, '2023-11-01', '2023-12-01', '350.00', '350.00', 22),
+(65, '2023-11-01', '2023-11-03', '450.00', '900.00', 34),
+(69, '2023-11-04', '2023-11-06', '450.00', '900.00', 22),
+(70, '2023-11-04', '2023-12-04', '450.00', '450.00', 22),
+(71, '2023-11-04', '2023-12-04', '450.00', '450.00', 22),
+(72, '2023-11-06', '2023-11-08', '350.00', '0.00', 22),
+(73, '2023-11-07', '2023-11-08', '450.00', '450.00', 22),
+(74, '2023-11-07', '2023-11-09', '450.00', '900.00', 22);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `discussion`
+--
+
+CREATE TABLE `discussion` (
+  `id` int(11) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `post` varchar(255) NOT NULL,
+  `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `userID` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `discussion`
+--
+
+INSERT INTO `discussion` (`id`, `username`, `post`, `date`, `userID`) VALUES
+(11, 'Sprinkles', 'I dunno how to comment this system, I am first time user', '2023-10-11 12:43:45', 23),
+(19, 'Xin Yee', 'It is easy for me to access the system', '2023-10-31 11:32:34', 22),
+(24, 'daniel saw', 'very gooddddd\r\n', '2023-11-04 13:04:48', 22);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `discussion_owner`
+--
+
+CREATE TABLE `discussion_owner` (
+  `id` int(11) NOT NULL,
+  `ownername` varchar(255) NOT NULL,
+  `post` varchar(255) NOT NULL,
+  `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `ownerID` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `discussion_owner`
+--
+
+INSERT INTO `discussion_owner` (`id`, `ownername`, `post`, `date`, `ownerID`) VALUES
+(4, 'Sprinkles', 'rent out a room is convenience', '2023-10-11 12:54:54', 7),
+(5, 'Saturdayss', 'Quite good system', '2023-10-12 09:10:09', 5),
+(6, 'tzy', 'can earn money', '2023-10-13 07:56:35', 8),
+(8, 'Gin', 'The system flow is good, I really like it', '2023-10-31 13:02:24', 4);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `owner`
+--
+
+CREATE TABLE `owner` (
+  `ownerID` int(11) NOT NULL,
+  `ownerName` varchar(255) NOT NULL,
+  `Email` varchar(255) NOT NULL,
+  `phoneNo` text NOT NULL,
+  `password` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `owner`
+--
+
+INSERT INTO `owner` (`ownerID`, `ownerName`, `Email`, `phoneNo`, `password`) VALUES
+(4, 'Gin', 'gin@gmail.com', '0124712356', '$2y$10$HgH8IXLRaTJnE8Z6SsrMrueHv4CvCLOhvNpvI3ukBmPcIQd9/ypgy'),
+(5, 'Saturdayss', 'saturdayss33@gmail.com', '0124729301', '$2y$10$oY965CjyRLpDIwPYCruxAushjs88TgXb.YCPPIzIqaBI7vw2kZ7Ke'),
+(7, 'Sprinkles', 'sprinkles@gmail.com', '0124712345', '$2y$10$p16GQweiRuFAyCkEL2pqG.7qsQ9piyc3uIwKFkJW8Ekny4oRbsU6m'),
+(8, 'tzy', 'tanziyee252811@gmail.com', '0142587413', '$2y$10$LdWRSHk7jNdRYf3xH/q6oeAyrDGk/HEDLKf1.d.bjd0bY.FrcYexK'),
+(9, 'Summer', 'celine@gmail.com', '0142587413', '$2y$10$pxlHC3O8Yn3eewrlGqA/xuXbbN5wKPv./QTxeKDTVj4nz.kIN6B5e'),
+(10, 'Winter', 'winter@gmail.com', '0124578521', '$2y$10$gyzqIRpmWY606K2RIwD5/O8wtokpZS99F9LTpBq6fmS09YF0QBUw2'),
+(11, 'Kyomi', 'kyomi@gmail.com', '0124578521', '$2y$10$H8XsAKUDZ66Va89u6W.9uekHYKxSxPZsvYqTEVYwWv0JjbTDeb8oq');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `property`
+--
+
+CREATE TABLE `property` (
+  `propertyID` int(11) NOT NULL,
+  `propertyName` varchar(255) NOT NULL,
+  `content` varchar(255) NOT NULL,
+  `propertyType` varchar(50) NOT NULL,
+  `rentingType` varchar(50) NOT NULL,
+  `bathroom` int(11) NOT NULL,
+  `kitchen` int(11) NOT NULL,
+  `bedroom` int(11) NOT NULL,
+  `balcony` int(11) NOT NULL,
+  `hall` int(11) NOT NULL,
+  `price` decimal(10,2) NOT NULL,
+  `city` varchar(50) NOT NULL,
+  `state` varchar(50) NOT NULL,
+  `size` int(11) NOT NULL,
+  `location` varchar(255) NOT NULL,
+  `feature` varchar(255) NOT NULL,
+  `status` varchar(50) NOT NULL,
+  `pimage1` blob NOT NULL,
+  `pimage2` blob NOT NULL,
+  `pimage3` blob NOT NULL,
+  `pimage4` blob NOT NULL,
+  `pimage5` blob NOT NULL,
+  `floorplan` blob NOT NULL,
+  `bill` blob NOT NULL,
+  `ownerID` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `property`
+--
+
+INSERT INTO `property` (`propertyID`, `propertyName`, `content`, `propertyType`, `rentingType`, `bathroom`, `kitchen`, `bedroom`, `balcony`, `hall`, `price`, `city`, `state`, `size`, `location`, `feature`, `status`, `pimage1`, `pimage2`, `pimage3`, `pimage4`, `pimage5`, `floorplan`, `bill`, `ownerID`) VALUES
+(1, 'Golden View', 'It is a good property, environmental-friendly, city-view, and convenient to supermarket.', 'Apartment', 'short', 2, 1, 2, 1, 1, '450.00', 'Strait Quey', 'Penang', 1000, '12-A, Golden View, 11233 Tanjung Tokong', '    Property Age : 3 Years\r\n    Swimming Pool : Yes\r\n    Parking : Yes\r\n    GYM : Yes\r\n    Security : Yes\r\n    Dining Capacity : 10 People\r\n    Church/Temple  : No\r\n    Elevator : Yes\r\n    CCTV : Yes\r\n							', 'available', 0x312e6a7067, 0x322e6a7067, 0x332e6a7067, 0x342e6a7067, 0x352e6a706567, 0x382e6a7067, 0x62696c6c2e706e67, 4),
+(2, 'Imperial Garden', 'Comes with sea-view, can see the Penang Bridge', 'Apartment', 'long', 2, 1, 2, 1, 1, '350.00', 'Tanjung Bungah', 'Penang', 900, '18-B, Imperial Garden, 11300 Tanjung Bungah', '												\r\n													    Property Age : 5 Years\r\n    Swimming Pool : Yes\r\n    Parking : Yes\r\n    GYM : Yes\r\n    Security : Yes\r\n    Dining Capacity : 10 People\r\n    Church/Temple  : No\r\n    Elevator : Yes\r\n    CCTV : Yes\r\n																			\r\n						', 'rent out', 0x372e6a706567, 0x312e6a7067, 0x322e6a7067, 0x342e6a7067, 0x352e6a706567, 0x372e6a706567, 0x62696c6c2e706e67, 4),
+(4, 'One Imperial', 'Good sea-view, can see Penang Bridge. Near to Penang attractions.', 'Apartment', 'short', 2, 1, 2, 1, 1, '500.00', 'Georgetown', 'Penang', 900, '40-C, One Imperial, 11700 Georgetown', '    Property Age : 10 Years\r\n    Swimming Pool : Yes\r\n    Parking : Yes\r\n    GYM : Yes\r\n    Security : Yes\r\n    Dining Capacity : 10 People\r\n    Church/Temple  : No\r\n    Elevator : Yes\r\n    CCTV : Yes\r\n							', 'rent out', 0x31382e6a7067, 0x362e6a706567, 0x322e6a7067, 0x312e6a7067, 0x392e6a7067, 0x31312e6a7067, 0x62696c6c2e706e67, 4),
+(7, 'Golden Star', 'Good environment, have sea view, near to bus stop and supermarket.', 'Apartment', 'long', 2, 1, 2, 1, 1, '350.00', 'Tanjung Bungah', 'Penang', 900, '12-A, Golden Star, 11200 Tanjung Bungah', '    Property Age : 8 Years\r\n    Swimming Pool : Yes\r\n    Parking : Yes\r\n    GYM : No\r\n    Security : Yes\r\n    Dining Capacity : 5 People\r\n    Church/Temple  : No\r\n    Elevator : Yes\r\n    CCTV : Yes\r\n							', 'available', 0x332e6a7067, 0x372e6a706567, 0x362e6a706567, 0x322e6a7067, 0x312e6a7067, 0x392e6a7067, 0x62696c6c2e706e67, 7),
+(11, 'Tyeso View', 'Near to supermarket, central centre', 'Apartment', 'long', 2, 1, 3, 1, 1, '400.00', 'Strait Quey', 'Penang', 850, '20-C, Tyeso View, 11200 Strait Quey', '												\r\n													    Property Age : 8 Years\r\n    Swimming Pool : Yes\r\n    Parking : Yes\r\n    GYM : Yes\r\n    Security : Yes\r\n    Dining Capacity : 4 People\r\n    Church/Temple  : No\r\n    Elevator : Yes\r\n    CCTV : Yes\r\n																			\r\n							', 'rent out', 0x31342e6a7067, 0x372e6a706567, 0x322e6a7067, 0x312e6a7067, 0x342e6a7067, 0x31312e6a7067, 0x62696c6c2e706e67, 5),
+(12, 'Sprinkles House', 'Full of sprinkles', 'Apartment', 'short', 2, 1, 4, 1, 1, '150.00', 'Georgetown', 'Penang', 900, '12-A, Sprinkles House, 11600 Georgetown', '    Property Age : 5 Years\r\n    Swimming Pool : Yes\r\n    Parking : Yes\r\n    GYM : Yes\r\n    Security : Yes\r\n    Dining Capacity : 6 People\r\n    Church/Temple  : No\r\n    Elevator : Yes\r\n    CCTV : Yes\r\n							', 'available', 0x32302e6a706567, 0x312e6a7067, 0x332e6a7067, 0x352e6a706567, 0x362e6a706567, 0x31302e6a7067, 0x62696c6c2e706e67, 7),
+(13, 'Mixue Imperial', 'Place at city central, and is convenient to people', 'Apartment', 'short', 2, 1, 3, 1, 1, '350.00', 'Strait Quey', 'Penang', 900, '8-C, Mixue Imperial, 11200 Strait Quey', '    Property Age : 10 Years\r\n    Swimming Pool : Yes\r\n    Parking : Yes\r\n    GYM : Yes\r\n    Security : Yes\r\n    Dining Capacity : 10 People\r\n    Church/Temple  : No\r\n    Elevator : Yes\r\n    CCTV : Yes\r\n							', 'available', 0x31382e6a7067, 0x372e6a706567, 0x322e6a7067, 0x312e6a7067, 0x332e6a7067, 0x382e6a7067, 0x62696c6c2e706e67, 8),
+(15, 'Golden Sunny', 'It is nearest to the school, mall, and centre of city.', 'Apartment', 'long', 2, 1, 2, 1, 1, '450.00', 'Georgetown', 'Pulau Pinang', 900, '5-A, Golden Sunny', '    Property Age : 4 Years\r\n    Swimming Pool : Yes\r\n    Parking : Yes\r\n    GYM : Yes\r\n    Security : Yes\r\n    Dining Capacity : 6 People\r\n    Church/Temple  : Yes\r\n    Elevator : Yes\r\n    CCTV : Yes\r\n							', 'available', 0x372e6a706567, 0x332e6a7067, 0x342e6a7067, 0x362e6a706567, 0x31392e6a7067, 0x382e6a7067, 0x62696c6c2e706e67, 10),
+(18, 'My Dream Home', 'Convenience', 'Apartment', 'short', 2, 1, 3, 1, 1, '500.00', 'Georgetown', 'Pulau Pinang', 1000, '25, Dream Home,', '												\r\n													    Property Age : 2 Years\r\n    Swimming Pool : Yes\r\n    Parking : Yes\r\n    GYM : Yes\r\n    Security : Yes\r\n    Dining Capacity : 4 People\r\n    Church/Temple  : No\r\n    Elevator : Yes\r\n    CCTV : Yes\r\n																			\r\n							', 'rent out', 0x372e6a706567, 0x312e6a7067, 0x332e6a7067, 0x31392e6a7067, 0x31382e6a7067, 0x392e6a7067, 0x62696c6c2e706e67, 11);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+CREATE TABLE `user` (
+  `userID` int(11) NOT NULL,
+  `usertype` varchar(50) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `phone` text NOT NULL,
+  `password` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`userID`, `usertype`, `username`, `email`, `phone`, `password`) VALUES
+(14, 'admin', 'ZY', 'tanziyee252811@gmail.com', '0194729301', '$2y$10$cFyxOP5JCX9gDJmjLAQu.OPdqHZEYYVMlefY8dPq.jurwwisQv1Y.'),
+(21, '', 'Nugget', 'nugget@gmail.com', '0124713256', '$2y$10$TGwNHZqpS5tY88yqW.z2hu3icqIL9XJLC4mLIpkmqMu5r5ls5DP.6'),
+(22, '', 'XinYee', 'xinyee98@gmail.com', '0124567894', '$2y$10$RQTC5w8WLaV5ug9HpeDWsOOaQkUI5esgKpw9oVx/pOivCGPPBAWE2'),
+(23, '', 'Sprinkles', 'sprinkles@gmail.com', '0124712365', '$2y$10$ET1pmcAm7Q.1U8X7.r6goek/zSiPUXJyFHSypajeGnINFH4afzIxi'),
+(27, 'admin', 'ZiYee', 'tanziyee28@gmail.com', '0124729301', '$2y$10$MaFwKHrE43zau4wINBZrluI2LrtWIkraXHyDWa.kVKOjw9D9/sqby'),
+(28, '', 'Mindy', 'tanziyee252811@gmail.com', '0124587412', '$2y$10$cFyxOP5JCX9gDJmjLAQu.OPdqHZEYYVMlefY8dPq.jurwwisQv1Y.'),
+(30, '', 'immimm', 'immimm.loh@gmail.com', '0164179889', '$2y$10$jgcFl4nYZIK7bc.ZGCI37OOHZPm.oLDrEe/27RciUFcySLeI4luSq'),
+(33, 'admin', 'Sats', 'qwertyyui@gmail.com', '0117841549', '$2y$10$i89CqWHlQoVkktG.uFTNtOn/gBy3bTlialPTeoYPCCrHKBwx1GL86'),
+(34, '', 'Kyomi', 'kyomi@gmail.com', '0124567894', '$2y$10$rg4GLODETTJsDyBSoK9ojuJpsRVc05ImjC8xP/ALo/G5AxoS4RC1O'),
+(36, 'admin', 'Valenci', 'valenciayongmq@gmail.com', '0172523327', '$2y$10$DV9J6MXjZevjIoUwD8DyEOqytAiVY1/cWSzeZXzmRTgRsXTs7ITEy'),
+(37, '', 'Rachel', 'rachelloh1971@gmail.com', '0194729301', '$2y$10$/9S5Vd/ZCdxYzbF.trVFNuYzXdhrvfYdzjYsP8eTubl7EcbpwM6Oe');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `wishlist`
+--
+
+CREATE TABLE `wishlist` (
+  `wishlistID` int(11) NOT NULL,
+  `propertyID` int(11) DEFAULT NULL,
+  `userID` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `wishlist`
+--
+
+INSERT INTO `wishlist` (`wishlistID`, `propertyID`, `userID`) VALUES
+(9, 13, 23),
+(11, 1, 34),
+(13, 1, 22);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `booking`
+--
+ALTER TABLE `booking`
+  ADD PRIMARY KEY (`bookingID`),
+  ADD KEY `booking_ibfk_1` (`userID`),
+  ADD KEY `booking_ibfk_2` (`propertyID`);
+
+--
+-- Indexes for table `cart`
+--
+ALTER TABLE `cart`
+  ADD PRIMARY KEY (`cartID`),
+  ADD KEY `cart_ibfk_1` (`userID`);
+
+--
+-- Indexes for table `discussion`
+--
+ALTER TABLE `discussion`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `discussion_ibfk_1` (`userID`);
+
+--
+-- Indexes for table `discussion_owner`
+--
+ALTER TABLE `discussion_owner`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `discussion_owner_ibfk_1` (`ownerID`);
+
+--
+-- Indexes for table `owner`
+--
+ALTER TABLE `owner`
+  ADD PRIMARY KEY (`ownerID`);
+
+--
+-- Indexes for table `property`
+--
+ALTER TABLE `property`
+  ADD PRIMARY KEY (`propertyID`),
+  ADD KEY `property_ibfk_1` (`ownerID`);
+
+--
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`userID`);
+
+--
+-- Indexes for table `wishlist`
+--
+ALTER TABLE `wishlist`
+  ADD PRIMARY KEY (`wishlistID`),
+  ADD KEY `wishlist_ibfk_1` (`propertyID`),
+  ADD KEY `wishlist_ibfk_2` (`userID`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `booking`
+--
+ALTER TABLE `booking`
+  MODIFY `bookingID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+
+--
+-- AUTO_INCREMENT for table `cart`
+--
+ALTER TABLE `cart`
+  MODIFY `cartID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
+
+--
+-- AUTO_INCREMENT for table `discussion`
+--
+ALTER TABLE `discussion`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+
+--
+-- AUTO_INCREMENT for table `discussion_owner`
+--
+ALTER TABLE `discussion_owner`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `owner`
+--
+ALTER TABLE `owner`
+  MODIFY `ownerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT for table `property`
+--
+ALTER TABLE `property`
+  MODIFY `propertyID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+
+--
+-- AUTO_INCREMENT for table `wishlist`
+--
+ALTER TABLE `wishlist`
+  MODIFY `wishlistID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `booking`
+--
+ALTER TABLE `booking`
+  ADD CONSTRAINT `booking_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `user` (`userID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `booking_ibfk_2` FOREIGN KEY (`propertyID`) REFERENCES `property` (`propertyID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `cart`
+--
+ALTER TABLE `cart`
+  ADD CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `user` (`userID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `discussion`
+--
+ALTER TABLE `discussion`
+  ADD CONSTRAINT `discussion_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `user` (`userID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `discussion_owner`
+--
+ALTER TABLE `discussion_owner`
+  ADD CONSTRAINT `discussion_owner_ibfk_1` FOREIGN KEY (`ownerID`) REFERENCES `owner` (`ownerID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `property`
+--
+ALTER TABLE `property`
+  ADD CONSTRAINT `property_ibfk_1` FOREIGN KEY (`ownerID`) REFERENCES `owner` (`ownerID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `wishlist`
+--
+ALTER TABLE `wishlist`
+  ADD CONSTRAINT `wishlist_ibfk_1` FOREIGN KEY (`propertyID`) REFERENCES `property` (`propertyID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `wishlist_ibfk_2` FOREIGN KEY (`userID`) REFERENCES `user` (`userID`) ON DELETE CASCADE ON UPDATE CASCADE;
+COMMIT;
