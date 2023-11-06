@@ -283,7 +283,7 @@ if(isset($_POST['book']))
                                     </div>
                                     <div class="col-md-6 mb-4">
                                         <label class="form-label"> Total Price (RM): </label>
-                                        <input type="number" class="form-control shadow-none" value= '<?php echo $subtotal; ?>' name="subtotal" min="0" step="0.01" required placeholder="Enter Your Total">
+                                        <input type="number" class="form-control shadow-none" value= '<?php echo $subtotal; ?>' name="subtotal" min="1" step="0.01" required placeholder="Enter Your Total">
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <label class="form-label">Check-in</label>
